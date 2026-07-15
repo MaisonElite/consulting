@@ -4788,11 +4788,13 @@ a:focus-visible,summary:focus-visible,button:focus-visible{outline:2px solid cur
   bindFilter('bChips','bRev','bMore','bCount',6);
   bindFilter('pChips','pRev','pMore','pCount',6);
 
-  /* 신청 폼 → 이메일 접수 (FormSubmit) + mailto 폴백 */
-  var FORM_EMAIL = 'maison_elite@naver.com';
-  function bindForm(formId, msgId, title){
+  /* 신청 폼 → Supabase 저장 */
+  var SB_URL = 'https://vnkwwyxudvsfbpcsujee.supabase.co';
+  var SB_ANON = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InZua3d3eXh1ZHZzZmJwY3N1amVlIiwicm9sZSI6ImFub24iLCJpYXQiOjE3ODQxMTQ1OTUsImV4cCI6MjA5OTY5MDU5NX0.cArCjIsR0pguRkkzBOaIVIMPcMhJ2pr0qwJB5BmybuY';
+  function bindForm(formId, msgId, title, type){
     var f = document.getElementById(formId); if(!f) return;
     var btn = f.querySelector('button[type="submit"]');
+    var oldLabel = btn.textContent;
     f.addEventListener('submit', function(ev){
       ev.preventDefault();
       var ok = true;
@@ -4801,46 +4803,35 @@ a:focus-visible,summary:focus-visible,button:focus-visible{outline:2px solid cur
         else el.style.borderColor='';
       });
       if(!ok) return;
-
-      var data = { _subject: '[메종엘리트] ' + title, _template: 'table', _captcha: 'false' };
-      var lines = ['[' + title + ']'];
+      var payload = {};
       f.querySelectorAll('input,select,textarea').forEach(function(el){
-        var v = el.value.trim(); if(!v) return;
-        data[el.name] = v;
-        lines.push(el.name + ': ' + v);
+        var v = el.value.trim(); if(v) payload[el.name] = v;
       });
-
       var msg = document.getElementById(msgId);
       function showMsg(t){ if(msg){ msg.textContent = t; msg.classList.add('show'); } }
-      function mailtoFallback(){
-        var body = encodeURIComponent(lines.join('\n'));
-        var subject = encodeURIComponent('[메종엘리트] ' + title);
-        location.href = 'mailto:' + FORM_EMAIL + '?subject=' + subject + '&body=' + body;
-        showMsg('메일 앱이 열립니다. 그대로 보내주시면 접수됩니다.');
-      }
-
-      btn.disabled = true; btn.style.opacity = '.6';
-      var oldLabel = btn.textContent; btn.textContent = '보내는 중…';
-
-      fetch('https://formsubmit.co/ajax/' + FORM_EMAIL, {
+      btn.disabled = true; btn.style.opacity = '.6'; btn.textContent = '보내는 중…';
+      fetch(SB_URL + '/rest/v1/submissions', {
         method: 'POST',
-        headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
-        body: JSON.stringify(data)
+        headers: {
+          'Content-Type': 'application/json',
+          'apikey': SB_ANON,
+          'Authorization': 'Bearer ' + SB_ANON,
+          'Prefer': 'return=minimal'
+        },
+        body: JSON.stringify({ type: type, payload: payload })
       }).then(function(res){
-        if(!res.ok) throw new Error('bad status');
-        return res.json();
-      }).then(function(){
+        if(!(res.status === 201 || res.ok)) throw new Error('status ' + res.status);
         showMsg('접수되었습니다. 1~2일 안에 남겨주신 연락처로 회신드립니다.');
         f.reset();
         btn.textContent = '접수 완료';
       }).catch(function(){
-        btn.textContent = oldLabel; btn.disabled = false; btn.style.opacity = '';
-        mailtoFallback();
+        btn.disabled = false; btn.style.opacity = ''; btn.textContent = oldLabel;
+        showMsg('전송에 실패했습니다. 인스타그램 DM(@maisonelite_official)으로 보내주세요.');
       });
     });
   }
-  bindForm('pForm','pFormMsg','인생 상담 신청');
-  bindForm('bForm','bFormMsg','정부지원 컨설팅 미팅 신청');
+  bindForm('pForm','pFormMsg','인생 상담 신청','personal');
+  bindForm('bForm','bFormMsg','정부지원 컨설팅 미팅 신청','business');
 
   /* FAQ 단일 개방 */
   document.addEventListener('toggle', function(e){
