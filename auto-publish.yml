@@ -1,0 +1,38 @@
+name: 자동 글 발행
+
+on:
+  schedule:
+    # UTC 기준. 한국시간 오전 9:20 / 저녁 19:40 (분을 어긋나게 해 기계적 규칙성 완화)
+    - cron: '20 0 * * *'
+    - cron: '40 10 * * *'
+  workflow_dispatch: {}   # 수동 실행 버튼 (테스트용)
+
+permissions:
+  contents: write
+
+concurrency:
+  group: auto-publish
+  cancel-in-progress: false
+
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: 랜덤 지연 (0~25분, 발행 시각 분산)
+        run: sleep $(( RANDOM % 1500 ))
+
+      - name: 글 생성 및 발행
+        env:
+          ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
+        run: python3 automation/generate.py
+
+      - name: 커밋 및 푸시
+        run: |
+          git config user.name "maison-auto"
+          git config user.email "auto@maisonelite.co.kr"
+          git add -A
+          git diff --cached --quiet && echo "변경 없음" && exit 0
+          git commit -m "자동 발행: $(date +'%Y-%m-%d %H:%M')"
+          git push
