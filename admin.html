@@ -287,6 +287,12 @@ svg.chart{width:100%;height:190px;display:block;overflow:visible}
 .tg-row{display:flex;gap:12px;padding:9px 12px;background:var(--bg)}
 .tg-k{font-size:12px;font-weight:700;color:var(--faint);width:88px;flex:0 0 auto}
 .tg-v{font-size:13px;color:var(--fg);word-break:break-all}
+.journey{margin-top:8px;border-left:2px solid var(--hair-2);padding-left:4px}
+.jrow{display:flex;align-items:baseline;gap:10px;padding:7px 0 7px 12px;position:relative;font-size:13px}
+.jrow::before{content:"";position:absolute;left:-5px;top:12px;width:7px;height:7px;border-radius:50%;background:var(--hair);border:2px solid var(--bg)}
+.jt{font-size:11px;color:var(--faint);font-weight:700;width:52px;flex:0 0 auto;font-variant-numeric:tabular-nums}
+.ji{font-size:12px;color:var(--accent);width:16px;flex:0 0 auto;text-align:center}
+.jn{color:var(--fg);font-weight:600}
 @media(max-width:860px){
   .kpis{grid-template-columns:repeat(2,1fr)}
   .grid2{grid-template-columns:1fr}
@@ -309,6 +315,7 @@ svg.chart{width:100%;height:190px;display:block;overflow:visible}
   <div class="hbtns">
     <button class="bell" id="bellBtn">알림 <span class="ndot" id="bellCount">0</span></button>
     <button id="kbdBtn">단축키</button>
+    <button id="pwBtn">비밀번호</button>
     <button id="csvBtn">CSV</button>
     <button id="trashBtn">휴지통</button>
     <button id="refreshBtn">새로고침</button>
@@ -320,6 +327,7 @@ svg.chart{width:100%;height:190px;display:block;overflow:visible}
   <button data-v="today">오늘 할 일 <span class="vb" id="tabTodo">0</span></button>
   <button data-v="pipe">파이프라인</button>
   <button data-v="track">유입·추적</button>
+  <button data-v="events">이벤트 로그</button>
   <button data-v="list">신청 관리 <span class="vb" id="tabNew">0</span></button>
 </div>
 <div class="wrap">
@@ -381,6 +389,29 @@ svg.chart{width:100%;height:190px;display:block;overflow:visible}
       <div class="card"><div class="ct">첫 방문 → 신청</div><div class="cs">방문 즉시 vs 재방문 후 신청</div><div class="donut-row"><svg class="donut" id="retDonut" viewBox="0 0 42 42"></svg><div class="legend" id="retLegend"></div></div></div>
     </div>
   </div>
+  <div class="view" id="v-events">
+    <div class="sechead">방문자 행동 로그 <span class="sh-r sh-x" id="evMeta"></span></div>
+    <div class="kpis" id="evKpis"></div>
+    <div class="grid2" style="margin-top:14px">
+      <div class="card"><div class="ct">이벤트 유형 분포</div><div class="cs">어떤 행동이 많이 일어나는가</div><div class="hbars" id="evTypeBars"></div></div>
+      <div class="card"><div class="ct">가장 많이 눌린 항목</div><div class="cs">클릭 상위</div><div class="hbars" id="evClickBars"></div></div>
+    </div>
+    <div class="grid2" style="margin-top:14px">
+      <div class="card"><div class="ct">스크롤 이탈 지점</div><div class="cs">어디까지 읽고 멈추는가</div><div class="hbars" id="evScrollBars"></div></div>
+      <div class="card"><div class="ct">폼 이탈 분석</div><div class="cs">입력 시작 → 어디서 멈추는가</div><div id="evFormBox"></div></div>
+    </div>
+    <div class="sechead" style="margin-top:24px">방문자별 여정 <span class="sh-x">한 명을 눌러 전체 행동을 시간순으로 봅니다</span></div>
+    <div class="toolbar">
+      <div class="seg soft" id="evVisFilter">
+        <button class="act" data-vf="all">전체</button>
+        <button data-vf="converted">신청함</button>
+        <button data-vf="abandoned">폼 이탈</button>
+        <button data-vf="bounced">둘러만 봄</button>
+      </div>
+      <button class="selctl" id="evRefresh">이벤트 새로고침</button>
+    </div>
+    <div id="evVisitors" class="list"><div class="loading">이벤트를 불러오려면 새로고침하세요</div></div>
+  </div>
   <div class="view" id="v-list">
     <div class="quickf" id="quickf"></div>
     <div class="toolbar">
@@ -441,7 +472,9 @@ svg.chart{width:100%;height:190px;display:block;overflow:visible}
   var SB_URL='https://vnkwwyxudvsfbpcsujee.supabase.co';
   var SB_ANON='eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InZua3d3eXh1ZHZzZmJwY3N1amVlIiwicm9sZSI6ImFub24iLCJpYXQiOjE3ODQxMTQ1OTUsImV4cCI6MjA5OTY5MDU5NX0.cArCjIsR0pguRkkzBOaIVIMPcMhJ2pr0qwJB5BmybuY';
   // ▼ 관리자 비밀번호 (따옴표 안 글자만 바꾸세요)
-  var ADMIN_PW='maison2026';
+  // 기본 비밀번호 (최초 1회용). 로그인 후 어드민에서 변경하면 이 값 대신 브라우저에 저장된 값이 쓰입니다.
+  var ADMIN_PW_DEFAULT='maison2026';
+  function currentPw(){try{return localStorage.getItem('me_admin_pw')||ADMIN_PW_DEFAULT;}catch(e){return ADMIN_PW_DEFAULT;}}
 
   var H={'apikey':SB_ANON,'Authorization':'Bearer '+SB_ANON,'Content-Type':'application/json'};
   var TYPE_LABEL={personal:'개인 상담',business:'사업자'};
@@ -463,7 +496,7 @@ svg.chart{width:100%;height:190px;display:block;overflow:visible}
   /* 로그인 */
   var gate=el('gate');
   if(sessionStorage.getItem('me_admin')==='1')gate.classList.add('hide');
-  function tryLogin(){if(el('pw').value===ADMIN_PW){sessionStorage.setItem('me_admin','1');gate.classList.add('hide');start();}else{el('loginErr').textContent='비밀번호가 올바르지 않습니다.';el('pw').value='';}}
+  function tryLogin(){if(el('pw').value===currentPw()){sessionStorage.setItem('me_admin','1');gate.classList.add('hide');start();}else{el('loginErr').textContent='비밀번호가 올바르지 않습니다.';el('pw').value='';}}
   el('loginBtn').addEventListener('click',tryLogin);
   el('pw').addEventListener('keydown',function(e){if(e.key==='Enter')tryLogin();});
   el('logoutBtn').addEventListener('click',function(){sessionStorage.removeItem('me_admin');if(pollTimer)clearInterval(pollTimer);location.reload();});
@@ -648,8 +681,8 @@ svg.chart{width:100%;height:190px;display:block;overflow:visible}
   /* 도넛 */
   function donut(svgId,legId,segs,onClick){
     var total=segs.reduce(function(a,s){return a+s.v;},0),off=25,html='';
-    html+='<circle cx="21" cy="21" r="15.915" fill="none" stroke="#EEEDEA" stroke-width="20"/>';
-    if(total)segs.forEach(function(s){var pct=s.v/total*100;if(pct<=0)return;html+='<circle cx="21" cy="21" r="15.915" fill="none" stroke="'+s.c+'" stroke-width="20" stroke-dasharray="'+pct.toFixed(2)+' '+(100-pct).toFixed(2)+'" stroke-dashoffset="'+off+'"/>';off-=pct;});
+    html+='<circle cx="21" cy="21" r="15.915" fill="none" stroke="#EEEDEA" stroke-width="9"/>';
+    if(total)segs.forEach(function(s){var pct=s.v/total*100;if(pct<=0)return;html+='<circle cx="21" cy="21" r="15.915" fill="none" stroke="'+s.c+'" stroke-width="9" stroke-dasharray="'+pct.toFixed(2)+' '+(100-pct).toFixed(2)+'" stroke-dashoffset="'+off+'"/>';off-=pct;});
     html+='<text class="dtxt" x="21" y="21.5" text-anchor="middle" style="fill:var(--fg)">'+total+'</text><text class="dsub" x="21" y="25" text-anchor="middle">건</text>';
     el(svgId).innerHTML=html;
     el(legId).innerHTML=segs.map(function(s){var pct=total?Math.round(s.v/total*100):0;return '<div class="lg"'+(onClick&&s.key?' data-k="'+s.key+'"':'')+'><span class="dot" style="background:'+s.c+'"></span><span class="lname">'+s.name+'</span><span class="lval">'+s.v+'<span class="lpct">'+pct+'%</span></span></div>';}).join('');
@@ -777,6 +810,120 @@ svg.chart{width:100%;height:190px;display:block;overflow:visible}
     donut('retDonut','retLegend',[{name:'첫 방문 신청',v:first,c:'#1D4ED8'},{name:'재방문 후 신청',v:ret,c:'#7C3AED'}]);
   }
   function emptyBar(){return '<div style="font-size:13px;color:var(--faint);padding:8px 0">추적 데이터가 아직 없습니다. 새 버전 배포 후 접수분부터 기록됩니다.</div>';}
+  /* ══════ 이벤트 로그 ══════ */
+  var eventsData=[], eventsLoaded=false, evVisFilter='all';
+  function loadEvents(){
+    el('evVisitors').innerHTML='<div class="loading">불러오는 중…</div>';
+    fetch(SB_URL+'/rest/v1/events?select=*&order=created_at.desc&limit=5000',{headers:H})
+      .then(function(res){if(!res.ok)throw new Error(res.status);return res.json();})
+      .then(function(rows){eventsData=rows;eventsLoaded=true;renderEvents();})
+      .catch(function(){el('evVisitors').innerHTML='<div class="empty"><b>이벤트를 불러오지 못했습니다</b>events 테이블이 생성되었는지 확인하세요.</div>';});
+  }
+  function evDetail(e){try{return typeof e.detail==='string'?JSON.parse(e.detail):(e.detail||{});}catch(x){return {};}}
+  function renderEvents(){
+    if(!eventsLoaded)return;
+    var E=eventsData;
+    el('evMeta').textContent=E.length+'개 이벤트';
+    // 방문자별 그룹
+    var visitors={};
+    E.forEach(function(e){var v=e.visitor_id||'?';(visitors[v]=visitors[v]||[]).push(e);});
+    var vids=Object.keys(visitors);
+    // KPI
+    var totalV=vids.length;
+    var converted=vids.filter(function(v){return visitors[v].some(function(e){return e.type==='form'&&/제출 완료/.test(e.name);});}).length;
+    var abandoned=vids.filter(function(v){return visitors[v].some(function(e){return e.type==='form'&&/이탈/.test(e.name);})&&!visitors[v].some(function(e){return /제출 완료/.test(e.name);});}).length;
+    var clicks=E.filter(function(e){return e.type==='click';}).length;
+    el('evKpis').innerHTML=
+      kpi('방문자',totalV,'익명 기준','','','')+
+      kpi('신청 전환',converted+(totalV?' <small>'+Math.round(converted/totalV*100)+'%</small>':''),'폼 제출 완료','good','','')+
+      kpi('폼 이탈',abandoned,'입력 후 미제출','alert','','')+
+      kpi('총 클릭',clicks,'버튼·링크','','','');
+    // 이벤트 유형 분포
+    var types={};E.forEach(function(e){var k={page:'페이지',view:'화면 전환',scroll:'스크롤',click:'클릭',form:'폼'}[e.type]||e.type;types[k]=(types[k]||0)+1;});
+    bars('evTypeBars',types,false);
+    // 클릭 상위
+    var clickN={};E.filter(function(e){return e.type==='click';}).forEach(function(e){var n=e.name||'(이름 없음)';clickN[n]=(clickN[n]||0)+1;});
+    var topClicks={};Object.keys(clickN).sort(function(a,b){return clickN[b]-clickN[a];}).slice(0,8).forEach(function(k){topClicks[k]=clickN[k];});
+    bars('evClickBars',topClicks,true);
+    // 스크롤 이탈 지점 (방문자별 최대 도달)
+    var buckets={'25% 이하':0,'50%':0,'75%':0,'100%':0};
+    vids.forEach(function(v){var max=0;visitors[v].forEach(function(e){if(e.type==='scroll'){var d=evDetail(e).depth||0;if(d>max)max=d;}});
+      if(max>=100)buckets['100%']++;else if(max>=75)buckets['75%']++;else if(max>=50)buckets['50%']++;else buckets['25% 이하']++;});
+    bars('evScrollBars',buckets,false);
+    // 폼 이탈 분석
+    var formStart=E.filter(function(e){return e.type==='form'&&/입력 시작/.test(e.name);}).length;
+    var formSubmit=E.filter(function(e){return e.type==='form'&&/제출 완료/.test(e.name);}).length;
+    var formAbandon=E.filter(function(e){return e.type==='form'&&/이탈/.test(e.name);});
+    var lastFields={};formAbandon.forEach(function(e){var lf=evDetail(e).last_field||'(미상)';lastFields[lf]=(lastFields[lf]||0)+1;});
+    var lfHtml=Object.keys(lastFields).sort(function(a,b){return lastFields[b]-lastFields[a];}).map(function(k){return '<div class="hb"><div class="hb-top"><span>'+esc(k)+'에서 멈춤</span><b>'+lastFields[k]+'</b></div></div>';}).join('');
+    el('evFormBox').innerHTML=
+      '<div style="display:flex;gap:16px;margin-bottom:14px;flex-wrap:wrap">'+
+      '<div><div style="font-size:11.5px;color:var(--faint);font-weight:600">입력 시작</div><div style="font-size:22px;font-weight:800">'+formStart+'</div></div>'+
+      '<div><div style="font-size:11.5px;color:var(--faint);font-weight:600">제출 완료</div><div style="font-size:22px;font-weight:800;color:var(--done)">'+formSubmit+'</div></div>'+
+      '<div><div style="font-size:11.5px;color:var(--faint);font-weight:600">이탈</div><div style="font-size:22px;font-weight:800;color:#D1453B">'+formAbandon.length+'</div></div>'+
+      (formStart?'<div><div style="font-size:11.5px;color:var(--faint);font-weight:600">완료율</div><div style="font-size:22px;font-weight:800">'+Math.round(formSubmit/formStart*100)+'%</div></div>':'')+
+      '</div>'+(lfHtml?'<div style="font-size:12px;color:var(--faint);font-weight:600;margin-bottom:8px">이탈 직전 필드</div>'+lfHtml:'');
+    // 방문자 리스트
+    renderVisitorList(visitors);
+  }
+  function visitorSummary(evs){
+    var conv=evs.some(function(e){return /제출 완료/.test(e.name);});
+    var aband=!conv&&evs.some(function(e){return /이탈/.test(e.name)&&e.type==='form';});
+    var started=evs.some(function(e){return e.type==='form';});
+    var first=evs[evs.length-1], last=evs[0];
+    var d0=evDetail(first);
+    var maxScroll=0;evs.forEach(function(e){if(e.type==='scroll'){var d=evDetail(e).depth||0;if(d>maxScroll)maxScroll=d;}});
+    var clicks=evs.filter(function(e){return e.type==='click';}).length;
+    return {conv:conv,aband:aband,started:started,src:d0.src||'?',dev:d0.dev||'',maxScroll:maxScroll,clicks:clicks,n:evs.length,
+      start:new Date(first.created_at),status:conv?'신청함':(aband?'폼 이탈':(started?'폼 시작':'둘러봄'))};
+  }
+  function renderVisitorList(visitors){
+    var vids=Object.keys(visitors);
+    // 각 방문자 이벤트 시간순 정렬(오래된→최신)
+    vids.forEach(function(v){visitors[v].sort(function(a,b){return new Date(a.created_at)-new Date(b.created_at);});});
+    // 최근 활동순 정렬
+    vids.sort(function(a,b){return new Date(visitors[b][visitors[b].length-1].created_at)-new Date(visitors[a][visitors[a].length-1].created_at);});
+    var filtered=vids.filter(function(v){
+      var s=visitorSummary(visitors[v].slice().reverse());
+      if(evVisFilter==='converted')return s.conv;
+      if(evVisFilter==='abandoned')return s.aband;
+      if(evVisFilter==='bounced')return !s.conv&&!s.started;
+      return true;
+    });
+    if(!filtered.length){el('evVisitors').innerHTML='<div class="empty"><b>해당하는 방문자가 없습니다</b></div>';return;}
+    el('evVisitors').innerHTML=filtered.slice(0,100).map(function(v){
+      var evs=visitors[v].slice().reverse();
+      var s=visitorSummary(evs);
+      var stColor=s.conv?'var(--done)':(s.aband?'#D1453B':'var(--muted)');
+      return '<div class="item" data-vid="'+esc(v)+'"><div class="top">'+
+        '<span class="badge" style="background:'+stColor+';color:#fff">'+s.status+'</span>'+
+        '<span class="chip">'+esc(s.src)+'</span>'+(s.dev?'<span class="chip">'+esc(s.dev)+'</span>':'')+
+        '<span class="when">'+fmtDate(s.start)+'</span></div>'+
+        '<div class="name" style="font-size:13.5px">'+esc(v)+'</div>'+
+        '<div class="prev">'+s.n+'개 이벤트 · 최대 스크롤 '+s.maxScroll+'% · 클릭 '+s.clicks+'회</div></div>';
+    }).join('');
+    [].forEach.call(el('evVisitors').querySelectorAll('.item'),function(n){n.addEventListener('click',function(){showJourney(n.dataset.vid,visitors[n.dataset.vid]);});});
+  }
+  function showJourney(vid,evs){
+    var seq=evs.slice().sort(function(a,b){return new Date(a.created_at)-new Date(b.created_at);});
+    var t0=new Date(seq[0].created_at).getTime();
+    var icon={page:'●',view:'◆',scroll:'▽',click:'☞',form:'✎'};
+    var rows=seq.map(function(e){
+      var d=evDetail(e);var sec=Math.round((new Date(e.created_at).getTime()-t0)/1000);
+      var extra='';
+      if(e.type==='click'&&d.href)extra=' <span style="color:var(--faint)">→ '+esc(d.href.slice(0,30))+'</span>';
+      if(e.type==='form'&&d.last_field)extra=' <span style="color:var(--faint)">('+esc(d.last_field)+'까지)</span>';
+      if(e.type==='scroll')extra=' <span style="color:var(--faint)">'+(d.depth||'')+'%</span>';
+      return '<div class="jrow"><span class="jt">+'+sec+'초</span><span class="ji">'+(icon[e.type]||'·')+'</span><span class="jn">'+esc(e.name||e.type)+extra+'</span></div>';
+    }).join('');
+    var d0=evDetail(seq[0]);
+    el('sheet').innerHTML='<div class="sh-nav"><span class="nvpos">방문자 여정</span><button class="sh-close" id="shClose">×</button></div>'+
+      '<h2 style="font-size:15px;margin-top:12px">'+esc(vid)+'</h2>'+
+      '<div class="sh-when">'+esc(d0.src||'')+' · '+esc(d0.dev||'')+' · '+esc(d0.browser||'')+' · '+seq.length+'개 행동</div>'+
+      '<div class="journey">'+rows+'</div>';
+    el('modal').classList.add('show');document.body.style.overflow='hidden';
+    el('shClose').addEventListener('click',closeDetail);
+  }
   function bindTodo(id){
     [].forEach.call(el(id).querySelectorAll('.todo'),function(n){n.addEventListener('click',function(e){if(e.target.closest('[data-done]'))return;openDetail(n.dataset.id);});});
     [].forEach.call(el(id).querySelectorAll('[data-done]'),function(b){b.addEventListener('click',function(e){e.stopPropagation();var r=byId(b.dataset.done);if(!r)return;pushHist(r,'후속 완료 처리');patch(r.id,{followup_date:null,history:r.history}).then(function(){r.followup_date=null;renderAll();toast('후속 연락을 완료 처리했습니다');});});});
@@ -1071,9 +1218,25 @@ svg.chart{width:100%;height:190px;display:block;overflow:visible}
   el('dateClear').addEventListener('click',function(){dateFrom='';dateTo='';el('dateFrom').value='';el('dateTo').value='';renderList();});
   el('revMonth').addEventListener('change',function(){revMonth=this.value;renderRevenue(active());});
   el('refreshBtn').addEventListener('click',function(){load(false);toast('새로고침했습니다');});
+  // 이벤트 로그 탭
+  document.querySelector('.viewtabs button[data-v="events"]').addEventListener('click',function(){ if(!eventsLoaded)loadEvents(); });
+  el('evRefresh').addEventListener('click',function(){loadEvents();toast('이벤트를 새로고침했습니다');});
+  [].forEach.call(el('evVisFilter').querySelectorAll('button'),function(b){b.addEventListener('click',function(){evVisFilter=b.dataset.vf;[].forEach.call(el('evVisFilter').querySelectorAll('button'),function(x){x.classList.toggle('act',x===b);});renderEvents();});});
 
   /* 단축키 */
   el('kbdBtn').addEventListener('click',function(){el('kbdModal').classList.add('show');});
+  el('pwBtn').addEventListener('click',function(){
+    var cur=prompt('현재 비밀번호를 입력하세요');
+    if(cur===null)return;
+    if(cur!==currentPw()){toast('현재 비밀번호가 일치하지 않습니다');return;}
+    var np=prompt('새 비밀번호를 입력하세요 (4자 이상)');
+    if(np===null)return;
+    if(!np||np.length<4){toast('비밀번호는 4자 이상이어야 합니다');return;}
+    var np2=prompt('새 비밀번호를 한 번 더 입력하세요');
+    if(np2===null)return;
+    if(np!==np2){toast('새 비밀번호가 서로 다릅니다');return;}
+    try{localStorage.setItem('me_admin_pw',np);toast('비밀번호를 변경했습니다');}catch(e){toast('저장 실패 — 브라우저 설정을 확인하세요');}
+  });
   el('kbdModal').addEventListener('click',function(e){if(e.target===el('kbdModal'))el('kbdModal').classList.remove('show');});
   document.addEventListener('keydown',function(e){
     if(gate&&!gate.classList.contains('hide'))return;

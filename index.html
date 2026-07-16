@@ -8,18 +8,40 @@
 <meta name="author" content="메종엘리트" />
 <meta name="theme-color" content="#0A0A0A" />
 <meta name="robots" content="index, follow" />
+<link rel="canonical" href="https://maisonelite.co.kr/" />
 
 <!-- Open Graph (카카오톡·페이스북 등) -->
 <meta property="og:type" content="website" />
 <meta property="og:site_name" content="메종엘리트" />
 <meta property="og:title" content="메종엘리트 — 종합 컨설팅" />
-<meta property="og:description" content="개인의 결정부터 사업의 자금까지. 60분 인생 전략 상담과 정부지원사업 컨설팅. 누적 컨설팅 수백 회, 선정률 96%." />
+<meta property="og:description" content="개인의 결정부터 사업의 자금까지. 60분 인생 전략 상담과 정부지원사업 컨설팅. 누적 컨설팅 200회+, 선정률 96%(자체 집계)." />
 <meta property="og:locale" content="ko_KR" />
+<meta property="og:url" content="https://maisonelite.co.kr/" />
 
 <!-- Twitter/X -->
 <meta name="twitter:card" content="summary_large_image" />
 <meta name="twitter:title" content="메종엘리트 — 종합 컨설팅" />
 <meta name="twitter:description" content="개인의 결정부터 사업의 자금까지. 60분 인생 전략 상담과 정부지원사업 컨설팅." />
+
+<!-- 구조화 데이터 (구글 검색 리치 결과) -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "ProfessionalService",
+  "name": "메종엘리트",
+  "alternateName": "MAISON ELITE",
+  "url": "https://maisonelite.co.kr/",
+  "description": "개인의 결정부터 사업의 자금까지. 60분 인생 전략 상담과 정부지원사업 컨설팅.",
+  "areaServed": "KR",
+  "availableLanguage": "ko",
+  "sameAs": [
+    "https://www.instagram.com/maisonelite_official/",
+    "https://www.youtube.com/@maisonelite_official",
+    "https://www.tiktok.com/@maisonelite_official"
+  ],
+  "serviceType": ["인생 전략 상담", "정부지원사업 컨설팅"]
+}
+</script>
 
 <!-- 파비콘 (SVG 인라인) -->
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='6' fill='%230A0A0A'/%3E%3Ctext x='16' y='22' font-family='Arial,sans-serif' font-size='17' font-weight='800' fill='%23fff' text-anchor='middle'%3EM%3C/text%3E%3C/svg%3E" />
@@ -463,10 +485,10 @@ section > .wrap, section > .narrow{position:relative;z-index:1}
 .gt-scale .ticks{display:flex;justify-content:space-between;font-size:11px;color:var(--faint);font-variant-numeric:tabular-nums}
 .gt-row{display:grid;grid-template-columns:110px 1fr;gap:16px;align-items:center;padding:10px 0}
 .gt-row .lb{font-size:13.5px;font-weight:600;letter-spacing:-.02em}
-.gt-lane{position:relative;height:26px;background:var(--hair-2);border-radius:5px}
-.gt-bar{position:absolute;top:0;bottom:0;border-radius:5px;background:var(--fg);
+.gt-lane{position:relative;height:30px;background:var(--hair-2);border-radius:999px}
+.gt-bar{position:absolute;top:50%;height:24px;margin-top:-12px;border-radius:999px;background:var(--fg);
   transform:scaleX(0);transform-origin:0 50%;transition:transform .9s var(--e-out);
-  display:flex;align-items:center;justify-content:center;padding:0 8px;font-size:10.5px;font-weight:700;color:#fff;white-space:nowrap;overflow:hidden}
+  display:flex;align-items:center;justify-content:center;padding:0 12px;font-size:10.5px;font-weight:700;color:#fff;white-space:nowrap;overflow:hidden}
 .gt-bar.a{background:var(--accent)}
 .gt-bar.soft{background:#8B8B86}
 .on .gt-bar{transform:scaleX(1)}
@@ -474,17 +496,16 @@ section > .wrap, section > .narrow{position:relative;z-index:1}
 .gt-row:nth-child(5) .gt-bar{transition-delay:.2s}
 .gt-row:nth-child(6) .gt-bar{transition-delay:.3s}
 .gt-row:nth-child(7) .gt-bar{transition-delay:.4s}
-.gt-dday{position:absolute;top:-6px;bottom:-6px;width:2px;background:var(--accent);right:0}
-.gt-dday::after{content:"제출 마감";position:absolute;bottom:-22px;right:0;font-size:10px;font-weight:700;color:var(--accent);white-space:nowrap;background:var(--bg);padding:1px 4px;border-radius:3px}
+
 .gt-note{margin-top:14px;font-size:12.5px;color:var(--faint)}
 
 /* ══ 60분 링 ══ */
 .howgrid{display:grid;grid-template-columns:260px 1fr;gap:clamp(28px,5vw,56px);align-items:start;margin-top:38px}
 .ring-wrap{position:sticky;top:110px}
 .ring{width:100%;max-width:260px}
-.ring circle.seg{fill:none;stroke-width:14;stroke-linecap:butt;
+.ring circle.seg{fill:none;stroke-width:8;stroke-linecap:butt;
   stroke-dasharray:0 60;transition:stroke-dasharray 1.2s var(--e-out)}
-.ring .base{fill:none;stroke:var(--hair-2);stroke-width:14}
+.ring .base{fill:none;stroke:var(--hair-2);stroke-width:8}
 .ring text{font-family:inherit}
 .ring .big{font-size:15px;font-weight:800;letter-spacing:-.06em;fill:var(--fg)}
 .ring .sm{font-size:4.5px;font-weight:600;fill:var(--muted)}
@@ -785,6 +806,26 @@ section::before{content:"";position:absolute;top:0;left:var(--pad);right:var(--p
 .pair::before{counter-increment:pq;content:"0" counter(pq);position:absolute;right:0;top:24px;
   font-size:clamp(36px,5vw,54px);font-weight:800;letter-spacing:-.05em;line-height:1;
   color:transparent;-webkit-text-stroke:1px var(--hair)}
+.foot-legal{max-width:1040px;margin:34px auto 0;padding-top:26px;border-top:1px solid #232321}
+.fl-grid{display:flex;flex-wrap:wrap;gap:7px 18px;margin-bottom:14px}
+.fl-grid span{font-size:11.5px;color:#8B8B86;letter-spacing:-.01em}
+.fl-grid b{color:#B4B3AE;font-weight:600;margin-right:5px}
+.fl-links{display:flex;gap:16px;margin-bottom:14px}
+.fl-links a{font-size:12px;color:#B4B3AE;text-decoration:none;font-weight:600}
+.fl-links a:hover{color:#fff}
+.fl-fine{font-size:11px;color:#6B6B67;line-height:1.7;margin-bottom:10px}
+.legal-modal{position:fixed;inset:0;z-index:80;background:rgba(10,10,10,.55);backdrop-filter:blur(3px);display:none;align-items:center;justify-content:center;padding:20px}
+.legal-modal.show{display:flex}
+.legal-sheet{background:#fff;color:#0F0F0F;max-width:560px;width:100%;max-height:84vh;overflow-y:auto;border-radius:14px;padding:30px 30px 36px;position:relative}
+.legal-close{position:sticky;top:0;float:right;border:0;background:#F4F3F0;width:32px;height:32px;border-radius:50%;font-size:17px;color:#71716E;cursor:pointer}
+.legal-body{display:none}
+.legal-body.on{display:block}
+.legal-body h3{font-size:18px;font-weight:800;letter-spacing:-.03em;margin-bottom:14px}
+.legal-body h4{font-size:13.5px;font-weight:700;margin:18px 0 6px}
+.legal-body p{font-size:13px;line-height:1.8;color:#3A3A38}
+.legal-body .ld{color:#71716E}
+.legal-body .ld-date{margin-top:20px;font-size:12px;color:#A3A29E}
+.fl-copy{font-size:11px;color:#57565333;color:#575653}
 .foot-mark{font-size:clamp(36px,9.2vw,108px);font-weight:800;letter-spacing:-.04em;line-height:1;
   color:transparent;-webkit-text-stroke:1px #26261F;white-space:nowrap;overflow:hidden;
   max-width:1040px;margin:0 auto 38px;text-align:center}
@@ -1266,7 +1307,7 @@ a:focus-visible,summary:focus-visible,button:focus-visible{outline:2px solid cur
       <div class="head" style="max-width:640px">
         <span class="eyebrow">후기</span>
         <h2 class="split">60분 뒤에 이런 말을<br>남기고 갔습니다.</h2>
-        <p class="sub">후기는 본인 동의를 받은 것만, 있는 그대로 싣습니다.</p>
+        <p class="sub">실제 상담 경험을 바탕으로 재구성한 사례 예시입니다. 개인이 특정되지 않도록 각색되었습니다.</p>
       </div>
 
       <div class="chips" id="pChips">
@@ -2096,12 +2137,12 @@ a:focus-visible,summary:focus-visible,button:focus-visible{outline:2px solid cur
       </div>
       <form class="form" id="pForm" novalidate>
         <div class="frow">
-          <div><label>이름 <small>별칭도 괜찮습니다</small><span class="req"> *</span></label><input type="text" name="이름" required placeholder="예: 김민준 또는 민준"></div>
-          <div><label>연락처 <small>전화 또는 카카오톡 ID</small><span class="req"> *</span></label><input type="text" name="연락처" required placeholder="연락 가능한 번호나 ID"></div>
+          <div><label>이름 <small>별칭도 괜찮습니다</small><span class="req"> *</span></label><input type="text" name="이름" required placeholder="예: 홍길동"></div>
+          <div><label>연락처 <small>전화 또는 카카오톡 ID</small><span class="req"> *</span></label><input type="text" name="연락처" required placeholder="예: 010-1234-5678"></div>
         </div>
         <div class="frow">
           <div><label>희망 방식</label><select name="방식"><option>대면 (서울 · 권장)</option><option>온라인 (화상)</option><option>전화</option></select></div>
-          <div><label>희망 시간대 <small>선택</small></label><input type="text" name="시간대" placeholder="예: 평일 저녁, 주말 오전"></div>
+          <div><label>희망 시간대 <small>선택</small></label><input type="text" name="시간대" placeholder="예: 평일 19시 이후 / 토요일 10~14시"></div>
         </div>
         <div class="frow one">
           <div><label>고민 한 가지 <small>최근에 겪고 있는 문제라면 무엇이든. 단, 하나만.</small><span class="req"> *</span></label><textarea name="고민" required placeholder="상황을 편하게 적어주세요. 정리되어 있지 않아도 됩니다."></textarea></div>
@@ -2110,7 +2151,7 @@ a:focus-visible,summary:focus-visible,button:focus-visible{outline:2px solid cur
           <button type="submit" class="btn mag">신청 내용 보내기</button>
           <span class="fmsg" id="pFormMsg"></span>
         </div>
-        <p class="fhint">보내기를 누르면 신청 내용이 바로 접수됩니다. 1~2일 안에 남겨주신 연락처로 회신드립니다.<br>예약 확정일에 안내드리는 계좌로 10만원 입금 시 예약이 최종 확정됩니다. 상담 내용은 절대 콘텐츠로 나가지 않으며 전부 비밀이 보장됩니다.</p>
+        <p class="fhint">보내기를 누르면 바로 접수되며, <b>24시간 안에 직접 전화</b>드립니다.<br>예약 확정일에 안내드리는 계좌로 10만원 입금 시 예약이 최종 확정됩니다. 상담 내용은 절대 콘텐츠로 나가지 않으며 전부 비밀이 보장됩니다.<br>본 상담은 의료 행위나 심리 치료가 아니며, 정신건강 관련 어려움은 전문 의료기관 상담을 권합니다.<br>보내기를 누르면 상담 진행을 위한 최소한의 개인정보(이름·연락처·문의 내용) 수집·이용에 동의한 것으로 봅니다. 수집된 정보는 상담 외 목적으로 사용하지 않고 제3자에게 제공하지 않으며, 처리 기준은 개인정보처리방침에 따릅니다.</p>
       </form>
     </div>
   </section>
@@ -2123,16 +2164,16 @@ a:focus-visible,summary:focus-visible,button:focus-visible{outline:2px solid cur
     <div class="hero-in">
       <div class="kline">사업자 · 정부지원사업 전문 컨설팅</div>
       <h1 class="split">지원금은 아이디어가 아니라<br>서류와 발표로 결정됩니다.</h1>
-      <p class="sub">중앙정부와 지자체 지원사업을 수십 회 직접 겪은 사람이 함께합니다.<br>사업계획서 초안부터 발표 대응, 선정 후 정산과 환수 방어까지 전 구간을 다룹니다.</p>
+      <p class="sub">중앙정부와 지자체 지원사업을 50회 이상 직접 겪은 사람이 함께합니다.<br>사업계획서 초안부터 발표 대응, 선정 후 정산과 환수 방어까지 전 구간을 다룹니다.</p>
       <div class="cta-row">
         <a class="btn blue mag" href="#b-book">미팅 신청하기</a>
         <a class="btn ghost" href="#b-svc">서비스 · 단가 보기</a>
       </div>
       <div class="stats">
-        <div><span>누적 컨설팅</span><b>수백 회</b></div>
+        <div><span>누적 컨설팅</span><b>200회+</b></div>
         <div><span>선정률</span><b>96%<small> 자체 집계</small></b></div>
         <div><span>누적 확보 지원금</span><b>10억 원<small> 규모</small></b></div>
-        <div><span>지원사업 실전</span><b>중앙·지자체 수십 회</b></div>
+        <div><span>지원사업 실전</span><b>중앙·지자체 50회+</b></div>
       </div>
     </div>
   </section>
@@ -2156,14 +2197,14 @@ a:focus-visible,summary:focus-visible,button:focus-visible{outline:2px solid cur
 
       <div class="track">
         <div class="tcard">
-          <div class="tv">수백<small>회</small></div>
+          <div class="tv">200<small>회+</small></div>
           <div class="tt">누적 컨설팅 진행</div>
-          <div class="td">수백 회의 컨설팅을 진행하며 선정률 96%(자체 집계)를 유지해 왔습니다. 반복이 만든 정확도입니다.</div>
+          <div class="td">200회가 넘는 컨설팅을 진행하며 선정률 96%(자체 집계)를 유지해 왔습니다. 반복이 만든 정확도입니다.</div>
         </div>
         <div class="tcard">
-          <div class="tv">수십<small>회</small></div>
+          <div class="tv">50<small>회+</small></div>
           <div class="tt">중앙 · 지자체 지원사업 실전</div>
-          <div class="td">중앙부처부터 지자체까지, 접수·발표·협약·수행·정산 전 과정을 신청자로 직접 겪었습니다.</div>
+          <div class="td">중앙부처부터 지자체까지 50회 이상, 접수·발표·협약·수행·정산 전 과정을 신청자로 직접 겪었습니다.</div>
         </div>
         <div class="tcard">
           <div class="tv">10<small>억 규모</small></div>
@@ -2536,7 +2577,7 @@ a:focus-visible,summary:focus-visible,button:focus-visible{outline:2px solid cur
           <div class="pp"><b>800만원<small>부터</small></b><s>개별 합산 850만원~</s></div>
         </div>
       </div>
-      <p class="rv-note">※ 표기 금액은 전부 최소 기준입니다. 최종 금액은 미팅에서 범위 확정 후 정해집니다.</p>
+      <p class="rv-note">※ 표기 금액은 전부 최소 기준이며 부가가치세(VAT) 별도입니다. 최종 금액은 미팅에서 범위 확정 후 정해집니다.</p>
 
       <div style="margin-top:52px">
         <div class="head" style="max-width:640px;margin-bottom:26px">
@@ -2589,8 +2630,8 @@ a:focus-visible,summary:focus-visible,button:focus-visible{outline:2px solid cur
 
       <div class="gantt" style="margin-top:44px">
         <div class="gt-title"><b>마감 역산 일정</b><span>D-45 착수 기준 예시</span></div>
-        <div class="gt-scale"><span></span><div class="ticks"><span>D-45</span><span>D-30</span><span>D-15</span><span>D-DAY</span></div></div>
-        <div class="gt-row"><div class="lb">공고·배점 분석</div><div class="gt-lane"><div class="gt-bar a" style="left:0;width:16%">전략 수립</div><div class="gt-dday"></div></div></div>
+        <div class="gt-scale"><span></span><div class="ticks"><span>D-45</span><span>D-30</span><span>D-15</span><span style="color:var(--accent);font-weight:700">D-DAY</span></div></div>
+        <div class="gt-row"><div class="lb">공고·배점 분석</div><div class="gt-lane"><div class="gt-bar a" style="left:0;width:16%">전략 수립</div></div></div>
         <div class="gt-row"><div class="lb">초안 작성</div><div class="gt-lane"><div class="gt-bar" style="left:13%;width:26%">뼈대 → 초안</div></div></div>
         <div class="gt-row"><div class="lb">첨삭·보강</div><div class="gt-lane"><div class="gt-bar" style="left:36%;width:34%">2~3회 왕복</div></div></div>
         <div class="gt-row"><div class="lb">최종 점검·제출</div><div class="gt-lane"><div class="gt-bar a" style="left:68%;width:30%">검수 → 제출</div></div></div>
@@ -2605,7 +2646,7 @@ a:focus-visible,summary:focus-visible,button:focus-visible{outline:2px solid cur
     <div class="wrap">
       <div class="numstrip">
         <div><div class="nv">6<small>종</small></div><div class="nl">준비 → 심사 → 정산<br>전 구간 서비스</div></div>
-        <div><div class="nv">중앙·지자체</div><div class="nl">지원사업 수십 회<br>직접 경험</div></div>
+        <div><div class="nv">50회+</div><div class="nl">지원사업 실전<br>직접 경험</div></div>
         <div><div class="nv">30<small>+</small></div><div class="nl">발표 대비<br>압박 질문 시나리오</div></div>
         <div><div class="nv">0<small>원</small></div><div class="nl">견적 외<br>추가 청구</div></div>
       </div>
@@ -2620,7 +2661,7 @@ a:focus-visible,summary:focus-visible,button:focus-visible{outline:2px solid cur
       <span class="eyebrow">일하는 원칙</span>
       <h2 class="split">이 네 가지는<br>어기지 않습니다.</h2>
       <div class="rules" style="margin-top:38px">
-        <div class="rule"><div class="rn">01</div><div><h4>결과를 보장하지 않고, 가능성을 극대화합니다</h4><p>같은 서류도 어느 심사위원을 만나느냐에 따라 결과가 갈릴 수 있습니다. 그래서 저희는 결과를 약속하는 대신, 통제 가능한 전부를 통제해 선정 가능성을 극대화하는 데 집중합니다. 수백 회의 컨설팅에서 선정률 96%(자체 집계)를 유지해 온 방식입니다.</p></div></div>
+        <div class="rule"><div class="rn">01</div><div><h4>결과를 보장하지 않고, 가능성을 극대화합니다</h4><p>같은 서류도 어느 심사위원을 만나느냐에 따라 결과가 갈릴 수 있습니다. 그래서 저희는 결과를 약속하는 대신, 통제 가능한 전부를 통제해 선정 가능성을 극대화하는 데 집중합니다. 200회가 넘는 컨설팅에서 선정률 96%(자체 집계)를 유지해 온 방식입니다.</p></div></div>
         <div class="rule"><div class="rn">02</div><div><h4>승산 없으면 착수 전에 말합니다</h4><p>자격 미달, 준비 부족, 경쟁 구도가 맞지 않는 경우는 미팅 단계에서 걸러 돌려보냅니다. 성사 가능성이 낮은 계약을 받는 것은, 단기 매출보다 훨씬 큰 평판 비용을 남깁니다.</p></div></div>
         <div class="rule"><div class="rn">03</div><div><h4>대표님 사업의 언어로 씁니다</h4><p>템플릿을 재사용한 계획서는 평가위원이 가장 먼저 식별합니다. 인터뷰로 사업을 뜯어낸 다음, 그 사업만의 근거로 씁니다.</p></div></div>
         <div class="rule"><div class="rn">04</div><div><h4>견적에 없는 돈은 청구하지 않습니다</h4><p>착수 전에 범위와 금액을 문서로 확정합니다. 진행 중 범위가 늘면, 먼저 합의하고 움직입니다.</p></div></div>
@@ -2690,9 +2731,9 @@ a:focus-visible,summary:focus-visible,button:focus-visible{outline:2px solid cur
       <div>
         <span class="eyebrow">그 사람이 누구인가</span>
         <h2 class="split">책상이 아니라 심사장에서<br>배운 사람입니다.</h2>
-        <p>예비창업패키지, 청년창업사관학교, 디딤돌 R&D, 글로벌 기업 협업 프로그램, 지자체 지원사업까지 수십 회를 신청자로 직접 겪었습니다. 누적 10억 원 규모의 지원금을 확보했고, 환수 위기 사안들을 심의 대응으로 방어해 왔습니다. 최근 사례는 2,500만원 규모, 환수 없이 종결됐습니다. 지금까지 수백 회의 컨설팅을 진행했고 선정률은 96%(자체 집계)입니다. 2025년에는 주한미국대사관 창업경진대회를 직접 주최해 글로벌 창업팀 10팀을 선발하고 데모데이를 거쳐 수상팀을 미국으로 보냈습니다. 심사받는 자리와 심사하는 자리, 양쪽을 모두 압니다. 붙는 서류가 어떻게 생겼는지, 정산이 어디서 무너지는지를 자료가 아니라 제 사업으로 배웠습니다.</p>
+        <p>예비창업패키지, 청년창업사관학교, 디딤돌 R&D, 글로벌 기업 협업 프로그램, 지자체 지원사업까지 50회 이상 신청자로 직접 겪었습니다. 누적 10억 원 규모의 지원금을 확보했고, 환수 위기 사안들을 심의 대응으로 방어해 왔습니다. 최근 사례는 2,500만원 규모, 환수 없이 종결됐습니다. 지금까지 200회가 넘는 컨설팅을 진행했고 선정률은 96%(자체 집계)입니다. 2025년에는 주한미국대사관 창업경진대회를 직접 주최해 글로벌 창업팀 10팀을 선발하고 데모데이를 거쳐 수상팀을 미국으로 보냈습니다. 심사받는 자리와 심사하는 자리, 양쪽을 모두 압니다. 붙는 서류가 어떻게 생겼는지, 정산이 어디서 무너지는지를 자료가 아니라 제 사업으로 배웠습니다.</p>
         <div class="creds" style="margin-top:28px;display:flex;border:1px solid #232321;flex-wrap:wrap">
-          <div style="flex:1 1 140px;padding:16px 18px;border-right:1px solid #232321"><span style="display:block;font-size:10px;letter-spacing:.14em;color:#6B6B67;margin-bottom:6px;font-weight:600">EXPERIENCE</span><span style="font-size:15px;font-weight:700;color:#fff">지원사업 수십 회</span></div>
+          <div style="flex:1 1 140px;padding:16px 18px;border-right:1px solid #232321"><span style="display:block;font-size:10px;letter-spacing:.14em;color:#6B6B67;margin-bottom:6px;font-weight:600">EXPERIENCE</span><span style="font-size:15px;font-weight:700;color:#fff">지원사업 50회+</span></div>
           <div style="flex:1 1 140px;padding:16px 18px;border-right:1px solid #232321"><span style="display:block;font-size:10px;letter-spacing:.14em;color:#6B6B67;margin-bottom:6px;font-weight:600">FUNDED</span><span style="font-size:15px;font-weight:700;color:#fff">누적 10억 원 규모</span></div>
           <div style="flex:1 1 140px;padding:16px 18px;border-right:1px solid #232321"><span style="display:block;font-size:10px;letter-spacing:.14em;color:#6B6B67;margin-bottom:6px;font-weight:600">DEFENDED</span><span style="font-size:15px;font-weight:700;color:#fff">환수 심의 방어</span></div>
           <div style="flex:1 1 140px;padding:16px 18px"><span style="display:block;font-size:10px;letter-spacing:.14em;color:#6B6B67;margin-bottom:6px;font-weight:600">HOSTED</span><span style="font-size:15px;font-weight:700;color:#fff">美대사관 경진대회 주최</span></div>
@@ -2773,7 +2814,7 @@ a:focus-visible,summary:focus-visible,button:focus-visible{outline:2px solid cur
       <div class="head" style="max-width:660px">
         <span class="eyebrow">고객 사례</span>
         <h2 class="split">일곱 개 서비스,<br>210개의 기록.</h2>
-        <p class="sub">사례는 고객사 동의를 받은 것만, 회사가 특정되지 않도록 마스킹해 싣습니다.<br>수백 회의 컨설팅, 선정률 96%(자체 집계)의 기록 중 일부입니다.</p>
+        <p class="sub">실제 컨설팅 경험을 바탕으로 재구성한 사례 예시입니다. 회사가 특정되지 않도록 각색·마스킹되었습니다.<br>200회가 넘는 컨설팅, 선정률 96%(자체 집계)의 기록 중 일부입니다.</p>
       </div>
 
       <div class="chips" id="bChips">
@@ -4481,7 +4522,7 @@ a:focus-visible,summary:focus-visible,button:focus-visible{outline:2px solid cur
       <span class="eyebrow">자주 묻는 질문</span>
       <h2 class="split">계약 전에<br>확인하세요.</h2>
       <div class="faq" style="margin-top:38px">
-        <details><summary>합격을 보장하나요?</summary><div class="ans">보장하지 않습니다. 같은 서류도 어느 심사위원을 만나느냐에 따라 결과가 갈릴 수 있어서, 결과를 약속하는 것 자체가 정직하지 않은 일입니다. 저희가 하는 것은 통제 가능한 전부, 즉 배점표 분석·서류의 밀도·발표의 방어력을 끌어올려 선정 가능성을 극대화하는 것입니다. 그 방식으로 수백 회의 컨설팅에서 선정률 96%(자체 집계)를 유지해 왔습니다.</div></details>
+        <details><summary>합격을 보장하나요?</summary><div class="ans">보장하지 않습니다. 같은 서류도 어느 심사위원을 만나느냐에 따라 결과가 갈릴 수 있어서, 결과를 약속하는 것 자체가 정직하지 않은 일입니다. 저희가 하는 것은 통제 가능한 전부, 즉 배점표 분석·서류의 밀도·발표의 방어력을 끌어올려 선정 가능성을 극대화하는 것입니다. 그 방식으로 200회가 넘는 컨설팅에서 선정률 96%(자체 집계)를 유지해 왔습니다.</div></details>
         <details><summary>공고에 대해 아무것도 모르는데 괜찮나요?</summary><div class="ans">괜찮습니다. 그 상태로 오시는 분이 오히려 많습니다. 미팅에서 업종·업력·매출·팀 구성을 듣고, 중앙정부와 지자체 공고를 통틀어 지금 승산 있는 후보를 찾아 추천해 드립니다. 도전할 공고를 정하는 것까지가 미팅의 결과물이며, 여기까지는 비용이 발생하지 않습니다.</div></details>
         <details><summary>사업계획서 작성은 끝까지 다 해주시나요?</summary><div class="ans">초안까지입니다. 배점 구조에 맞는 뼈대와 핵심 항목 초안을 만들어 드리고, 사업의 디테일은 대표님이 채우셔야 합니다. 발표장에서 심사위원 질문에 답하는 건 결국 대표님이기 때문에, 타인이 처음부터 끝까지 대신 쓴 서류는 발표 질의에서 버티기 어렵습니다.</div></details>
         <details><summary>이미 서류는 써놨는데 검토만 받을 수 있나요?</summary><div class="ans">가능합니다. 서류평가 컨설팅이 그 역할입니다. 작성된 계획서를 배점표 기준으로 진단하고 취약 항목을 다시 세웁니다.</div></details>
@@ -4489,7 +4530,7 @@ a:focus-visible,summary:focus-visible,button:focus-visible{outline:2px solid cur
         <details><summary>수백만 원이 부담됩니다. 그만한 가치가 있나요?</summary><div class="ans">판단 기준을 드리겠습니다. 지원사업은 선정되면 공고에 따라 수천만 원에서 수억 원이 확보되고, 탈락하면 0원에 준비 기간의 시간까지 잃습니다. 컨설팅 비용은 대부분의 공고 기준으로 선정 시 확보액의 한 자릿수 퍼센트 수준입니다. 선정을 보장할 수는 없지만, 배점표 분석과 실전 경험으로 확률을 올리는 데 쓰는 비용으로는 구조적으로 낮은 편입니다. 이 계산이 납득되지 않으면 계약하지 않으셔도 됩니다. 미팅에서 함께 계산해 드립니다.</div></details>
         <details><summary>비용은 언제, 어떻게 내나요?</summary><div class="ans">미팅에서 범위와 금액을 확정하고 계약합니다. 결제는 계약 이후입니다. 표기된 금액은 전부 최소 기준이며, 공고 규모·마감 일정·작업량에 따라 조정됩니다. 견적에 없는 비용은 이후 청구하지 않습니다.</div></details>
         <details><summary>지방인데 대면이 어렵습니다.</summary><div class="ans">사업자 컨설팅은 화상·서면 협업이 가능합니다. 발표 모의훈련만 일정을 조율해 대면으로 진행하기도 합니다. 상황에 맞춰 조정합니다.</div></details>
-        <details><summary>직접 해보신 경험이 있나요?</summary><div class="ans">있습니다. 예비창업패키지부터 청년창업사관학교, 디딤돌 R&D, 글로벌 기업 협업 프로그램, 지자체 지원사업까지 중앙·지방 수십 회를 신청자·수행자·정산 당사자로 직접 겪었고, 누적 10억 원 규모의 지원금을 확보했으며, 환수 위기 사안들을 심의 대응으로 방어해 왔습니다(최근 사례 2,500만원 규모, 환수 0원 종결). 컨설팅은 지금까지 수백 회 진행했고 선정률은 96%(자체 집계)입니다. 2025년에는 주한미국대사관 창업경진대회를 직접 주최해 글로벌 창업팀 10팀을 선발하고 데모데이까지 운영했습니다. 신청자와 심사자, 양쪽의 경험으로 컨설팅합니다.</div></details>
+        <details><summary>직접 해보신 경험이 있나요?</summary><div class="ans">있습니다. 예비창업패키지부터 청년창업사관학교, 디딤돌 R&D, 글로벌 기업 협업 프로그램, 지자체 지원사업까지 중앙·지방 50회 이상을 신청자·수행자·정산 당사자로 직접 겪었고, 누적 10억 원 규모의 지원금을 확보했으며, 환수 위기 사안들을 심의 대응으로 방어해 왔습니다(최근 사례 2,500만원 규모, 환수 0원 종결). 컨설팅은 지금까지 200회 이상 진행했고 선정률은 96%(자체 집계)입니다. 2025년에는 주한미국대사관 창업경진대회를 직접 주최해 글로벌 창업팀 10팀을 선발하고 데모데이까지 운영했습니다. 신청자와 심사자, 양쪽의 경험으로 컨설팅합니다.</div></details>
         <details><summary>투자 검토는 어떻게 받을 수 있나요?</summary><div class="ans">신청하는 구조가 아닙니다. 컨설팅 수행 과정에서 기준(문제의 크기와 실증, 실현 가능성, 자본 효율 구조)을 충족한다고 판단되는 팀에 한해 저희가 먼저 별도 미팅을 제안합니다. 투자 검토 여부는 컨설팅 계약·비용·결과물에 어떠한 영향도 주지 않으며, 본 안내는 투자 권유가 아닙니다.</div></details>
         <details><summary>정산 관리는 왜 필요한가요?</summary><div class="ans">선정 후 사업비를 기준에 안 맞게 쓰면 환수됩니다. 증빙 누락, 집행 기준 위반, 보고서 미비. 선정 기업이 실제로 가장 많이 무너지는 지점입니다. 매달 챙길 것을 대신 챙기는 서비스입니다.</div></details>
       </div>
@@ -4509,8 +4550,8 @@ a:focus-visible,summary:focus-visible,button:focus-visible{outline:2px solid cur
       </div>
       <form class="form" id="bForm" novalidate>
         <div class="frow">
-          <div><label>회사 · 팀명 <small>예비창업자는 이름</small><span class="req"> *</span></label><input type="text" name="회사" required placeholder="예: 메종컴퍼니 / 김민준(예비)"></div>
-          <div><label>연락처 <small>전화 또는 이메일</small><span class="req"> *</span></label><input type="text" name="연락처" required placeholder="연락 가능한 번호나 메일"></div>
+          <div><label>회사 · 팀명 <small>예비창업자는 이름</small><span class="req"> *</span></label><input type="text" name="회사" required placeholder="예: 홍길동컴퍼니 / 홍길동(예비)"></div>
+          <div><label>연락처 <small>전화 또는 이메일</small><span class="req"> *</span></label><input type="text" name="연락처" required placeholder="예: 010-1234-5678"></div>
         </div>
         <div class="frow">
           <div><label>현재 단계</label><select name="단계"><option>예비창업 (사업자등록 전)</option><option>초기 창업기업 (3년 이내)</option><option>도약 · 성장기업 (3~7년)</option><option>기술 · R&D 보유</option><option>기타 · 잘 모르겠음</option></select></div>
@@ -4518,7 +4559,7 @@ a:focus-visible,summary:focus-visible,button:focus-visible{outline:2px solid cur
         </div>
         <div class="frow">
           <div><label>희망 미팅 방식</label><select name="미팅"><option>대면</option><option>화상</option><option>전화</option></select></div>
-          <div><label>준비 중인 공고 <small>없으면 비워두세요</small></label><input type="text" name="공고" placeholder="예: 예비창업패키지, 미정"></div>
+          <div><label>준비 중인 공고 <small>모르시면 비워두셔도 됩니다 — 저희가 찾아드립니다</small></label><input type="text" name="공고" placeholder="예: 예비창업패키지"></div>
         </div>
         <div class="frow one">
           <div><label>사업 · 상황 소개 <small>간단히</small><span class="req"> *</span></label><textarea name="소개" required placeholder="무엇을 하는 사업인지, 지금 어떤 상황인지 편하게 적어주세요."></textarea></div>
@@ -4527,7 +4568,7 @@ a:focus-visible,summary:focus-visible,button:focus-visible{outline:2px solid cur
           <button type="submit" class="btn wht mag">미팅 신청 보내기</button>
           <span class="fmsg" id="bFormMsg"></span>
         </div>
-        <p class="fhint">보내기를 누르면 신청 내용이 바로 접수됩니다. 1~2일 안에 남겨주신 연락처로 회신드립니다. 미팅은 결제 전, 몇 번이든 부담 없습니다.<br>심사 결과는 심사위원 구성 등 통제 밖의 변수로 보장하지 않으며, 통제 가능한 전부를 통제해 선정 가능성을 극대화합니다. 선정률 96%는 자체 집계 기준입니다.</p>
+        <p class="fhint">보내기를 누르면 바로 접수되며, <b>24시간 안에 직접 전화</b>드립니다. 미팅은 결제 전, 몇 번이든 부담 없습니다.<br>심사 결과는 심사위원 구성 등 통제 밖의 변수로 보장하지 않으며, 통제 가능한 전부를 통제해 선정 가능성을 극대화합니다. 선정률 96%는 자체 집계 기준입니다.<br>보내기를 누르면 미팅 진행을 위한 최소한의 개인정보(회사·담당자·연락처·문의 내용) 수집·이용에 동의한 것으로 봅니다. 수집된 정보는 상담 외 목적으로 사용하지 않고 제3자에게 제공하지 않으며, 처리 기준은 개인정보처리방침에 따릅니다.</p>
       </form>
     </div>
   </section>
@@ -4545,7 +4586,102 @@ a:focus-visible,summary:focus-visible,button:focus-visible{outline:2px solid cur
       <a href="https://www.tiktok.com/@maisonelite_official" target="_blank" rel="noopener">틱톡</a>
     </div>
   </div>
+  <div class="foot-legal">
+    <div class="fl-grid">
+      <span><b>상호</b> 메종엘리트</span>
+      <span><b>대표</b> 이종빈</span>
+      <span><b>사업자등록번호</b> 000-00-00000</span>
+      <span><b>통신판매업신고</b> 제2026-서울○○-0000호</span>
+      <span><b>주소</b> 서울특별시 ○○구 ○○로 00, 0층</span>
+      <span><b>대표 연락처</b> 010-0000-0000</span>
+      <span><b>이메일</b> maison_elite@naver.com</span>
+      <span><b>개인정보관리책임자</b> 이종빈</span>
+    </div>
+    <div class="fl-links">
+      <a href="#" data-legal="tos">이용약관</a>
+      <a href="#" data-legal="priv">개인정보처리방침</a>
+      <a href="#" data-legal="refund">취소·환불 규정</a>
+    </div>
+    <p class="fl-fine">본 사이트의 사업자 서비스 표기 금액은 부가가치세(VAT) 별도 기준이며, 최종 금액은 미팅에서 범위 확정 후 계약서에 명시됩니다. 정부지원사업의 심사 결과는 보장되지 않습니다.</p>
+    <p class="fl-copy">© 2026 MAISON ELITE. All rights reserved.</p>
+  </div>
 </footer>
+
+<div id="legalModal" class="legal-modal" role="dialog" aria-modal="true">
+  <div class="legal-sheet">
+    <button class="legal-close" id="legalClose" aria-label="닫기">×</button>
+    <div class="legal-body" data-doc="priv">
+      <h3>개인정보처리방침</h3>
+      <p class="ld">메종엘리트(이하 "회사")는 개인정보보호법 등 관계 법령에 따라 다음과 같이 개인정보를 처리합니다.</p>
+      <h4>1. 수집 항목</h4>
+      <p>· 개인 상담: 이름(별칭 가능), 연락처, 희망 방식·시간대, 상담 요청 내용<br>· 사업자 컨설팅: 회사·팀명, 담당자 연락처, 사업 단계·관심 영역, 문의 내용<br>· 서비스 과정에서 생성되는 정보: 상담·컨설팅 진행 기록, 연락 이력<br>· 자동 수집: 접속 기기·브라우저 정보, 유입 경로, 사이트 이용 기록(열람 화면, 클릭, 스크롤 깊이, 체류 시간, 폼 입력 진행 및 이탈 여부). 이 정보는 서비스 개선과 통계 목적의 익명 방문 분석에 사용되며, 무작위로 생성된 익명 식별자로 관리됩니다. 자동 수집에는 브라우저 저장소(localStorage)가 사용됩니다.</p>
+      <h4>2. 수집·이용 목적</h4>
+      <p>① 신청 확인 및 연락, 서비스 제공 ② 서비스 품질 개선 ③ 분쟁 발생 시 사실관계 확인 및 대응 ④ 법령상 의무 이행. 목적 외 이용은 하지 않습니다.</p>
+      <h4>3. 보유·이용 기간</h4>
+      <p>목적 달성 시 지체 없이 파기합니다. 다만 다음은 관계 법령 및 분쟁 대응을 위해 명시된 기간 동안 보존합니다.<br>· 계약 또는 청약철회 등에 관한 기록: 5년(전자상거래법)<br>· 대금 결제 및 서비스 제공에 관한 기록: 5년(전자상거래법)<br>· 소비자 불만 또는 분쟁 처리에 관한 기록: 3년(전자상거래법)<br>· 상담·컨설팅 진행 기록: 서비스 종료 후 3년(분쟁 대응 목적)</p>
+      <h4>4. 제3자 제공 및 처리 위탁</h4>
+      <p>법령에 근거한 경우를 제외하고 제3자에게 제공하지 않습니다. 신청 데이터의 보관에는 접근이 통제된 클라우드 데이터베이스가 이용됩니다.</p>
+      <h4>5. 파기 절차 및 방법</h4>
+      <p>보유 기간이 경과한 전자적 파일은 복구할 수 없는 방법으로 삭제합니다.</p>
+      <h4>6. 정보주체의 권리와 행사 방법</h4>
+      <p>이용자는 언제든지 열람·정정·삭제·처리정지를 요구할 수 있으며, 회사는 요청 접수일로부터 10일 이내에 조치 결과를 통지합니다. 회사는 요청자가 본인임을 확인하기 위해 최소한의 신원 확인을 요청할 수 있습니다. 법령상 보존 의무가 있는 정보는 해당 기간 동안 삭제가 제한될 수 있습니다.</p>
+      <h4>7. 안전성 확보 조치</h4>
+      <p>접근 권한 관리, 접근 통제, 전송 구간 암호화 등 개인정보의 안전한 처리를 위한 조치를 시행합니다.</p>
+      <h4>8. 개인정보 보호책임자</h4>
+      <p>책임자: 이종빈 · 이메일: maison_elite@naver.com</p>
+      <h4>9. 방침의 변경</h4>
+      <p>본 방침이 변경되는 경우 시행 7일 전 사이트에 공지합니다.</p>
+      <p class="ld-date">시행일: 2026년 7월 16일</p>
+    </div>
+    <div class="legal-body" data-doc="tos">
+      <h3>이용약관</h3>
+      <h4>1. 목적과 서비스의 성격</h4>
+      <p>본 약관은 메종엘리트(이하 "회사")가 제공하는 개인 인생 전략 상담(60분)과 정부지원사업 컨설팅(전략 수립, 문서 작성 지원, 발표 준비, 정산 관리 지원 등) 이용에 적용됩니다. 회사의 서비스는 조언·자문 및 문서 작성 지원 용역이며, 행정 절차의 대리, 법률·세무 대리 업무가 아닙니다.</p>
+      <h4>2. 계약의 성립</h4>
+      <p>① 개인 상담: 신청 접수 → 회사의 확인 연락 → 안내된 계좌로 상담료 입금 시 계약이 성립합니다.<br>② 사업자 컨설팅: 무료 미팅 후 범위와 금액을 확정하고 별도 계약 체결로 성립합니다. 신청 및 무료 미팅 자체는 계약이 아닙니다.<br>③ 회사는 일정, 업무 범위, 이해 상충 등을 고려하여 신청의 수락 여부를 결정할 수 있습니다.<br>④ 표기 금액은 최소 시작가이며 부가가치세(VAT) 별도입니다.</p>
+      <h4>3. 이용자의 의무와 자료의 책임</h4>
+      <p>① 이용자는 정확한 정보와 자료를 약정된 기한 내 제공해야 합니다. 이용자의 자료 제공 지연, 부정확한 정보 제공으로 인한 일정 지연·품질 저하·불이익에 대해 회사는 책임지지 않으며, 이 경우 일정은 상응하여 순연됩니다.<br>② 이용자가 제공한 자료·정보의 진실성, 적법성 및 제3자 권리 비침해에 대한 책임은 이용자에게 있습니다. 이용자 제공 정보에 기초하여 작성된 산출물의 허위 기재로 인한 책임은 해당 정보를 제공한 이용자에게 있습니다.</p>
+      <h4>4. 통지와 연락</h4>
+      <p>① 회사가 이용자가 신청 시 남긴 연락처로 발송한 통지는 통상적으로 도달할 시점에 도달한 것으로 봅니다. 연락처 변경을 알리지 않아 발생한 불이익은 이용자의 부담입니다.<br>② 개인 상담에 지각하는 경우 상담 시간은 예약된 종료 시각까지로 하며 환불되지 않습니다.<br>③ 이용자와 7일 이상 연락이 닿지 않는 경우 회사는 해당 업무를 중단할 수 있으며, 기수행 부분은 취소·환불 규정에 따라 정산됩니다.</p>
+      <h4>5. 산출물의 검수와 수정</h4>
+      <p>① 회사가 산출물을 전달한 날로부터 7일 이내에 이용자가 서면(전자적 방식 포함)으로 이의를 제기하지 않으면 검수가 완료된 것으로 봅니다.<br>② 명백한 오류에 대한 보완 요청은 전달일로부터 7일 이내에 통지된 것에 한하여 무상으로 처리합니다.<br>③ 첨삭·수정은 계약에서 정한 범위와 횟수 내에서 제공되며, 이를 초과하는 요청 및 계약 범위 밖의 추가 작업은 별도 협의와 추가 비용의 대상입니다.</p>
+      <h4>6. 결과의 비보장</h4>
+      <p>정부지원사업의 심사·선정·협약·지급 등 외부 기관의 판단은 회사가 보장하지 않습니다. 사이트에 표기된 선정률은 자체 집계 기준입니다. 회사는 통제 가능한 범위에서 최선의 용역을 제공할 의무를 부담하며, 특정 결과의 달성을 보증하지 않습니다.</p>
+      <h4>7. 대금과 지연이자</h4>
+      <p>사업자 컨설팅 대금이 약정 기일까지 지급되지 않는 경우, 회사는 지급 완료 시까지 업무를 중지할 수 있으며 미지급 금액에 대하여 연 12%의 지연이자를 청구할 수 있습니다. 업무 중지로 인한 일정 지연의 책임은 이용자에게 있습니다.</p>
+      <h4>8. 책임의 제한</h4>
+      <p>회사의 고의 또는 중대한 과실로 인한 경우를 제외하고, 회사의 손해배상 책임은 이용자가 해당 서비스에 대하여 실제 지급한 대금 총액을 한도로 합니다. 회사는 일실이익, 기대이익의 상실 등 간접 손해나 특별 손해에 대해서는 회사가 그 사정을 알았거나 알 수 있었던 경우를 제외하고 책임지지 않습니다.</p>
+      <h4>9. 비밀 유지, 녹음 및 사례 활용</h4>
+      <p>① 회사는 서비스 과정에서 알게 된 이용자의 정보를 본인 동의 없이 외부에 공개하지 않습니다. 개인 상담 내용은 콘텐츠 등 어떠한 형태로도 외부에 사용하지 않습니다.<br>② 이용자는 상담·미팅 내용을 회사의 사전 동의 없이 외부에 공개·배포·게시할 수 없습니다.<br>③ 사업자 컨설팅의 경우, 회사는 회사명·개인이 특정되지 않도록 익명 처리한 범위에서 수행 실적(분야, 규모, 결과 유형)을 영업 자료로 표시할 수 있습니다.</p>
+      <h4>10. 지식재산권</h4>
+      <p>① 회사가 제공한 산출물은 해당 공고 제출 등 약정된 목적 범위에서 이용자가 사용할 수 있습니다. 산출물의 무단 복제·배포·제3자 제공·재판매를 금합니다.<br>② 회사의 템플릿, 방법론, 노하우에 대한 권리는 회사에 귀속되며, 회사는 업무 수행 과정에서 축적된 일반적 지식과 경험, 방법론을 다른 업무에 자유롭게 사용할 수 있습니다.</p>
+      <h4>11. 계약의 해지</h4>
+      <p>이용자가 허위 정보를 제공하거나, 정당한 사유 없이 협조를 거부하거나, 회사 인력에게 모욕적 언행을 하는 경우 회사는 계약을 해지할 수 있으며, 이 경우 기수행 부분을 공제한 잔액을 환불합니다.</p>
+      <h4>12. 불가항력</h4>
+      <p>천재지변, 감염병, 시스템 장애 등 회사가 통제할 수 없는 사유로 인한 서비스 지연·중단에 대해 회사는 책임지지 않으며, 일정 재조정으로 갈음합니다.</p>
+      <h4>13. 일반 조항</h4>
+      <p>① 회사가 약관상 권리를 일시적으로 행사하지 않더라도 이를 포기한 것으로 보지 않습니다.<br>② 본 약관의 일부 조항이 무효로 판단되더라도 나머지 조항의 효력에는 영향이 없습니다.<br>③ 회사는 약관을 변경할 수 있으며, 변경 시 시행 7일 전(이용자에게 불리한 변경은 30일 전) 사이트에 공지합니다.</p>
+      <h4>14. 준거법과 관할</h4>
+      <p>본 약관은 대한민국 법률에 따릅니다. 소비자와의 분쟁은 관계 법령에 따른 관할 법원에 따르며, 사업자 간 계약의 분쟁은 회사 소재지를 관할하는 법원을 제1심 관할 법원으로 합니다.</p>
+      <p class="ld-date">시행일: 2026년 7월 16일</p>
+    </div>
+    <div class="legal-body" data-doc="refund">
+      <h3>취소·환불 규정</h3>
+      <h4>1. 개인 상담</h4>
+      <p>· 예약 시간 24시간 전까지 취소: 전액 환불<br>· 예약 시간 24시간 이내 취소: 50% 환불<br>· 무단 불참 또는 상담 시작 후: 환불 불가<br>· 일정 변경: 예약 시간 24시간 전까지 요청 시 1회 무료로 변경할 수 있습니다. 이후의 변경은 취소로 처리됩니다.<br>· 지각: 상담은 예약된 종료 시각까지 진행되며, 지각으로 단축된 시간은 환불되지 않습니다.<br>· 회사 사정으로 취소되는 경우: 전액 환불 또는 일정 재조정 중 이용자가 선택합니다.</p>
+      <h4>2. 사업자 컨설팅</h4>
+      <p>체결한 계약서의 취소·환불 조항이 우선하며, 계약서에 정함이 없는 경우 다음 기준을 적용합니다. "착수"는 계약금 입금과 착수 자료 수령이 모두 완료된 시점을 말합니다.<br>· 착수 전 해지: 전액 환불<br>· 전략 수립 완료 후: 계약 금액의 30% 공제<br>· 초안 전달 후: 60% 공제<br>· 첨삭·보강 진행 후: 80% 공제<br>· 최종 산출물 전달 또는 제출 완료 후: 환불 불가<br>· 월 단위 계약(정산 관리 등): 당월 업무가 개시된 경우 당월분은 환불되지 않으며, 미개시 월분은 전액 환불합니다.<br>공제·환불의 계산은 부가가치세를 포함한 실제 지급액을 기준으로 합니다.</p>
+      <h4>3. 청약철회</h4>
+      <p>전자상거래 등에서의 소비자보호에 관한 법률 제17조에 따라 청약철회가 가능합니다. 다만 이용자의 동의를 받아 용역 제공이 개시된 경우, 이미 제공된 부분에 대해서는 같은 법 제17조 제2항에 따라 청약철회가 제한될 수 있으며, 회사는 계약 시 이를 고지합니다.</p>
+      <h4>4. 환불 방법과 증빙</h4>
+      <p>환불은 취소 확정일로부터 3영업일 이내에 입금하신 계좌로 반환합니다. 서비스 제공 사실과 진행 단계는 회사의 업무 기록 및 전자적 송수신 기록(문자, 이메일, 메신저 등)으로 증명할 수 있습니다.</p>
+      <h4>5. 분쟁 처리</h4>
+      <p>환불 관련 이견이 있는 경우 회사 이메일(maison_elite@naver.com)로 접수해 주시면 접수일로부터 10일 이내에 처리 결과를 안내합니다. 이용자는 한국소비자원 등 관계 기관에 분쟁 조정을 신청할 수 있습니다.</p>
+      <p class="ld-date">시행일: 2026년 7월 16일</p>
+    </div>
+  </div>
+</div>
+
 
 <div id="dock">
   <div><span class="d1" id="dockText"></span><span class="d2" id="dockSub"></span></div>
@@ -4839,18 +4975,57 @@ a:focus-visible,summary:focus-visible,button:focus-visible{outline:2px solid cur
       V.first_src=detectSource(utm,ref);
       V.visits=0;
     }
+    // 익명 방문자 ID (기기 단위 고정) + 세션 ID (방문 단위)
+    function uid(){return (Date.now().toString(36)+Math.random().toString(36).slice(2,8));}
+    if(!V.vid){V.vid='v_'+uid();}
+    var VISITOR_ID=V.vid;
+    var SESSION_ID='s_'+uid();
     V.visits=(V.visits||0)+1;
     V.last_ts=now();
     var sess={
       start:now(), src:detectSource(utm,ref), utm:utm, ref:ref, dev:device(),
       views:[], maxScroll:0, path:location.pathname+location.hash
     };
+    // ═══ 이벤트 수집 엔진 (배치 전송) ═══
+    var EV_URL='https://vnkwwyxudvsfbpcsujee.supabase.co/rest/v1/events';
+    var EV_H={'Content-Type':'application/json','apikey':SB_ANON,'Authorization':'Bearer '+SB_ANON,'Prefer':'return=minimal'};
+    var evQueue=[], evTimer=null, evSeq=0;
+    function baseDetail(){
+      return {seq:++evSeq, t_ms: now()-sess.start, view: sess.views[sess.views.length-1]||'', scroll: sess.maxScroll,
+        src: sess.src.source, dev: sess.dev.device, os: sess.dev.os, browser: sess.dev.browser+(sess.dev.inApp?'(인앱)':''),
+        visit: V.visits, path: location.hash||'/'};
+    }
+    function track(type, name, extra){
+      var d=baseDetail(); if(extra) for(var k in extra) d[k]=extra[k];
+      evQueue.push({visitor_id:VISITOR_ID, session_id:SESSION_ID, type:type, name:name||'', detail:d});
+      if(evQueue.length>=8) flush(false);
+      else { clearTimeout(evTimer); evTimer=setTimeout(function(){flush(false);}, 4000); }
+    }
+    function flush(sync){
+      if(!evQueue.length) return;
+      var batch=evQueue.splice(0,evQueue.length);
+      clearTimeout(evTimer);
+      try{
+        if(sync && navigator.sendBeacon){
+          var blob=new Blob([JSON.stringify(batch)],{type:'application/json'});
+          navigator.sendBeacon(EV_URL, blob); // 페이지 이탈 시에도 안전 전송
+        } else {
+          fetch(EV_URL,{method:'POST',headers:EV_H,body:JSON.stringify(batch),keepalive:true}).catch(function(){});
+        }
+      }catch(e){}
+    }
+    window.__metTrack=function(type,name,extra){ try{track(type,name,extra);}catch(e){} };
+    // 페이지 이탈/숨김 시 남은 이벤트 확실히 전송
+    window.addEventListener('pagehide',function(){track('page','이탈',{max_scroll:sess.maxScroll,dwell_s:Math.round((now()-sess.start)/1000)});flush(true);});
+    document.addEventListener('visibilitychange',function(){if(document.visibilityState==='hidden')flush(true);});
+
     // 여정: 화면 전환 감지 (개인/사업자)
-    function logView(name){ if(sess.views[sess.views.length-1]!==name)sess.views.push(name); }
+    function logView(name){ if(sess.views[sess.views.length-1]!==name){sess.views.push(name); track('view','화면 진입',{to:name});} }
     window.__metView=function(name){ logView(name); };
     logView('게이트');
-    // 스크롤 깊이
-    var ticking=false;
+    track('page','진입',{referrer:ref||'직접',utm:JSON.stringify(utm)});
+    // 스크롤 깊이 + 마일스톤 이벤트
+    var ticking=false, scrollMarks={25:0,50:0,75:0,100:0};
     window.addEventListener('scroll',function(){
       if(ticking)return;ticking=true;
       requestAnimationFrame(function(){
@@ -4858,14 +5033,26 @@ a:focus-visible,summary:focus-visible,button:focus-visible{outline:2px solid cur
         var dh=document.documentElement.scrollHeight-window.innerHeight;
         var pct=dh>0?Math.round(st/dh*100):0;
         if(pct>sess.maxScroll)sess.maxScroll=Math.min(100,pct);
+        [25,50,75,100].forEach(function(m){ if(sess.maxScroll>=m && !scrollMarks[m]){ scrollMarks[m]=1; track('scroll','스크롤 '+m+'%',{depth:m}); } });
         ticking=false;
       });
     },{passive:true});
-    // 클릭 여정: 게이트 선택, 스위치, 티커 등 주요 액션
+    // 클릭 로그: 모든 버튼·링크·주요 액션
     document.addEventListener('click',function(e){
       var g=e.target.closest('[data-go]');
       if(g){logView(g.dataset.go==='business'?'사업자':g.dataset.go==='personal'?'개인':g.dataset.go);}
-    });
+      var t=e.target.closest('a,button,[data-go],summary');
+      if(!t) return;
+      var label=(t.getAttribute('aria-label')||t.textContent||'').trim().replace(/\s+/g,' ').slice(0,40);
+      var kind=t.tagName.toLowerCase();
+      var href=t.getAttribute('href')||'';
+      var meta={label:label, kind:kind};
+      if(href) meta.href=href;
+      if(g) meta.action='모드전환';
+      // SNS/외부 링크 구분
+      if(/instagram|youtube|tiktok/.test(href)) meta.action='SNS 링크';
+      track('click', label||kind, meta);
+    }, true);
     try{localStorage.setItem(LS,JSON.stringify(V));}catch(e){}
     // 신청 시점에 호출: 추적 스냅샷 반환
     return {
@@ -4899,6 +5086,26 @@ a:focus-visible,summary:focus-visible,button:focus-visible{outline:2px solid cur
     var f = document.getElementById(formId); if(!f) return;
     var btn = f.querySelector('button[type="submit"]');
     var oldLabel = btn.textContent;
+    // ── 폼 상호작용 추적 ──
+    var formName=(type==='business'?'사업자':'개인');
+    var started=false, submitted=false, touched={};
+    var fields=f.querySelectorAll('input,select,textarea');
+    fields.forEach(function(el){
+      el.addEventListener('focus',function(){
+        if(!started){started=true; try{MET&&window.__metTrack&&window.__metTrack('form',formName+' 폼 입력 시작',{form:formName});}catch(e){}}
+        if(el.name && !touched[el.name]){touched[el.name]=1; try{window.__metTrack&&window.__metTrack('form',formName+' · '+el.name+' 입력',{form:formName,field:el.name});}catch(e){}}
+      });
+    });
+    // 이탈 시 미제출이면 "폼 이탈 + 어느 필드까지 채웠나" 기록
+    function abandonCheck(){
+      if(started && !submitted){
+        var filled=[]; fields.forEach(function(el){ if(el.name && el.value.trim()) filled.push(el.name); });
+        var lastField=''; fields.forEach(function(el){ if(el.name && touched[el.name]) lastField=el.name; });
+        try{window.__metTrack&&window.__metTrack('form',formName+' 폼 이탈(미제출)',{form:formName,filled:filled.join(','),filled_n:filled.length,last_field:lastField});}catch(e){}
+      }
+    }
+    window.addEventListener('pagehide',abandonCheck);
+    document.addEventListener('visibilitychange',function(){if(document.visibilityState==='hidden')abandonCheck();});
     f.addEventListener('submit', function(ev){
       ev.preventDefault();
       var ok = true;
@@ -4906,7 +5113,7 @@ a:focus-visible,summary:focus-visible,button:focus-visible{outline:2px solid cur
         if(!el.value.trim()){ ok=false; el.style.borderColor='#B4443A'; }
         else el.style.borderColor='';
       });
-      if(!ok) return;
+      if(!ok){ try{window.__metTrack&&window.__metTrack('form',formName+' 제출 시도(필수값 누락)',{form:formName});}catch(e){} return; }
       var payload = {};
       f.querySelectorAll('input,select,textarea').forEach(function(el){
         var v = el.value.trim(); if(v) payload[el.name] = v;
@@ -4926,7 +5133,9 @@ a:focus-visible,summary:focus-visible,button:focus-visible{outline:2px solid cur
         body: JSON.stringify({ type: type, payload: payload })
       }).then(function(res){
         if(!(res.status === 201 || res.ok)) throw new Error('status ' + res.status);
-        showMsg('접수되었습니다. 1~2일 안에 남겨주신 연락처로 회신드립니다.');
+        submitted=true;
+        try{window.__metTrack&&window.__metTrack('form',formName+' 폼 제출 완료',{form:formName,converted:true});}catch(e){}
+        showMsg('접수되었습니다. 24시간 안에 남겨주신 번호로 직접 전화드립니다.');
         f.reset();
         btn.textContent = '접수 완료';
       }).catch(function(){
@@ -4935,6 +5144,23 @@ a:focus-visible,summary:focus-visible,button:focus-visible{outline:2px solid cur
       });
     });
   }
+  /* 법적 문서 모달 */
+  (function(){
+    var lm=document.getElementById('legalModal');if(!lm)return;
+    function openLegal(doc){
+      lm.querySelectorAll('.legal-body').forEach(function(b){b.classList.toggle('on',b.dataset.doc===doc);});
+      lm.classList.add('show');document.body.style.overflow='hidden';
+      lm.querySelector('.legal-sheet').scrollTop=0;
+    }
+    function closeLegal(){lm.classList.remove('show');document.body.style.overflow='';}
+    document.querySelectorAll('[data-legal]').forEach(function(a){
+      a.addEventListener('click',function(e){e.preventDefault();openLegal(a.dataset.legal);});
+    });
+    document.getElementById('legalClose').addEventListener('click',closeLegal);
+    lm.addEventListener('click',function(e){if(e.target===lm)closeLegal();});
+    document.addEventListener('keydown',function(e){if(e.key==='Escape'&&lm.classList.contains('show'))closeLegal();});
+  })();
+
   bindForm('pForm','pFormMsg','인생 상담 신청','personal');
   bindForm('bForm','bFormMsg','정부지원 컨설팅 미팅 신청','business');
 
