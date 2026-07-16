@@ -4598,6 +4598,7 @@ a:focus-visible,summary:focus-visible,button:focus-visible{outline:2px solid cur
   }
 
   function setMode(mode){
+    try{ if(window.__metView) window.__metView(mode==='business'?'사업자':'개인'); }catch(e){}
     body.classList.toggle('biz', mode==='business');
     document.querySelectorAll('.view').forEach(function(v){ v.classList.remove('live'); });
     var view=document.getElementById('view-'+mode);
@@ -4788,6 +4789,109 @@ a:focus-visible,summary:focus-visible,button:focus-visible{outline:2px solid cur
   bindFilter('bChips','bRev','bMore','bCount',6);
   bindFilter('pChips','pRev','pMore','pCount',6);
 
+  /* ══════ 방문자 추적 엔진 ══════ */
+  var MET = (function(){
+    var LS='me_visitor';
+    function now(){return Date.now();}
+    function parseUTM(){
+      var q={},s=location.search.replace(/^\?/,'');
+      s.split('&').forEach(function(kv){if(!kv)return;var p=kv.split('=');q[decodeURIComponent(p[0])]=decodeURIComponent(p[1]||'');});
+      return q;
+    }
+    function detectSource(utm,ref){
+      if(utm.utm_source){
+        var s=utm.utm_source.toLowerCase();
+        var map={instagram:'인스타그램',ig:'인스타그램',insta:'인스타그램',youtube:'유튜브',yt:'유튜브',tiktok:'틱톡',naver:'네이버',google:'구글',kakao:'카카오',threads:'스레드',facebook:'페이스북',fb:'페이스북',bio:'프로필 링크',profile:'프로필 링크'};
+        return {source:map[s]||utm.utm_source, medium:utm.utm_medium||'', campaign:utm.utm_campaign||'', raw:utm.utm_source};
+      }
+      if(ref){
+        try{var host=new URL(ref).hostname.replace('www.','').toLowerCase();
+          if(/instagram|cdninstagram|ig\./.test(host))return {source:'인스타그램',ref:host};
+          if(/youtube|youtu\.be/.test(host))return {source:'유튜브',ref:host};
+          if(/tiktok/.test(host))return {source:'틱톡',ref:host};
+          if(/naver/.test(host))return {source:'네이버',ref:host};
+          if(/google/.test(host))return {source:'구글',ref:host};
+          if(/daum|kakao/.test(host))return {source:'카카오/다음',ref:host};
+          if(/threads/.test(host))return {source:'스레드',ref:host};
+          if(/facebook|fb\./.test(host))return {source:'페이스북',ref:host};
+          if(/bing/.test(host))return {source:'빙',ref:host};
+          if(host.indexOf('maisonelite')>=0)return {source:'사이트 내 이동',ref:host};
+          return {source:'기타 사이트',ref:host};
+        }catch(e){return {source:'기타',ref:ref};}
+      }
+      return {source:'직접 방문',ref:''};
+    }
+    function device(){
+      var ua=navigator.userAgent, o='기타', b='기타', dev='데스크탑';
+      if(/iPhone|iPad|iPod/.test(ua))o='iOS';else if(/Android/.test(ua))o='Android';else if(/Windows/.test(ua))o='Windows';else if(/Mac/.test(ua))o='macOS';else if(/Linux/.test(ua))o='Linux';
+      if(/Edg\//.test(ua))b='엣지';else if(/OPR|Opera/.test(ua))b='오페라';else if(/SamsungBrowser/.test(ua))b='삼성브라우저';else if(/KAKAOTALK/.test(ua))b='카카오톡';else if(/Instagram/.test(ua))b='인스타 앱';else if(/FBAN|FBAV/.test(ua))b='페북 앱';else if(/Chrome/.test(ua))b='크롬';else if(/Safari/.test(ua))b='사파리';else if(/Firefox/.test(ua))b='파이어폭스';
+      if(/Mobi|Android|iPhone|iPod/.test(ua))dev='모바일';else if(/iPad|Tablet/.test(ua))dev='태블릿';
+      var inApp=/Instagram|KAKAOTALK|FBAN|FBAV|Line|NAVER/.test(ua);
+      return {os:o,browser:b,device:dev,inApp:inApp,w:screen.width,h:screen.height};
+    }
+    // 방문자 저장소 로드
+    var V={};
+    try{V=JSON.parse(localStorage.getItem(LS))||{};}catch(e){V={};}
+    var utm=parseUTM(), ref=document.referrer||'';
+    var isFirst=!V.first_ts;
+    if(isFirst){
+      V.first_ts=now();
+      V.first_src=detectSource(utm,ref);
+      V.visits=0;
+    }
+    V.visits=(V.visits||0)+1;
+    V.last_ts=now();
+    var sess={
+      start:now(), src:detectSource(utm,ref), utm:utm, ref:ref, dev:device(),
+      views:[], maxScroll:0, path:location.pathname+location.hash
+    };
+    // 여정: 화면 전환 감지 (개인/사업자)
+    function logView(name){ if(sess.views[sess.views.length-1]!==name)sess.views.push(name); }
+    window.__metView=function(name){ logView(name); };
+    logView('게이트');
+    // 스크롤 깊이
+    var ticking=false;
+    window.addEventListener('scroll',function(){
+      if(ticking)return;ticking=true;
+      requestAnimationFrame(function(){
+        var st=window.pageYOffset||document.documentElement.scrollTop;
+        var dh=document.documentElement.scrollHeight-window.innerHeight;
+        var pct=dh>0?Math.round(st/dh*100):0;
+        if(pct>sess.maxScroll)sess.maxScroll=Math.min(100,pct);
+        ticking=false;
+      });
+    },{passive:true});
+    // 클릭 여정: 게이트 선택, 스위치, 티커 등 주요 액션
+    document.addEventListener('click',function(e){
+      var g=e.target.closest('[data-go]');
+      if(g){logView(g.dataset.go==='business'?'사업자':g.dataset.go==='personal'?'개인':g.dataset.go);}
+    });
+    try{localStorage.setItem(LS,JSON.stringify(V));}catch(e){}
+    // 신청 시점에 호출: 추적 스냅샷 반환
+    return {
+      snapshot:function(view){
+        var dwellSec=Math.round((now()-sess.start)/1000);
+        return {
+          유입경로: sess.src.source,
+          유입상세: sess.src.ref||sess.src.raw||'',
+          캠페인: (sess.utm.utm_campaign||''),
+          매체: (sess.utm.utm_medium||''),
+          기기: sess.dev.device+' · '+sess.dev.os,
+          브라우저: sess.dev.browser+(sess.dev.inApp?' (인앱)':''),
+          화면크기: sess.dev.w+'×'+sess.dev.h,
+          본화면: (view? view+' · ':'')+sess.views.join(' → '),
+          스크롤: sess.maxScroll+'%',
+          체류초: dwellSec,
+          체류: dwellSec>=60?Math.floor(dwellSec/60)+'분 '+(dwellSec%60)+'초':dwellSec+'초',
+          방문차수: V.visits,
+          재방문여부: (V.visits>1||!isFirst)?'재방문':'첫 방문',
+          최초유입: isFirst? '이번이 처음' : new Date(V.first_ts).toLocaleDateString('ko-KR'),
+          최초유입경로: (V.first_src&&V.first_src.source)||sess.src.source
+        };
+      }
+    };
+  })();
+
   /* 신청 폼 → Supabase 저장 */
   var SB_URL = 'https://vnkwwyxudvsfbpcsujee.supabase.co';
   var SB_ANON = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InZua3d3eXh1ZHZzZmJwY3N1amVlIiwicm9sZSI6ImFub24iLCJpYXQiOjE3ODQxMTQ1OTUsImV4cCI6MjA5OTY5MDU5NX0.cArCjIsR0pguRkkzBOaIVIMPcMhJ2pr0qwJB5BmybuY';
@@ -4807,6 +4911,7 @@ a:focus-visible,summary:focus-visible,button:focus-visible{outline:2px solid cur
       f.querySelectorAll('input,select,textarea').forEach(function(el){
         var v = el.value.trim(); if(v) payload[el.name] = v;
       });
+      try{ payload._track = MET.snapshot(type==='business'?'사업자':'개인'); }catch(e){}
       var msg = document.getElementById(msgId);
       function showMsg(t){ if(msg){ msg.textContent = t; msg.classList.add('show'); } }
       btn.disabled = true; btn.style.opacity = '.6'; btn.textContent = '보내는 중…';
