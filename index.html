@@ -674,6 +674,30 @@ section > .wrap, section > .narrow{position:relative;z-index:1}
 .per-view .pp-foot a,#view-personal .pp-foot a{color:var(--fg)}
 
 /* ══ 투자 검토 ══ */
+.inv2-specs{display:grid;grid-template-columns:repeat(5,1fr);border:1px solid var(--hair);border-radius:10px;overflow:hidden;background:var(--bg)}
+.inv2-specs>div{padding:14px 16px;border-right:1px solid var(--hair-2)}
+.inv2-specs>div:last-child{border-right:0}
+.inv2-specs span{display:block;font-size:11px;font-weight:600;color:var(--faint);letter-spacing:.02em;margin-bottom:5px}
+.inv2-specs b{font-size:14.5px;font-weight:800;letter-spacing:-.02em}
+.inv2-crit{margin-top:14px;border:1px solid var(--hair);border-left:3px solid var(--accent);border-radius:10px;padding:16px 18px;background:var(--bg)}
+.inv2-crit b{font-size:15.5px;font-weight:800;letter-spacing:-.02em;display:block;margin-bottom:5px}
+.inv2-crit p{font-size:13.5px;color:var(--muted);line-height:1.75}
+.inv2-apply{margin-top:14px;border:1px solid var(--hair);border-radius:10px;padding:16px 18px;background:var(--bg);display:flex;gap:20px;align-items:center}
+.inv2-apply .ia-txt{flex:1;min-width:0}
+.inv2-apply b{font-size:13px;font-weight:800;display:block;margin-bottom:5px}
+.inv2-apply p{font-size:13.5px;color:var(--muted);line-height:1.75}
+.inv2-cta{flex:0 0 auto;background:var(--fg);color:#fff;font-size:13.5px;font-weight:700;padding:13px 22px;border-radius:8px;text-decoration:none;white-space:nowrap;transition:background .2s}
+.inv2-cta:hover{background:#000}
+.inv2-fine{margin-top:12px;font-size:11.5px;color:var(--faint);line-height:1.7}
+@media(max-width:860px){
+  .inv2-specs{grid-template-columns:repeat(2,1fr)}
+  .inv2-specs>div{border-bottom:1px solid var(--hair-2)}
+  .inv2-specs>div:nth-child(2n){border-right:0}
+  .inv2-specs>div:nth-child(5){border-bottom:0;grid-column:1/-1}
+  .inv2-apply{flex-direction:column;align-items:stretch}
+  .inv2-cta{text-align:center}
+}
+
 .invest{border-top:1px solid var(--hair)}
 .inv-grid{display:grid;grid-template-columns:1fr 1fr;gap:clamp(26px,4vw,52px);align-items:start}
 .inv-copy p{margin-top:16px}
@@ -2753,56 +2777,34 @@ a:focus-visible,summary:focus-visible,button:focus-visible{outline:2px solid cur
   <section class="invest rv" id="b-invest">
     <span class="sidetag">INVESTMENT REVIEW</span>
     <div class="wrap">
-      <div class="head" style="max-width:680px">
+      <div class="head" style="max-width:680px;margin-bottom:26px">
         <span class="eyebrow">투자 검토</span>
-        <h2 class="split">드물게, 고객이 아니라<br>투자 대상으로 다시 만납니다.</h2>
+        <h2 class="split">Seed에 직접 투자합니다.<br>연 3팀, 전 분야.</h2>
+        <p class="sub">대표가 개인 자본으로 직접 투자합니다. 컨설팅과는 별개로 운영되는 트랙이라 컨설팅 고객이 아니어도 되고, 정해진 형식도 없습니다. 검토받고 싶은 사업이 있다면 부담 없이 신청하세요.</p>
       </div>
 
-      <div class="inv-grid">
-        <div class="inv-copy">
-          <p class="inv-lede">대표 컨설턴트는 개인 투자자로도 활동하고 있습니다.<br>일반적인 투자 검토는 몇 번의 미팅과 자료로 판단하지만, 컨설팅은 다릅니다.<br>수 주에서 수개월간 사업의 숫자, 실행 속도, 위기 대응, 대표의 판단 방식을 실무 안에서 지켜보게 됩니다.</p>
-          <p>이보다 정확한 실사는 없다고 판단합니다.<br>자료는 준비할 수 있지만, 마감 앞에서의 실행력은 준비할 수 없기 때문입니다.<br>그 과정에서 기준을 충족하는 팀에 한해, 별도의 투자 검토를 제안합니다.</p>
-          <p>신청 절차는 없습니다.<br>컨설팅 수행 중 자연스럽게 이루어지는 검증의 결과로만 제안되며, 제안 빈도는 의도적으로 낮게 유지합니다.<br>검토가 시작되더라도 조건 협의와 계약은 컨설팅과 완전히 분리된 별도 절차로 진행됩니다.</p>
-          <div class="inv-rules">
-            <div class="h">검토 원칙 · 네 가지는 고정입니다</div>
-            <ul>
-              <li>투자 검토는 컨설팅 계약 여부·비용·결과물에 어떠한 영향도 주지 않습니다.</li>
-              <li>투자를 조건이나 유인으로 컨설팅을 권유하지 않습니다. 검토를 원치 않으시면 그 의사가 우선합니다.</li>
-              <li>컨설팅 과정에서 취득한 모든 정보는 투자 검토 여부와 무관하게 비밀이 유지됩니다.</li>
-              <li>본 안내는 투자 권유가 아니며, 모든 투자는 별도 실사와 계약에 따릅니다.</li>
-            </ul>
-          </div>
-        </div>
-
-        <div>
-          <div class="inv-box">
-            <div class="ib-h">검토 개요</div>
-            <ul class="ib-b">
-              <li><i>·</i><div><b>투자 주체</b><p>대표 컨설턴트 개인 직접 투자</p></div></li>
-              <li><i>·</i><div><b>대상 단계</b><p>초기 단계 중심. 지원금·매출과 결합된 자본 설계가 가능한 팀</p></div></li>
-              <li><i>·</i><div><b>제안 빈도</b><p>연간 소수. 기준 미충족 시 제안하지 않습니다</p></div></li>
-              <li><i>·</i><div><b>검토 기간</b><p>제안 후 통상 2~4주. 컨설팅 일정에 영향 없음</p></div></li>
-            </ul>
-          </div>
-          <div class="inv-box" style="margin-top:14px">
-            <div class="ib-h">검토 기준 · 세 가지를 봅니다</div>
-            <ul class="ib-b">
-              <li><i>01</i><div><b>문제의 크기와 실증</b><p>시장이 실제로 존재하는가. 가설이 아니라 초기 지표나 실사용 근거가 있는가.</p></div></li>
-              <li><i>02</i><div><b>실현 가능성</b><p>이 팀이 이 문제를 풀 자격이 있는가. 기술, 도메인 경험, 그리고 컨설팅 중 직접 확인한 실행 이력으로 판단합니다.</p></div></li>
-              <li><i>03</i><div><b>자본 효율 구조</b><p>지원금, 매출, 투자금이 결합했을 때 성장이 설계되는가. 돈이 어디서 일하는지를 봅니다.</p></div></li>
-            </ul>
-          </div>
-          <div class="inv-box" style="margin-top:14px">
-            <div class="ib-h">검토 절차 · 제안부터 계약까지</div>
-            <ul class="ib-b">
-              <li><i>1</i><div><b>수행 중 검증</b><p>컨설팅 과정 자체가 실사의 일부가 됩니다. 별도 요청 사항 없음.</p></div></li>
-              <li><i>2</i><div><b>내부 검토</b><p>기준 세 가지에 대한 자체 판단. 이 단계는 고객에게 통지되지 않습니다.</p></div></li>
-              <li><i>3</i><div><b>검토 제안</b><p>기준 충족 시에만 별도 미팅을 제안합니다. 거절해도 컨설팅에 어떤 영향도 없습니다.</p></div></li>
-              <li><i>4</i><div><b>조건 협의 · 별도 계약</b><p>실사, 조건, 계약 전부 컨설팅과 독립된 절차로 진행합니다.</p></div></li>
-            </ul>
-          </div>
-        </div>
+      <div class="inv2-specs">
+        <div><span>투자 주체</span><b>대표 개인 자본</b></div>
+        <div><span>대상 단계</span><b>Seed 주력</b></div>
+        <div><span>투자 분야</span><b>전 분야</b></div>
+        <div><span>투자 규모</span><b>5,000만원 이상</b></div>
+        <div><span>검토 기간</span><b>통상 2~4주</b></div>
       </div>
+
+      <div class="inv2-crit">
+        <b>부담 없이 신청하세요.</b>
+        <p>거창한 자료나 완성된 지표가 없어도 괜찮습니다. 지금 하고 있는 사업을 있는 그대로 보여주시면 대표가 직접 검토하고, 결과는 통상 2~4주 안에 회신드립니다.</p>
+      </div>
+
+      <div class="inv2-apply">
+        <div class="ia-txt">
+          <b>신청 방법</b>
+          <p>아래 미팅 신청 폼에서 관심 영역을 '투자 검토'로 선택하면 됩니다. IR 자료는 없어도 됩니다. 대신 소개란에 지금 상황을 구체적으로 적어주세요. 무엇을 하는 사업인지, 매출이나 성과가 있다면 어느 정도인지, 투자금은 어디에 쓸 계획인지 정도면 충분합니다. 구체적일수록 검토가 빨라집니다.</p>
+        </div>
+        <a href="#b-book" class="inv2-cta">투자 검토 신청</a>
+      </div>
+
+      <p class="inv2-fine">투자 검토는 컨설팅 계약·비용·결과물에 영향을 주지 않으며, 제출된 정보는 검토 외 목적에 사용하지 않습니다. 본 안내는 투자 권유가 아니며, 모든 투자는 별도 실사와 계약에 따릅니다.</p>
     </div>
   </section>
 
@@ -4531,7 +4533,7 @@ a:focus-visible,summary:focus-visible,button:focus-visible{outline:2px solid cur
         <details><summary>비용은 언제, 어떻게 내나요?</summary><div class="ans">미팅에서 범위와 금액을 확정하고 계약합니다. 결제는 계약 이후입니다. 표기된 금액은 전부 최소 기준이며, 공고 규모·마감 일정·작업량에 따라 조정됩니다. 견적에 없는 비용은 이후 청구하지 않습니다.</div></details>
         <details><summary>지방인데 대면이 어렵습니다.</summary><div class="ans">사업자 컨설팅은 화상·서면 협업이 가능합니다. 발표 모의훈련만 일정을 조율해 대면으로 진행하기도 합니다. 상황에 맞춰 조정합니다.</div></details>
         <details><summary>직접 해보신 경험이 있나요?</summary><div class="ans">있습니다. 예비창업패키지부터 청년창업사관학교, 디딤돌 R&D, 글로벌 기업 협업 프로그램, 지자체 지원사업까지 중앙·지방 50회 이상을 신청자·수행자·정산 당사자로 직접 겪었고, 누적 10억 원 규모의 지원금을 확보했으며, 환수 위기 사안들을 심의 대응으로 방어해 왔습니다(최근 사례 2,500만원 규모, 환수 0원 종결). 컨설팅은 지금까지 200회 이상 진행했고 선정률은 96%(자체 집계)입니다. 2025년에는 주한미국대사관 창업경진대회를 직접 주최해 글로벌 창업팀 10팀을 선발하고 데모데이까지 운영했습니다. 신청자와 심사자, 양쪽의 경험으로 컨설팅합니다.</div></details>
-        <details><summary>투자 검토는 어떻게 받을 수 있나요?</summary><div class="ans">신청하는 구조가 아닙니다. 컨설팅 수행 과정에서 기준(문제의 크기와 실증, 실현 가능성, 자본 효율 구조)을 충족한다고 판단되는 팀에 한해 저희가 먼저 별도 미팅을 제안합니다. 투자 검토 여부는 컨설팅 계약·비용·결과물에 어떠한 영향도 주지 않으며, 본 안내는 투자 권유가 아닙니다.</div></details>
+        <details><summary>투자 검토는 어떻게 신청하나요?</summary><div class="ans">미팅 신청 폼에서 관심 영역을 '투자 검토'로 선택하면 됩니다. IR 자료는 없어도 되고, 정해진 형식도 없습니다. 대신 소개란에 지금 상황을 구체적으로 적어주세요. 무엇을 하는 사업인지, 매출이나 성과가 있다면 어느 정도인지, 투자금은 어디에 쓸 계획인지 정도면 충분합니다. 대표가 개인 자본으로 직접 투자하며 Seed 단계 주력, 전 분야, 건당 5,000만원 이상, 연간 3팀 내외로 집행합니다. 검토 결과는 통상 2~4주 안에 회신드리고, 컨설팅 고객 여부와 무관하게 누구나 신청할 수 있습니다. 본 안내는 투자 권유가 아니며, 모든 투자는 별도 실사와 계약에 따릅니다.</div></details>
         <details><summary>정산 관리는 왜 필요한가요?</summary><div class="ans">선정 후 사업비를 기준에 안 맞게 쓰면 환수됩니다. 증빙 누락, 집행 기준 위반, 보고서 미비. 선정 기업이 실제로 가장 많이 무너지는 지점입니다. 매달 챙길 것을 대신 챙기는 서비스입니다.</div></details>
       </div>
     </div>
@@ -4555,7 +4557,7 @@ a:focus-visible,summary:focus-visible,button:focus-visible{outline:2px solid cur
         </div>
         <div class="frow">
           <div><label>현재 단계</label><select name="단계"><option>예비창업 (사업자등록 전)</option><option>초기 창업기업 (3년 이내)</option><option>도약 · 성장기업 (3~7년)</option><option>기술 · R&D 보유</option><option>기타 · 잘 모르겠음</option></select></div>
-          <div><label>관심 영역</label><select name="관심"><option>공고 추천부터 (아무 정보 없음)</option><option>사업계획서 초안 작성</option><option>서류평가 컨설팅</option><option>발표평가 컨설팅</option><option>정산 · 사후관리</option><option>R&D 과제 기획</option><option>정책자금 · 보증</option><option>패키지 (전 구간)</option></select></div>
+          <div><label>관심 영역</label><select name="관심"><option>공고 추천부터 (아무 정보 없음)</option><option>사업계획서 초안 작성</option><option>서류평가 컨설팅</option><option>발표평가 컨설팅</option><option>정산 · 사후관리</option><option>R&D 과제 기획</option><option>정책자금 · 보증</option><option>패키지 (전 구간)</option><option>투자 검토 (Seed)</option></select></div>
         </div>
         <div class="frow">
           <div><label>희망 미팅 방식</label><select name="미팅"><option>대면</option><option>화상</option><option>전화</option></select></div>
@@ -5163,6 +5165,21 @@ a:focus-visible,summary:focus-visible,button:focus-visible{outline:2px solid cur
 
   bindForm('pForm','pFormMsg','인생 상담 신청','personal');
   bindForm('bForm','bFormMsg','정부지원 컨설팅 미팅 신청','business');
+  /* 투자 검토 선택 시 소개란 안내 전환 */
+  (function(){
+    var bf=document.getElementById('bForm');if(!bf)return;
+    var sel=bf.querySelector('select[name="관심"]');
+    var ta=bf.querySelector('textarea[name="소개"]');
+    if(!sel||!ta)return;
+    var orig=ta.getAttribute('placeholder');
+    sel.addEventListener('change',function(){
+      if(/투자 검토/.test(sel.value)){
+        ta.setAttribute('placeholder','무엇을 하는 사업인지, 매출이나 성과가 있다면 어느 정도인지, 투자금은 어디에 쓸 계획인지 편하게 적어주세요. 구체적일수록 검토가 빨라집니다.');
+      } else {
+        ta.setAttribute('placeholder',orig);
+      }
+    });
+  })();
 
   /* FAQ 단일 개방 */
   document.addEventListener('toggle', function(e){
