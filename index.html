@@ -1974,6 +1974,20 @@ a,button,.card,.chip{-webkit-tap-highlight-color:transparent}
 .t-business .rec .rec-t,.t-business .rec .rec-p,.t-business .rec .num{color:#fff}
 .t-business .rec .rec-d,.t-business .rec .rec-m{color:#DCD8D2}
 
+/* ============================================================
+   덜어내기 개편 (2026-08-04) — 첫 화면의 결정은 하나, 나머지는 접는다.
+   ============================================================ */
+.t-personal [hidden],.t-business [hidden]{display:none!important}
+.hero-fact{margin-top:clamp(18px,2vw,26px);font-size:.875rem;font-weight:600;letter-spacing:.01em}
+.t-personal .sec.hero .hero-fact,.t-business .sec.hero .hero-fact{color:#B4B7BC}
+.xp{display:inline-flex;align-items:center;gap:10px;background:none;border:1px solid var(--line);
+  border-radius:999px;padding:12px 24px;font:inherit;font-size:.9063rem;font-weight:700;color:var(--fg);
+  cursor:pointer;min-height:48px;transition:border-color .2s var(--ease)}
+.xp:hover{border-color:var(--fg)}
+.xp i{font-style:normal;color:var(--acc);font-weight:800}
+.items-grid .xp{grid-column:1/-1;justify-self:center;margin-top:6px}
+.qa-more{margin-top:clamp(16px,1.8vw,24px);text-align:center}
+
 </style>
 <script type="application/ld+json">
 {
@@ -2082,55 +2096,15 @@ a,button,.card,.chip{-webkit-tap-highlight-color:transparent}
       <p class="p">친구는 내 편을 들고 가족은 안전한 쪽을 권합니다.<br>돈이든 관계든, 아는 사람에게 물으면 답이 기웁니다.</p>
       <div class="hero-cta">
         <a class="btn" href="#p-apply-sec">상담 신청 <span class="arw">&rsaquo;</span></a>
-        <a class="btn ghost" href="#p-items">상담 종류 먼저 보기</a>
       </div>
-      <p class="fine hero-mfacts num">확인 상담 30분 10만원 · 24시간 안 답</p>
-      <p class="hero-line">편들지 않는 제3자 · 듣기가 아니라 판단 · 한 자리에서 끝</p>
-      <a class="hero-proof" href="https://www.instagram.com/maisonelite_official/" target="_blank" rel="noopener">판단 기준은 공개되어 있습니다 · @maisonelite_official <span class="arw">&rsaquo;</span></a>
-      <aside class="hero-card">
-        <div class="hc-row"><span class="hc-k">상담료</span><span class="hc-v num">10만원부터</span></div>
-        <div class="hc-row"><span class="hc-k">가장 짧은 자리</span><span class="hc-v">30분</span></div>
-        <div class="hc-row"><span class="hc-k">답변</span><span class="hc-v">24시간 안</span></div>
-        <div class="hc-row"><span class="hc-k">결제</span><span class="hc-v">계좌이체 · 선결제</span></div>
-        <a class="btn btn-inv hc-btn" href="#p-apply-sec">바로 물어보기 <span class="arw">&rsaquo;</span></a>
-        <p class="hc-note">오픈채팅으로 연결됩니다.<br>비용은 상담 종류가 정해진 뒤에 냅니다.</p>
-      </aside>
-    </div>
-  </div>
-</section>
-
-<section class="sec" id="p-pickup">
-  <div class="secno" aria-hidden="true">01</div>
-  <div class="row">
-    <div class="k">상황 고르기</div>
-    <div class="v">
-      <div class="sec-head"><h2 class="d2">어떤 상황에<br>가까우십니까</h2>
-        <p class="p">두 가지만 고르시면 맞는 상담과 문의 양식까지 나옵니다.</p></div>
-      <div class="pick rv js-pick" style="margin-top:clamp(22px,2.6vw,34px)">
-        <div class="wz-q"><span class="wz-n">1</span><span class="wz-t">상황</span></div>
-        <div class="chips">
-          <button class="chip" aria-pressed="true">마음은 정했는데 확신이 없습니다<span class="cn">할지 말지, 그리고 실제로 할 말</span></button>
-          <button class="chip">몇 달째 같은 자리에서 맴돕니다<span class="cn">남을지 나갈지, 이직 제안, 억울한 일</span></button>
-          <button class="chip">둘이서는 매번 같은 데서 막힙니다<span class="cn">연인, 부부, 동업 예정자, 형제</span></button>
-          <button class="chip">한 번에 안 끝날 걸 이미 압니다<span class="cn">정하고, 고르고, 조건까지</span></button>
-          <button class="chip">액수가 커서 결정이 무섭습니다<span class="cn">미리 읽어야 할 게 있는 상태</span></button>
-          <button class="chip">무엇부터 물어야 할지 모르겠습니다<span class="cn">기본값 60분</span></button>
-        </div>
-        <div class="wz-q"><span class="wz-n">2</span><span class="wz-t">기한</span></div>
-        <div class="whens">
-          <button class="when-pill" type="button">이번 주 안</button>
-          <button class="when-pill" type="button">이번 달 안</button>
-          <button class="when-pill" type="button">기한은 없지만 계속 맴돕니다</button>
-        </div>
-        <div class="rec js-rec" aria-live="polite" style="margin-top:clamp(18px,2vw,26px)"></div>
-      </div>
+      <p class="fine hero-fact num">확인 상담 30분 10만원 · 답변 24시간 안 · 여의도 대면 또는 화상</p>
     </div>
   </div>
 </section>
 
 
 <section class="sec s-cases" id="p-cases">
-  <div class="secno" aria-hidden="true">02</div>
+  <div class="secno" aria-hidden="true">01</div>
   <div class="row">
     <div class="k">판정 기록</div>
     <div class="v">
@@ -2167,7 +2141,7 @@ a,button,.card,.chip{-webkit-tap-highlight-color:transparent}
 </section>
 
 <section class="sec s-items" id="p-items">
-  <div class="secno" aria-hidden="true">03</div>
+  <div class="secno" aria-hidden="true">02</div>
   <div class="row">
     <div class="k">상담 종류</div>
     <div class="v">
@@ -2203,7 +2177,7 @@ a,button,.card,.chip{-webkit-tap-highlight-color:transparent}
           <div class="c-hint">눌러서 어떤 자리인지 보기</div><div class="det">같이 앉아 같은 말을 듣습니다.<br><b>전달 과정에서 말이 바뀌지 않습니다.</b></div>
           <a class="c-go" href="#p-apply-sec">이 자리로 신청 <span class="arw">&rsaquo;</span></a>
         </article>
-        <article class="card">
+        <article class="card" hidden>
           <div class="c-top"><span class="c-nm">3회권</span><span class="c-cfg">1시간 × 3회 · 3개월 내</span>
             <span class="c-pr"><span class="num" data-man="50"></span><span class="was num">50만원</span><small>1회 60분씩 3회</small></span></div>
           <div class="bar">
@@ -2215,7 +2189,7 @@ a,button,.card,.chip{-webkit-tap-highlight-color:transparent}
           <div class="c-hint">눌러서 어떤 자리인지 보기</div><div class="det">나갈지 정하고, 어디로 갈지 정하고, 조건까지.<br>세 번에 나눠 단계별로 정합니다.</div>
           <a class="c-go" href="#p-apply-sec">이 자리로 신청 <span class="arw">&rsaquo;</span></a>
         </article>
-        <article class="card">
+        <article class="card" hidden>
           <div class="c-top"><span class="c-nm">심층 상담</span><span class="c-cfg">2시간 · 자료 사전 검토</span>
             <span class="c-pr"><span class="num" data-man="80"></span><span class="was num">80만원</span></span></div>
           <div class="bar"><i class="seg" style="width:66.7%"></i></div>
@@ -2223,6 +2197,7 @@ a,button,.card,.chip{-webkit-tap-highlight-color:transparent}
           <div class="c-hint">눌러서 어떤 자리인지 보기</div><div class="det">보내주신 자료를 미리 읽고 들어갑니다.<br><b>볼 것을 추려 두 시간 안에 결론까지 갑니다.</b></div>
           <a class="c-go" href="#p-apply-sec">이 자리로 신청 <span class="arw">&rsaquo;</span></a>
         </article>
+        <button type="button" class="xp js-morecards" aria-expanded="false">다른 자리 2종 더 보기 <i>+</i></button>
       </div>
       
     </div>
@@ -2230,45 +2205,38 @@ a,button,.card,.chip{-webkit-tap-highlight-color:transparent}
 </section>
 
 
-<section class="sec bleed s-calc" id="p-calc">
-  <div class="secno" aria-hidden="true">04</div>
-  <div class="stage">
-    <div class="row">
-      <div class="k">지금까지 든 값</div>
-      <div class="v">
-        <div class="calc rv">
-          <div>
-            <h2 class="d2">그동안 얼마나<br>쓰셨는지 보십시오</h2>
-            <div class="q-blocks">
-              <div class="q-block">
-                <div class="q-line"><span class="q-n">1</span><span class="q-t">이 고민, 시작한 지 얼마나 되셨습니까</span></div>
-                <div class="q-val js-amt"></div>
-                <input class="rng js-range" type="range" min="1" max="24" step="1" value="6" aria-label="고민 시작한 지">
-                <div class="marks marks-abs"><span>1개월</span><span style="left:21.7%">6개월</span><span style="left:47.8%">1년</span><span>2년</span></div>
-              </div>
-              <div class="q-block">
-                <div class="q-line"><span class="q-n">2</span><span class="q-t">하루에 이 일로 스트레스 받는 시간</span></div>
-                <div class="q-val js-hrs"></div>
-                <input class="rng js-range2" type="range" min="1" max="6" step="1" value="2" aria-label="하루 소요 시간">
-                <div class="marks marks-abs"><span>1시간</span><span style="left:40%">3시간</span><span>6시간</span></div>
-              </div>
-            </div>
-            <span class="js-bar" hidden></span>
-          </div>
-          <div aria-live="polite">
-            <div class="fine">그 시간을 돈으로 치면</div>
-            <div class="big num js-pct" style="margin-top:10px"></div>
-            <p class="p js-say" style="margin-top:22px"></p>
-            <div style="margin-top:30px"><a class="btn" href="#p-apply-sec">상담 신청 <span class="arw">&rsaquo;</span></a></div>
-          </div>
+<section class="sec" id="p-pickup">
+  <div class="secno" aria-hidden="true">03</div>
+  <div class="row">
+    <div class="k">길잡이</div>
+    <div class="v">
+      <div class="sec-head"><h2 class="d2">뭘 골라야 할지<br>모르시겠다면</h2>
+        <p class="p">상황과 기한만 고르시면 맞는 상담과 문의 양식까지 나옵니다.</p></div>
+      <button type="button" class="xp js-xp" aria-expanded="false" style="margin-top:clamp(20px,2.4vw,30px)">상황과 기한 고르기 <i>+</i></button>
+      <div class="pick rv js-pick" hidden style="margin-top:clamp(22px,2.6vw,34px)">
+        <div class="wz-q"><span class="wz-n">1</span><span class="wz-t">상황</span></div>
+        <div class="chips">
+          <button class="chip" aria-pressed="true">마음은 정했는데 확신이 없습니다<span class="cn">할지 말지, 그리고 실제로 할 말</span></button>
+          <button class="chip">몇 달째 같은 자리에서 맴돕니다<span class="cn">남을지 나갈지, 이직 제안, 억울한 일</span></button>
+          <button class="chip">둘이서는 매번 같은 데서 막힙니다<span class="cn">연인, 부부, 동업 예정자, 형제</span></button>
+          <button class="chip">한 번에 안 끝날 걸 이미 압니다<span class="cn">정하고, 고르고, 조건까지</span></button>
+          <button class="chip">액수가 커서 결정이 무섭습니다<span class="cn">미리 읽어야 할 게 있는 상태</span></button>
+          <button class="chip">무엇부터 물어야 할지 모르겠습니다<span class="cn">기본값 60분</span></button>
         </div>
+        <div class="wz-q"><span class="wz-n">2</span><span class="wz-t">기한</span></div>
+        <div class="whens">
+          <button class="when-pill" type="button">이번 주 안</button>
+          <button class="when-pill" type="button">이번 달 안</button>
+          <button class="when-pill" type="button">기한은 없지만 계속 맴돕니다</button>
+        </div>
+        <div class="rec js-rec" aria-live="polite" style="margin-top:clamp(18px,2vw,26px)"></div>
       </div>
     </div>
   </div>
 </section>
 
 <section class="sec s-faq" id="p-faq">
-  <div class="secno" aria-hidden="true">05</div>
+  <div class="secno" aria-hidden="true">04</div>
   <div class="row">
     <div class="k">문답</div>
     <div class="v">
@@ -2277,27 +2245,29 @@ a,button,.card,.chip{-webkit-tap-highlight-color:transparent}
         <div class="qa-col">
         <div class="q open"><button type="button" aria-expanded="true">어떤 고민까지 되나요<i>+</i></button><div class="a"><p>혼자 정하기 어려운 일이면 됩니다.<br>이직, 창업, 집, 돈, 관계, 가족 문제까지 다룹니다.<br><b>되는 고민인지 헷갈리시면 먼저 물어보셔도 됩니다.</b></p></div></div>
         <div class="q"><button type="button" aria-expanded="false">확인 상담이랑 결정 상담, 뭐가 다른가요<i>+</i></button><div class="a"><p>답은 정했는데 확인만 필요하면 확인 상담(30분)입니다.<br>어느 쪽인지부터 정해야 하면 결정 상담(60분)입니다.<br><b>보내주신 내용을 보고 맞는 것으로 골라 드립니다.</b></p></div></div>
-        <div class="q"><button type="button" aria-expanded="false">상담 끝나면 뭐가 남나요<i>+</i></button><div class="a"><p>결론과 그렇게 본 이유가 남습니다.<br>그 자리에서 바로 정리해 드립니다.<br><b>필요하시면 정리한 내용을 적어 드립니다.</b></p></div></div>
-        <div class="q"><button type="button" aria-expanded="false">심리 상담이랑 뭐가 다른가요<i>+</i></button><div class="a"><p>심리 상담은 마음 상태를 다룹니다.<br>여기는 어느 쪽으로 갈지를 다룹니다.<br><b>결론까지 내고 끝납니다.</b></p></div></div>
+        <div class="q qx" hidden><button type="button" aria-expanded="false">상담 끝나면 뭐가 남나요<i>+</i></button><div class="a"><p>결론과 그렇게 본 이유가 남습니다.<br>그 자리에서 바로 정리해 드립니다.<br><b>필요하시면 정리한 내용을 적어 드립니다.</b></p></div></div>
+        <div class="q qx" hidden><button type="button" aria-expanded="false">심리 상담이랑 뭐가 다른가요<i>+</i></button><div class="a"><p>심리 상담은 마음 상태를 다룹니다.<br>여기는 어느 쪽으로 갈지를 다룹니다.<br><b>결론까지 내고 끝납니다.</b></p></div></div>
         </div>
         <div class="qa-col">
         <div class="q"><button type="button" aria-expanded="false">취소하면 환불되나요<i>+</i></button><div class="a"><p>일정을 잡기 전이면 전액 돌려드립니다.<br>3영업일 이전 취소는 80%, 그 이후는 50%입니다.<br>일정 변경은 1회까지 무료, 두 번째부터는 30%를 빼고 다시 잡습니다.<br><b>말씀 없이 안 오시면 환불은 없습니다.</b></p></div></div>
-        <div class="q"><button type="button" aria-expanded="false">나중에 또 물어봐도 되나요<i>+</i></button><div class="a"><p>카카오톡으로 물어보시면 됩니다.<br>그날 정한 내용을 확인하는 건 추가 비용 없이 답해 드립니다.<br><b>새로 정할 게 생기면 그때 다시 자리를 잡습니다.</b></p></div></div>
-        <div class="q"><button type="button" aria-expanded="false">제 얘기가 밖으로 나갈 일은 없나요<i>+</i></button><div class="a"><p>보안은 철저히 유지됩니다.<br>실명이나 회사명을 밝히실 필요도 없습니다.<br><b>주고받은 내용은 1년 뒤 지웁니다.</b></p></div></div>
+        <div class="q qx" hidden><button type="button" aria-expanded="false">나중에 또 물어봐도 되나요<i>+</i></button><div class="a"><p>카카오톡으로 물어보시면 됩니다.<br>그날 정한 내용을 확인하는 건 추가 비용 없이 답해 드립니다.<br><b>새로 정할 게 생기면 그때 다시 자리를 잡습니다.</b></p></div></div>
+        <div class="q qx" hidden><button type="button" aria-expanded="false">제 얘기가 밖으로 나갈 일은 없나요<i>+</i></button><div class="a"><p>보안은 철저히 유지됩니다.<br>실명이나 회사명을 밝히실 필요도 없습니다.<br><b>주고받은 내용은 1년 뒤 지웁니다.</b></p></div></div>
         <div class="q"><button type="button" aria-expanded="false">지방에 살아도 되나요<i>+</i></button><div class="a"><p>화상으로 하시면 됩니다.<br>전 상담 모두 대면과 화상 중에 고르실 수 있습니다.<br><b>대면만 서울 여의도입니다.</b></p></div></div>
         </div>
       </div>
+      <div class="qa-more"><button type="button" class="xp js-morefaq" aria-expanded="false">질문 4개 더 보기 <i>+</i></button></div>
       <p class="foot-note">의료 행위나 심리 치료가 아니라 결정을 정리하는 자리입니다.<br>진단, 처방, 소송 대리, 투자 권유는 하지 않습니다.</p>
     </div>
   </div>
 </section>
 
 <section class="sec" id="p-apply-sec">
-  <div class="secno" aria-hidden="true">06</div>
+  <div class="secno" aria-hidden="true">05</div>
   <div class="row">
     <div class="k">신청</div>
     <div class="v">
-      <div class="sec-head"><h2 class="d2">지금 상황만<br>적어 주십시오</h2></div>
+      <div class="sec-head"><h2 class="d2">지금 상황만<br>적어 주십시오</h2>
+        <p class="p">몇 달째 같은 고민을 들고 계셨다면, 이미 상담료보다 비싸게 치르고 있는 겁니다.</p></div>
       <div class="form rv" style="margin-top:clamp(30px,3.6vw,48px)">
         <div>
           <div class="ask js-applybox">
@@ -2408,56 +2378,15 @@ a,button,.card,.chip{-webkit-tap-highlight-color:transparent}
       <h2 class="d1">이해관계 없는 사람이<br>필요한 겁니다</h2>
       <p class="p">임원은 자기 자리가 걸려서 답이 기웁니다.<br>사람이든 조직이든, 안에서 물으면 판단이 아니라 정치가 됩니다.</p>
       <div class="hero-cta">
-        <a class="btn" href="#b-apply-sec">첫 상담 잡기 <span class="arw">&rsaquo;</span></a>
-        <a class="btn ghost" href="#b-items">상담 종류 먼저 보기</a>
+        <a class="btn" href="#b-apply-sec">상담 문의 <span class="arw">&rsaquo;</span></a>
       </div>
-      <p class="fine hero-mfacts num">첫 상담 90분 100만원 · 24시간 안 답</p>
-      <p class="hero-line">사내 이해관계 없음 · 듣기가 아니라 판단 · 사안 단위로 종결</p>
-      <a class="hero-proof" href="https://www.instagram.com/maisonelite_official/" target="_blank" rel="noopener">판단 기준은 공개되어 있습니다 · @maisonelite_official <span class="arw">&rsaquo;</span></a>
-      <aside class="hero-card">
-        <div class="hc-row"><span class="hc-k">첫 상담</span><span class="hc-v num">100만원<small>+VAT</small></span></div>
-        <div class="hc-row"><span class="hc-k">가장 짧은 자리</span><span class="hc-v">90분</span></div>
-        <div class="hc-row"><span class="hc-k">답변</span><span class="hc-v">24시간 안</span></div>
-        <div class="hc-row"><span class="hc-k">결제</span><span class="hc-v">전액 선결제</span></div>
-        <a class="btn btn-inv hc-btn" href="#b-apply-sec">사안 보내기 <span class="arw">&rsaquo;</span></a>
-        <p class="hc-note">문의 단계에서는 결제가 없습니다.<br>사안을 보고 맞는 자리를 알려드립니다.</p>
-      </aside>
-    </div>
-  </div>
-</section>
-
-<section class="sec" id="b-pickup">
-  <div class="secno" aria-hidden="true">01</div>
-  <div class="row">
-    <div class="k">상황 고르기</div>
-    <div class="v">
-      <div class="sec-head"><h2 class="d2">지금 무엇이<br>안 돌아갑니까</h2>
-        <p class="p">두 가지만 고르시면 맞는 자리와 문의 양식까지 나옵니다.</p></div>
-      <div class="pick rv js-pick" style="margin-top:clamp(22px,2.6vw,34px)">
-        <div class="wz-q"><span class="wz-n">1</span><span class="wz-t">상황</span></div>
-        <div class="chips">
-          <button class="chip" aria-pressed="true">뭐가 문제인지 정리가 안 됩니다<span class="cn">A인 줄 알았는데 실제로는 B</span></button>
-          <button class="chip">이력서는 좋은데 확신이 안 섭니다<span class="cn">임원, 핵심 인력 채용</span></button>
-          <button class="chip">스무 명을 넘기면서 안 돌아가기 시작했습니다<span class="cn">뽑으면 나가고, 남은 사람은 지쳐 있는 상태</span></button>
-          <button class="chip">세대 차이로 매일 부딪힙니다<span class="cn">9시 출근, 인사, 회식</span></button>
-          <button class="chip">결정을 미룬 지 몇 달 됐습니다<span class="cn">임원 회의에서 결론이 안 남</span></button>
-          <button class="chip">대표는 정했는데 임원이 안 움직입니다<span class="cn">지시가 아니라 판단이 필요함</span></button>
-          <button class="chip">결정이 계속 생기는데 매번 혼자 정합니다<span class="cn">판단을 기록으로 남기는 구조</span></button>
-        </div>
-        <div class="wz-q"><span class="wz-n">2</span><span class="wz-t">기한</span></div>
-        <div class="whens">
-          <button class="when-pill" type="button">이번 주 안</button>
-          <button class="when-pill" type="button">이번 달 안</button>
-          <button class="when-pill" type="button">기한 없이 계속 도는 중</button>
-        </div>
-        <div class="rec js-rec" aria-live="polite" style="margin-top:clamp(18px,2vw,26px)"></div>
-      </div>
+      <p class="fine hero-fact num">첫 상담 90분 100만원 · 답변 24시간 안 · 문의 시 결제 없음</p>
     </div>
   </div>
 </section>
 
 <section class="sec s-cases" id="b-cases">
-  <div class="secno" aria-hidden="true">02</div>
+  <div class="secno" aria-hidden="true">01</div>
   <div class="row">
     <div class="k">판정 기록</div>
     <div class="v">
@@ -2494,7 +2423,7 @@ a,button,.card,.chip{-webkit-tap-highlight-color:transparent}
 </section>
 
 <section class="sec s-items" id="b-items">
-  <div class="secno" aria-hidden="true">03</div>
+  <div class="secno" aria-hidden="true">02</div>
   <div class="row">
     <div class="k">상담 종류</div>
     <div class="v">
@@ -2529,7 +2458,7 @@ a,button,.card,.chip{-webkit-tap-highlight-color:transparent}
           <div class="c-hint">눌러서 어떤 자리인지 보기</div><div class="det"><b>직원 스무 명을 넘기면서 안 돌아가기 시작했습니다.</b> 뽑으면 나가고, 남은 사람은 지쳐 있습니다. 제도가 아니라 <b>사람이 실제로 어떻게 움직이는지</b>를 말씀드립니다.</div>
           <a class="c-go" href="#b-apply-sec">이 자리로 신청 <span class="arw">&rsaquo;</span></a>
         </article>
-        <article class="card">
+        <article class="card" hidden>
           <div class="c-top"><span class="c-nm">기업 강연</span><span class="c-cfg">2시간 · 임직원 대상</span>
             <span class="c-pr"><span class="num" data-man="200"></span><span class="was num">200만원</span></span><span class="c-vat">VAT 별도</span></div>
           <div class="bar"><i class="seg" style="width:50%"></i></div>
@@ -2537,7 +2466,7 @@ a,button,.card,.chip{-webkit-tap-highlight-color:transparent}
           <div class="c-hint">눌러서 어떤 자리인지 보기</div><div class="det">9시 출근, 인사, 회식, 세대 차이. 임직원 전체가 매일 겪는 얘기입니다. <b>어느 세대 편도 들지 않습니다.</b></div>
           <a class="c-go" href="#b-apply-sec">이 자리로 신청 <span class="arw">&rsaquo;</span></a>
         </article>
-        <article class="card">
+        <article class="card" hidden>
           <div class="c-top"><span class="c-nm">경영 상담</span><span class="c-cfg">3시간 · 결정 사안 하나</span>
             <span class="c-pr"><span class="num" data-man="300"></span><span class="was num">300만원</span></span><span class="c-vat">VAT 별도</span></div>
           <div class="bar"><i class="seg" style="width:75%"></i></div>
@@ -2545,7 +2474,7 @@ a,button,.card,.chip{-webkit-tap-highlight-color:transparent}
           <div class="c-hint">눌러서 어떤 자리인지 보기</div><div class="det">결정을 미룬 지 몇 달 됐습니다. 임원 회의에서 결론이 안 나실 때. 세 시간 동안 그 사안 하나만 놓고, <b>결론과 그렇게 본 이유까지 정리해 드립니다.</b></div>
           <a class="c-go" href="#b-apply-sec">이 자리로 신청 <span class="arw">&rsaquo;</span></a>
         </article>
-        <article class="card">
+        <article class="card" hidden>
           <div class="c-top"><span class="c-nm">임원 동석</span><span class="c-cfg">3시간 · 대표 + 임원 1~2인</span>
             <span class="c-pr"><span class="num" data-man="350"></span><span class="was num">350만원</span></span><span class="c-vat">VAT 별도</span></div>
           <div class="bar"><i class="seg" style="width:75%"></i></div>
@@ -2553,7 +2482,7 @@ a,button,.card,.chip{-webkit-tap-highlight-color:transparent}
           <div class="c-hint">눌러서 어떤 자리인지 보기</div><div class="det">대표님은 정하셨는데 임원이 안 움직일 때. 대표님이 하시면 지시가 되고, <b>제3자가 하면 판단이 됩니다.</b></div>
           <a class="c-go" href="#b-apply-sec">이 자리로 신청 <span class="arw">&rsaquo;</span></a>
         </article>
-        <article class="card">
+        <article class="card" hidden>
           <div class="c-top"><span class="c-nm">정기 자문</span><span class="c-cfg">반나절 · 분기 1회</span>
             <span class="c-pr"><span class="num" data-man="250" data-pre="회당 "></span><span class="was num">회당 250만원</span><small class="js-baseprice">연 1,000만원 · 임원 한 달 인건비</small></span><span class="c-vat">VAT 별도</span></div>
           <div class="bar"><i class="seg" style="width:100%"></i></div>
@@ -2561,6 +2490,7 @@ a,button,.card,.chip{-webkit-tap-highlight-color:transparent}
           <div class="c-hint">눌러서 어떤 자리인지 보기</div><div class="det">결정이 계속 생기는데 매번 혼자 정하고 계실 때. 상시 연락은 포함하지 않습니다. 판단한 내용이 기록으로 남아 <b>회사의 의사결정 이력</b>이 됩니다.</div>
           <a class="c-go" href="#b-apply-sec">이 자리로 신청 <span class="arw">&rsaquo;</span></a>
         </article>
+        <button type="button" class="xp js-morecards" aria-expanded="false">다른 자리 4종 더 보기 <i>+</i></button>
       </div>
 
     </div>
@@ -2568,45 +2498,39 @@ a,button,.card,.chip{-webkit-tap-highlight-color:transparent}
 </section>
 
 
-<section class="sec bleed s-calc" id="b-calc">
-  <div class="secno" aria-hidden="true">04</div>
-  <div class="stage">
-    <div class="row">
-      <div class="k">비용 감각</div>
-      <div class="v">
-        <div class="calc rv">
-          <div>
-            <h2 class="d2">그동안 얼마나<br>나갔는지 보십시오</h2>
-            <div class="q-blocks">
-              <div class="q-block">
-                <div class="q-line"><span class="q-n">1</span><span class="q-t">이 문제, 안 돌아간 지 얼마나 되셨습니까</span></div>
-                <div class="q-val js-amt"></div>
-                <input class="rng js-range" type="range" min="1" max="24" step="1" value="6" aria-label="문제가 시작된 지">
-                <div class="marks marks-abs"><span>1개월</span><span style="left:21.7%">6개월</span><span style="left:47.8%">1년</span><span>2년</span></div>
-              </div>
-              <div class="q-block">
-                <div class="q-line"><span class="q-n">2</span><span class="q-t">이 문제로 회사에서 하루에 흘러가는 시간</span></div>
-                <div class="q-val js-hrs"></div>
-                <input class="rng js-range2" type="range" min="1" max="12" step="1" value="4" aria-label="하루에 흘러가는 시간">
-                <div class="marks marks-abs"><span>1시간</span><span style="left:45.5%">6시간</span><span>12시간</span></div>
-              </div>
-            </div>
-            <span class="js-bar" hidden></span>
-          </div>
-          <div aria-live="polite">
-            <div class="fine">그 시간을 돈으로 치면</div>
-            <div class="big num js-pct" style="margin-top:10px"></div>
-            <p class="p js-say" style="margin-top:22px"></p>
-            <div style="margin-top:30px"><a class="btn" href="#b-apply-sec">첫 상담 잡기 <span class="arw">&rsaquo;</span></a></div>
-          </div>
+<section class="sec" id="b-pickup">
+  <div class="secno" aria-hidden="true">03</div>
+  <div class="row">
+    <div class="k">길잡이</div>
+    <div class="v">
+      <div class="sec-head"><h2 class="d2">뭘 골라야 할지<br>모르시겠다면</h2>
+        <p class="p">상황과 기한만 고르시면 맞는 상담과 문의 양식까지 나옵니다.</p></div>
+      <button type="button" class="xp js-xp" aria-expanded="false" style="margin-top:clamp(20px,2.4vw,30px)">상황과 기한 고르기 <i>+</i></button>
+      <div class="pick rv js-pick" hidden style="margin-top:clamp(22px,2.6vw,34px)">
+        <div class="wz-q"><span class="wz-n">1</span><span class="wz-t">상황</span></div>
+        <div class="chips">
+          <button class="chip" aria-pressed="true">뭐가 문제인지 정리가 안 됩니다<span class="cn">A인 줄 알았는데 실제로는 B</span></button>
+          <button class="chip">이력서는 좋은데 확신이 안 섭니다<span class="cn">임원, 핵심 인력 채용</span></button>
+          <button class="chip">스무 명을 넘기면서 안 돌아가기 시작했습니다<span class="cn">뽑으면 나가고, 남은 사람은 지쳐 있는 상태</span></button>
+          <button class="chip">세대 차이로 매일 부딪힙니다<span class="cn">9시 출근, 인사, 회식</span></button>
+          <button class="chip">결정을 미룬 지 몇 달 됐습니다<span class="cn">임원 회의에서 결론이 안 남</span></button>
+          <button class="chip">대표는 정했는데 임원이 안 움직입니다<span class="cn">지시가 아니라 판단이 필요함</span></button>
+          <button class="chip">결정이 계속 생기는데 매번 혼자 정합니다<span class="cn">판단을 기록으로 남기는 구조</span></button>
         </div>
+        <div class="wz-q"><span class="wz-n">2</span><span class="wz-t">기한</span></div>
+        <div class="whens">
+          <button class="when-pill" type="button">이번 주 안</button>
+          <button class="when-pill" type="button">이번 달 안</button>
+          <button class="when-pill" type="button">기한 없이 계속 도는 중</button>
+        </div>
+        <div class="rec js-rec" aria-live="polite" style="margin-top:clamp(18px,2vw,26px)"></div>
       </div>
     </div>
   </div>
 </section>
 
 <section class="sec s-faq" id="b-faq">
-  <div class="secno" aria-hidden="true">05</div>
+  <div class="secno" aria-hidden="true">04</div>
   <div class="row">
     <div class="k">자주 묻는 것</div>
     <div class="v">
@@ -2615,26 +2539,28 @@ a,button,.card,.chip{-webkit-tap-highlight-color:transparent}
         <div class="qa-col">
         <div class="q open"><button type="button" aria-expanded="true">법인 카드나 세금계산서로 결제되나요<i>+</i></button><div class="a"><p>세금계산서 발행됩니다.<br>사업자등록증과 담당자 이메일만 보내주시면 됩니다.<br><b>계좌이체와 법인카드 모두 가능합니다.</b></p></div></div>
         <div class="q"><button type="button" aria-expanded="false">비밀유지계약서를 써야 합니다<i>+</i></button><div class="a"><p>보내주시면 검토하고 서명해 드립니다.<br>따로 없으시면 저희 양식으로 진행합니다.<br><b>착수 전에 먼저 정리하고 시작합니다.</b></p></div></div>
-        <div class="q"><button type="button" aria-expanded="false">연간 계약을 해야 하나요<i>+</i></button><div class="a"><p>사안 하나씩 끊어서 진행합니다.<br>계속 볼 일이 생기면 그때 정기 자문으로 옮기시면 됩니다.<br><b>묶어서 팔지 않습니다.</b></p></div></div>
-        <div class="q"><button type="button" aria-expanded="false">법률이나 세무 자문인가요<i>+</i></button><div class="a"><p>아닙니다.<br>사람과 조직, 결정의 순서를 다룹니다.<br><b>법률 검토나 세무 처리는 하지 않습니다.</b></p></div></div>
+        <div class="q qx" hidden><button type="button" aria-expanded="false">연간 계약을 해야 하나요<i>+</i></button><div class="a"><p>사안 하나씩 끊어서 진행합니다.<br>계속 볼 일이 생기면 그때 정기 자문으로 옮기시면 됩니다.<br><b>묶어서 팔지 않습니다.</b></p></div></div>
+        <div class="q qx" hidden><button type="button" aria-expanded="false">법률이나 세무 자문인가요<i>+</i></button><div class="a"><p>아닙니다.<br>사람과 조직, 결정의 순서를 다룹니다.<br><b>법률 검토나 세무 처리는 하지 않습니다.</b></p></div></div>
         </div>
         <div class="qa-col">
         <div class="q"><button type="button" aria-expanded="false">일정을 못 맞추게 되면 어떻게 됩니까<i>+</i></button><div class="a"><p>착수금은 일정 확정 전이면 전액 돌려드립니다.<br>3영업일 이전 취소는 80%, 그 이후는 50%입니다.<br><b>일정 변경은 1회까지 무료입니다.</b></p></div></div>
-        <div class="q"><button type="button" aria-expanded="false">사내에서 이 얘기가 새면 곤란합니다<i>+</i></button><div class="a"><p>보안은 철저히 유지됩니다.<br>회사명을 밝히지 않으셔도 진행됩니다.<br><b>주고받은 자료는 종결 후 1년 뒤 지웁니다.</b></p></div></div>
-        <div class="q"><button type="button" aria-expanded="false">임원이 여러 명 들어와도 되나요<i>+</i></button><div class="a"><p>임원 동석은 대표 포함 3~4인 기준입니다.<br>인원이 더 필요하시면 조직 상담으로 진행합니다.<br><b>강연은 인원 제한 없이 임직원 전체가 가능합니다.</b></p></div></div>
+        <div class="q qx" hidden><button type="button" aria-expanded="false">사내에서 이 얘기가 새면 곤란합니다<i>+</i></button><div class="a"><p>보안은 철저히 유지됩니다.<br>회사명을 밝히지 않으셔도 진행됩니다.<br><b>주고받은 자료는 종결 후 1년 뒤 지웁니다.</b></p></div></div>
+        <div class="q qx" hidden><button type="button" aria-expanded="false">임원이 여러 명 들어와도 되나요<i>+</i></button><div class="a"><p>임원 동석은 대표 포함 3~4인 기준입니다.<br>인원이 더 필요하시면 조직 상담으로 진행합니다.<br><b>강연은 인원 제한 없이 임직원 전체가 가능합니다.</b></p></div></div>
         <div class="q"><button type="button" aria-expanded="false">지방이나 해외 법인도 되나요<i>+</i></button><div class="a"><p>화상으로 하시면 됩니다.<br>대면은 서울 여의도이고, 요청하시면 출장도 갑니다.<br><b>출장은 교통비 실비만 별도입니다.</b></p></div></div>
         </div>
       </div>
+      <div class="qa-more"><button type="button" class="xp js-morefaq" aria-expanded="false">질문 4개 더 보기 <i>+</i></button></div>
     </div>
   </div>
 </section>
 
 <section class="sec" id="b-apply-sec">
-  <div class="secno" aria-hidden="true">06</div>
+  <div class="secno" aria-hidden="true">05</div>
   <div class="row">
     <div class="k">문의</div>
     <div class="v">
-      <div class="sec-head"><h2 class="d2">사안만<br>적어 주십시오</h2></div>
+      <div class="sec-head"><h2 class="d2">사안만<br>적어 주십시오</h2>
+        <p class="p">결정이 밀리는 동안 나가는 돈이 늘 상담료보다 큽니다.</p></div>
       <div class="form rv">
         <div>
           <div class="ask js-applybox">
@@ -3352,6 +3278,29 @@ window.ME_CFG.business = {
       }, { threshold: 0.4 });
       $$('.sec', root).forEach(function (s) { io2.observe(s); });
     }
+
+    var xp = $('.js-xp', root);
+    if (xp) xp.addEventListener('click', function () {
+      var body = $('.js-pick', root);
+      if (!body) return;
+      var opening = body.hidden;
+      body.hidden = !opening;
+      xp.setAttribute('aria-expanded', opening ? 'true' : 'false');
+      var ic = $('i', xp); if (ic) ic.textContent = opening ? '−' : '+';
+      sendEvent('me_wizard_open');
+    });
+    var mc = $('.js-morecards', root);
+    if (mc) mc.addEventListener('click', function () {
+      $$('.items-grid .card[hidden]', root).forEach(function (c) { c.hidden = false; });
+      mc.hidden = true;
+      sendEvent('me_items_more');
+    });
+    var mf = $('.js-morefaq', root);
+    if (mf) mf.addEventListener('click', function () {
+      $$('.qa .q[hidden]', root).forEach(function (q) { q.hidden = false; });
+      var wrap = mf.closest('.qa-more'); (wrap || mf).hidden = true;
+      sendEvent('me_faq_more');
+    });
 
     var moreBtn = $('.js-more', root);
     if (moreBtn) moreBtn.addEventListener('click', function () {
