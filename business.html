@@ -3097,7 +3097,21 @@ window.ME_CFG.business = {
 
     function fromHash() {
       var h = (location.hash || '').replace('#', '');
-      show(h === 'personal' || h === 'business' ? h : null);
+      if (h === 'personal' || h === 'business') show(h);
+      else if (h === 'gate') show(null);
+      /* 빈 해시는 상태가 아니다 — 정식 주소 상태(pushState)를 해시 이벤트가 덮어쓰면 안 된다 */
+    }
+
+    /* 주소는 정식 경로(personal.html)로 적는다 — 해시(#personal)는 옛 링크 호환용으로만 남긴다 */
+    function urlFor(name) { return name ? name + '.html' : './'; }
+    function navigate(name) {
+      show(name);
+      if (window.history && history.pushState) {
+        try {
+          history.pushState({ me: name || '' }, '', urlFor(name));
+          if (typeof window.gtag === 'function') gtag('event', 'page_view', { page_location: location.href, page_title: document.title });
+        } catch (e) { location.hash = name || ''; }
+      } else { location.hash = name || ''; }
     }
 
     $$('[data-goto]', gate).forEach(function (a) {
@@ -3105,12 +3119,22 @@ window.ME_CFG.business = {
         e.preventDefault();
         var name = a.getAttribute('data-goto');
         try { localStorage.setItem('me_track', a.getAttribute('data-track') || ''); } catch (err) { }
-        location.hash = name;
+        navigate(name);
       });
     });
 
+    window.addEventListener('popstate', function (e) {
+      show((e.state && e.state.me) || null);
+    });
     window.addEventListener('hashchange', fromHash);
     fromHash();
+    /* 옛 공유 링크(#personal)로 들어오면 주소만 정식 경로로 바꿔치기 */
+    if (window.history && history.replaceState) {
+      var h0 = (location.hash || '').replace('#', '');
+      if (h0 === 'personal' || h0 === 'business') {
+        try { history.replaceState({ me: h0 }, '', urlFor(h0)); } catch (e2) { }
+      }
+    }
     return true;
   }
 
