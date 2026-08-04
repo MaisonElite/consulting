@@ -9,6 +9,7 @@
   gtag('js', new Date());
   gtag('config', 'G-CT5WZN8514');
 </script>
+<meta name="naver-site-verification" content="b87057ec378cc294f860b08c2490d506163e8050" />
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
 <title>개인 상담 · Maison Elite 메종엘리트 | 10만원부터</title>
@@ -198,7 +199,8 @@ button,input,select,textarea{font:inherit;color:inherit;letter-spacing:inherit}
   content:"";position:absolute;top:2px;left:2px;width:16px;height:16px;border-radius:50%;
   background:var(--fg);transition:transform .26s var(--ease);
 }
-.tg input:checked+.sw::after{transform:translateX(18px)}
+.tg input:checked+.sw{background:var(--fg);border-color:var(--fg)}
+.tg input:checked+.sw::after{transform:translateX(18px);background:var(--bg)}
 .tg input:focus-visible+.sw{outline:2px solid var(--fg);outline-offset:3px}
 
 .ruler{position:relative;height:18px;border-bottom:1px solid var(--hair);margin-bottom:0}
@@ -900,10 +902,9 @@ a:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible,te
 /* 표제와 설명을 한 줄에 나란히 (폭을 채우고 세로를 줄임) */
 @media (min-width:1000px){
   .t-personal .sec:not(.hero) .v>.d2{float:none}
-  .t-personal .sec-head,.t-business .sec-head{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,.9fr);
-    gap:clamp(28px,3.4vw,60px);align-items:end;margin-bottom:clamp(22px,2.4vw,34px)}
+  .t-personal .sec-head,.t-business .sec-head{display:block;margin-bottom:clamp(22px,2.4vw,34px)}
   .t-personal .sec-head .d2,.t-business .sec-head .d2{margin-bottom:0}
-  .t-personal .sec-head .p,.t-business .sec-head .p{margin-top:0;max-width:none;padding-bottom:6px}
+  .t-personal .sec-head .p,.t-business .sec-head .p{margin-top:clamp(12px,1.4vw,18px);max-width:56ch;padding-bottom:0}
 }
 
 /* 상황 고르기: 칩과 추천을 좌우로 */
@@ -1493,7 +1494,7 @@ html{scroll-padding-top:78px}
 
 /* 3) 후기 '더 보기' 버튼 아래 여백이 다음 구역 여백과 겹치던 문제 */
 .t-personal .case-btn{margin-bottom:0}
-.t-personal #cases .v>*:last-child{margin-bottom:0}
+.t-personal .s-cases .v>*:last-child{margin-bottom:0}
 
 /* 사진 구역은 표제가 없어 위아래 여백이 그대로 빈 공간이 됨 */
 .t-personal .sec.scenes,
@@ -1783,13 +1784,13 @@ a,button,.card,.chip{-webkit-tap-highlight-color:transparent}
    선택 상태)는 딥그린 1색. CTA 는 계속 검정 — 악센트는 길을 알려주는
    색이지 누르는 색이 아니다. 게이트는 대표 지시로 불변.
    ============================================================ */
-.t-personal,.t-business{--acc:#1F4A38}
+.t-personal,.t-business{--acc:#0F0E0D}
 .t-personal .row>.k,.t-business .row>.k{color:var(--acc)}
 .t-personal .proof-a,.t-business .proof-a{color:var(--acc);border-bottom-color:var(--acc)}
 .t-personal .c-flag,.t-business .c-flag{color:var(--acc);border-color:var(--acc)}
 .t-personal .hd-sw a.on,.t-business .hd-sw a.on{background:var(--acc);color:#FBFAF8}
 .t-personal .chip[aria-pressed="true"],.t-business .chip[aria-pressed="true"]{
-  border-color:var(--acc);background:rgba(31,74,56,.06)}
+  border-color:var(--acc);background:rgba(15,14,13,.05)}
 .t-personal .prog,.t-business .prog{background:var(--acc)}
 /* 검은 카드 안 라벨은 종전 색 유지 (딥그린이 검정 위에서 죽는다) */
 .t-personal .s-calc .k,.t-business .s-calc .k{color:var(--dim)}
@@ -1809,7 +1810,7 @@ a,button,.card,.chip{-webkit-tap-highlight-color:transparent}
   padding:11px 18px;font-size:.875rem;font-weight:700;color:var(--fg);cursor:pointer;min-height:44px;
   transition:border-color .3s var(--ease),background .3s var(--ease)}
 .when-pill:hover{border-color:var(--acc)}
-.when-pill[aria-pressed="true"]{border-color:var(--acc);background:rgba(31,74,56,.06)}
+.when-pill[aria-pressed="true"]{border-color:var(--acc);background:rgba(15,14,13,.05)}
 /* 결과 띠: 기한 줄과 버튼 두 개 */
 @media (min-width:820px){
   .t-personal .rec,.t-business .rec{grid-template-areas:"k k" "t b" "p b" "w b" "d d"}
@@ -1831,7 +1832,7 @@ a,button,.card,.chip{-webkit-tap-highlight-color:transparent}
 .rc-tag{display:block;font-size:.6875rem;font-weight:800;letter-spacing:.07em;color:var(--acc);margin-bottom:6px}
 .rc p{font-size:.9063rem;line-height:1.8;color:var(--mid);max-width:none}
 .rc-jud{border-left:3px solid var(--acc);padding-left:clamp(12px,1.4vw,16px)}
-.rc-jud p{color:var(--fg);font-weight:600;font-size:clamp(15px,1.15vw,16.5px);line-height:1.85}
+.rc-jud p{color:var(--fg);font-weight:600;font-size:clamp(15px,1.15vw,16.5px);line-height:1.85;text-indent:-0.6em}
 .rc-meta{margin-top:auto;padding-top:12px;border-top:1px solid rgba(15,14,13,.13);
   font-size:.75rem;font-weight:700;color:var(--dim)}
 .rc-q p{color:var(--fg);font-weight:800;font-size:clamp(15.5px,1.2vw,17px);line-height:1.6}
@@ -1992,8 +1993,19 @@ a,button,.card,.chip{-webkit-tap-highlight-color:transparent}
   cursor:pointer;min-height:48px;transition:border-color .2s var(--ease)}
 .xp:hover{border-color:var(--fg)}
 .xp i{font-style:normal;color:var(--acc);font-weight:800}
-.items-grid .xp{grid-column:1/-1;justify-self:center;margin-top:6px}
+.items-grid .xp{grid-column:1/-1;justify-self:center;margin-top:clamp(16px,1.8vw,24px)}
 .qa-more{margin-top:clamp(16px,1.8vw,24px);text-align:center}
+
+
+/* 미흡 일괄 조치 (2026-08-04) */
+.t-personal .sec.hero .v>.hero-fact,.t-business .sec.hero .v>.hero-fact{margin-top:18px}
+@media (max-width:699px){ .hf-x{display:none} }
+@media (min-width:1000px){
+  .t-personal .s-pick .v,.t-business .s-pick .v{display:grid;grid-template-columns:1fr auto;align-items:center;column-gap:clamp(30px,4vw,60px)}
+  .t-personal .s-pick .sec-head,.t-business .s-pick .sec-head{grid-column:1;margin-bottom:0}
+  .t-personal .s-pick .js-xp,.t-business .s-pick .js-xp{grid-column:2;grid-row:1;margin-top:0!important}
+  .t-personal .s-pick .js-pick,.t-business .s-pick .js-pick{grid-column:1/-1}
+}
 
 </style>
 <script type="application/ld+json">
@@ -2020,9 +2032,9 @@ a,button,.card,.chip{-webkit-tap-highlight-color:transparent}
     {"@type":"Question","name":"상담 끝나면 뭐가 남나요","acceptedAnswer":{"@type":"Answer","text":"결론과 그렇게 본 이유가 남습니다. 필요하시면 정리한 내용을 적어 드립니다."}},
     {"@type":"Question","name":"심리 상담이랑 뭐가 다른가요","acceptedAnswer":{"@type":"Answer","text":"심리 상담은 마음 상태를 다루고, 여기는 어느 쪽으로 갈지를 다룹니다. 결론까지 내고 끝납니다."}},
     {"@type":"Question","name":"나중에 또 물어봐도 되나요","acceptedAnswer":{"@type":"Answer","text":"그날 정한 내용을 확인하는 건 추가 비용 없이 카카오톡으로 답해 드립니다."}},
-    {"@type":"Question","name":"제 얘기가 밖으로 나갈 일은 없나요","acceptedAnswer":{"@type":"Answer","text":"보안은 철저히 유지됩니다. 실명이나 회사명을 밝히실 필요도 없고, 주고받은 내용은 1년 뒤 지웁니다."}},
+    {"@type":"Question","name":"제 얘기가 밖으로 나갈 일은 없나요","acceptedAnswer":{"@type":"Answer","text":"없습니다. 실명이나 회사명을 밝히실 필요도 없고, 주고받은 내용은 1년 뒤 지웁니다."}},
     {"@type":"Question","name":"지방에 살아도 되나요","acceptedAnswer":{"@type":"Answer","text":"전 상담 모두 대면과 화상 중에 고르실 수 있습니다. 대면만 서울 여의도입니다."}},
-    {"@type":"Question","name":"취소하면 환불되나요","acceptedAnswer":{"@type":"Answer","text":"일정을 잡기 전이면 전액, 3영업일 이전 취소는 80%, 그 이후는 50%입니다. 일정 변경은 1회까지 무료입니다."}}]}
+    {"@type":"Question","name":"취소하면 환불되나요","acceptedAnswer":{"@type":"Answer","text":"일정을 잡기 전이면 전액, 3영업일 전까지는 80%, 그 뒤에는 50%를 돌려드립니다. 일정 변경은 1회까지 무료입니다."}}]}
  ]
 }
 </script>
@@ -2052,7 +2064,7 @@ a,button,.card,.chip{-webkit-tap-highlight-color:transparent}
       <div class="hero-cta">
         <a class="btn" href="#apply-sec">상담 신청 <span class="arw">&rsaquo;</span></a>
       </div>
-      <p class="fine hero-fact num">확인 상담 30분 10만원 · 답변 24시간 안 · 여의도 대면 또는 화상</p>
+      <p class="fine hero-fact num">10만원부터 · 24시간 안에 답<span class="hf-x"> · 여의도 대면 또는 화상</span></p>
     </div>
   </div>
 </section>
@@ -2063,8 +2075,7 @@ a,button,.card,.chip{-webkit-tap-highlight-color:transparent}
   <div class="row">
     <div class="k">판정 기록</div>
     <div class="v">
-      <div class="sec-head"><h2 class="d2">실제로 이렇게<br>판단합니다</h2>
-        <p class="p">채널에 올린 판정 영상에서 그대로 가져왔습니다.</p></div>
+      <div class="sec-head"><h2 class="d2">실제로 이렇게<br>판단합니다</h2></div>
       <div class="reccases">
         <article class="rc">
           <div class="rc-q"><span class="rc-tag">질문</span><p>9시 출근이면 9시에 가도 되는지</p></div>
@@ -2160,7 +2171,7 @@ a,button,.card,.chip{-webkit-tap-highlight-color:transparent}
 </section>
 
 
-<section class="sec" id="pickup">
+<section class="sec s-pick" id="pickup">
   <div class="secno" aria-hidden="true">03</div>
   <div class="row">
     <div class="k">길잡이</div>
@@ -2204,9 +2215,9 @@ a,button,.card,.chip{-webkit-tap-highlight-color:transparent}
         <div class="q qx" hidden><button type="button" aria-expanded="false">심리 상담이랑 뭐가 다른가요<i>+</i></button><div class="a"><p>심리 상담은 마음 상태를 다룹니다.<br>여기는 어느 쪽으로 갈지를 다룹니다.<br><b>결론까지 내고 끝납니다.</b></p></div></div>
         </div>
         <div class="qa-col">
-        <div class="q"><button type="button" aria-expanded="false">취소하면 환불되나요<i>+</i></button><div class="a"><p>일정을 잡기 전이면 전액 돌려드립니다.<br>3영업일 이전 취소는 80%, 그 이후는 50%입니다.<br>일정 변경은 1회까지 무료, 두 번째부터는 30%를 빼고 다시 잡습니다.<br><b>말씀 없이 안 오시면 환불은 없습니다.</b></p></div></div>
+        <div class="q"><button type="button" aria-expanded="false">취소하면 환불되나요<i>+</i></button><div class="a"><p>일정을 잡기 전이면 전액 돌려드립니다.<br>3영업일 전까지는 80%, 그 뒤에는 50%를 돌려드립니다.<br>일정 변경은 1회까지 무료, 두 번째부터는 30%를 빼고 다시 잡습니다.<br><b>말씀 없이 안 오시면 환불은 없습니다.</b></p></div></div>
         <div class="q qx" hidden><button type="button" aria-expanded="false">나중에 또 물어봐도 되나요<i>+</i></button><div class="a"><p>카카오톡으로 물어보시면 됩니다.<br>그날 정한 내용을 확인하는 건 추가 비용 없이 답해 드립니다.<br><b>새로 정할 게 생기면 그때 다시 자리를 잡습니다.</b></p></div></div>
-        <div class="q qx" hidden><button type="button" aria-expanded="false">제 얘기가 밖으로 나갈 일은 없나요<i>+</i></button><div class="a"><p>보안은 철저히 유지됩니다.<br>실명이나 회사명을 밝히실 필요도 없습니다.<br><b>주고받은 내용은 1년 뒤 지웁니다.</b></p></div></div>
+        <div class="q qx" hidden><button type="button" aria-expanded="false">제 얘기가 밖으로 나갈 일은 없나요<i>+</i></button><div class="a"><p>없습니다.<br>실명이나 회사명을 밝히실 필요도 없습니다.<br><b>주고받은 내용은 1년 뒤 지웁니다.</b></p></div></div>
         <div class="q"><button type="button" aria-expanded="false">지방에 살아도 되나요<i>+</i></button><div class="a"><p>화상으로 하시면 됩니다.<br>전 상담 모두 대면과 화상 중에 고르실 수 있습니다.<br><b>대면만 서울 여의도입니다.</b></p></div></div>
         </div>
       </div>
@@ -2237,7 +2248,7 @@ a,button,.card,.chip{-webkit-tap-highlight-color:transparent}
               <p class="fine ask-tip">회색 글씨는 예시입니다.<br>1번부터 4번까지 번호만 붙여서, 저렇게 적어 보내주시면 됩니다.</p>
               <div class="ask-cta">
                 <a class="btn btn-talk" href="https://open.kakao.com/o/sAhFVAGi" target="_blank" rel="noopener"><svg class="tk" viewBox="0 0 20 20" aria-hidden="true" focusable="false"><path d="M10 2.6c-4.2 0-7.6 2.6-7.6 5.9 0 2.1 1.4 3.9 3.5 5-.15.55-.55 2-.63 2.3-.1.38.14.37.3.27.12-.08 1.9-1.28 2.67-1.8.57.08 1.15.13 1.76.13 4.2 0 7.6-2.6 7.6-5.9S14.2 2.6 10 2.6z"/></svg>카카오톡으로 신청하기 <span class="arw">&rsaquo;</span></a>
-                <button type="button" class="btn ghost js-copy" data-label="질문 양식 복사하기">질문 양식 복사하기</button>
+                <button type="button" class="btn ghost js-copy" data-label="문의 양식 복사하기">문의 양식 복사하기</button>
               </div>
               <p class="fine" style="margin-top:16px">대화 내용은 상담 진행에만 씁니다.<br>1년 뒤 지우고, 그 전에도 요청하시면 바로 지웁니다.</p>
             </div>
@@ -2247,15 +2258,15 @@ a,button,.card,.chip{-webkit-tap-highlight-color:transparent}
             <div class="fine">보내신 다음</div>
             <div class="d3" style="margin-top:8px">24시간 안에<br>답을 드립니다</div>
             <p class="p" style="margin-top:18px">형식은 없습니다.<br>말하듯 적어 주셔도 됩니다.</p>
-            <div class="ap-row"><span>급하실 때</span><b>1시간 안</b></div>
+            <div class="ap-row"><span>급하실 때</span><b>1시간 안에 답</b></div>
             <div class="ap-row"><span>빠른 진행</span><b>상담료 150%</b></div>
             <div class="ap-row"><span>대면 장소</span><b>서울 여의도</b></div>
             <div class="ap-row"><span>상담료</span><b>10만원부터</b></div>
-            <p class="fine" style="margin-top:16px">여의도역 도보 10분 안. 정확한 장소는 일정을 확정하며 알려드립니다.</p>
+            <p class="fine" style="margin-top:16px">여의도역 도보 10분 안. 정확한 장소는 일정을 잡으면서 알려드립니다.</p>
             <div class="ap-flow">
               <div class="apf"><b>1</b><span>카카오톡으로 위 네 가지를 보냅니다</span></div>
               <div class="apf"><b>2</b><span>24시간 안에 답을 드리고 상담 종류를 같이 정합니다</span></div>
-              <div class="apf"><b>3</b><span>채팅으로 안내드린 계좌에 정해진 금액을 보내주십시오</span></div>
+              <div class="apf"><b>3</b><span>채팅으로 안내드린 계좌에 정해진 금액을 보냅니다</span></div>
               <div class="apf"><b>4</b><span>입금이 확인되면 일정과 장소를 알려드립니다</span></div>
             </div>
 
@@ -2284,7 +2295,7 @@ a,button,.card,.chip{-webkit-tap-highlight-color:transparent}
         </div>
       </div>
       <nav class="ft-nav">
-        <a href="index.html">처음</a>
+        <a href="index.html">첫 화면</a>
         <a href="personal.html">개인</a>
         <a href="business.html">사업자</a>
         <a href="#apply-sec">신청</a>
@@ -2778,6 +2789,7 @@ window.ME_CFG.personal = {
 
       var draw = function () {
         var r = cfg.recs[sel.chip];
+        var act = root.getAttribute('data-track') === '개인' ? '이 상담으로 신청' : '이 상담으로 문의';
         chips.forEach(function (c, n) { c.setAttribute('aria-pressed', n === sel.chip ? 'true' : 'false'); });
         whens.forEach(function (w, n) { w.setAttribute('aria-pressed', n === sel.when ? 'true' : 'false'); });
         out.innerHTML =
@@ -2789,7 +2801,7 @@ window.ME_CFG.personal = {
             : '기한을 고르시면 양식에 함께 담깁니다') + '</div>' +
           '<div class="rec-d">' + r.why + '</div>' +
           '<div class="rec-b">' +
-            '<button class="btn" type="button" data-item="' + r.key + '">이 상담으로 문의 <span class="arw">&rsaquo;</span></button>' +
+            '<button class="btn" type="button" data-item="' + r.key + '">' + act + ' <span class="arw">&rsaquo;</span></button>' +
             '<button class="btn ghost js-reccopy" type="button">문의 양식 복사</button>' +
           '</div>';
         out.classList.remove('fade-swap'); void out.offsetWidth; out.classList.add('fade-swap');
@@ -2853,7 +2865,7 @@ window.ME_CFG.personal = {
     var copyBtn = $('.js-copy', root);
     if (copyBtn) {
       var copyDone = function () {
-        copyBtn.textContent = '복사됐습니다. 카카오톡을 열어 붙여넣으세요';
+        copyBtn.textContent = '복사됐습니다. 카카오톡에 붙여넣으세요';
         setTimeout(function () { copyBtn.textContent = copyBtn.getAttribute('data-label'); }, 2600);
       };
       var copyFallback = function (txt) {
@@ -2906,18 +2918,22 @@ window.ME_CFG.personal = {
       var ic = $('i', xp); if (ic) ic.textContent = opening ? '−' : '+';
       sendEvent('me_wizard_open');
     });
-    var mc = $('.js-morecards', root);
-    if (mc) mc.addEventListener('click', function () {
-      $$('.items-grid .card[hidden]', root).forEach(function (c) { c.hidden = false; });
-      mc.hidden = true;
-      sendEvent('me_items_more');
-    });
-    var mf = $('.js-morefaq', root);
-    if (mf) mf.addEventListener('click', function () {
-      $$('.qa .q[hidden]', root).forEach(function (q) { q.hidden = false; });
-      var wrap = mf.closest('.qa-more'); (wrap || mf).hidden = true;
-      sendEvent('me_faq_more');
-    });
+    // 더 보기 버튼은 접기도 된다 — 펼친 목록을 기억해 두었다가 되접는다.
+    var makeMore = function (btn, sel, evName) {
+      if (!btn) return;
+      var label = btn.innerHTML, kept = [];
+      btn.addEventListener('click', function () {
+        var hid = $$(sel, root).filter(function (e) { return e.hidden; });
+        var opening = hid.length > 0;
+        if (opening) { kept = hid; hid.forEach(function (e) { e.hidden = false; }); }
+        else kept.forEach(function (e) { e.hidden = true; });
+        btn.innerHTML = opening ? '접기 <i>−</i>' : label;
+        btn.setAttribute('aria-expanded', opening ? 'true' : 'false');
+        sendEvent(evName);
+      });
+    };
+    makeMore($('.js-morecards', root), '.items-grid .card', 'me_items_more');
+    makeMore($('.js-morefaq', root), '.qa .q', 'me_faq_more');
 
     var moreBtn = $('.js-more', root);
     if (moreBtn) moreBtn.addEventListener('click', function () {

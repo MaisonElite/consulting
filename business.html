@@ -9,6 +9,7 @@
   gtag('js', new Date());
   gtag('config', 'G-CT5WZN8514');
 </script>
+<meta name="naver-site-verification" content="b87057ec378cc294f860b08c2490d506163e8050" />
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
 <title>사업자 상담 · Maison Elite 메종엘리트 | 첫 상담 90분 100만원</title>
@@ -198,7 +199,8 @@ button,input,select,textarea{font:inherit;color:inherit;letter-spacing:inherit}
   content:"";position:absolute;top:2px;left:2px;width:16px;height:16px;border-radius:50%;
   background:var(--fg);transition:transform .26s var(--ease);
 }
-.tg input:checked+.sw::after{transform:translateX(18px)}
+.tg input:checked+.sw{background:var(--fg);border-color:var(--fg)}
+.tg input:checked+.sw::after{transform:translateX(18px);background:var(--bg)}
 .tg input:focus-visible+.sw{outline:2px solid var(--fg);outline-offset:3px}
 
 .ruler{position:relative;height:18px;border-bottom:1px solid var(--hair);margin-bottom:0}
@@ -900,10 +902,9 @@ a:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible,te
 /* 표제와 설명을 한 줄에 나란히 (폭을 채우고 세로를 줄임) */
 @media (min-width:1000px){
   .t-personal .sec:not(.hero) .v>.d2{float:none}
-  .t-personal .sec-head,.t-business .sec-head{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,.9fr);
-    gap:clamp(28px,3.4vw,60px);align-items:end;margin-bottom:clamp(22px,2.4vw,34px)}
+  .t-personal .sec-head,.t-business .sec-head{display:block;margin-bottom:clamp(22px,2.4vw,34px)}
   .t-personal .sec-head .d2,.t-business .sec-head .d2{margin-bottom:0}
-  .t-personal .sec-head .p,.t-business .sec-head .p{margin-top:0;max-width:none;padding-bottom:6px}
+  .t-personal .sec-head .p,.t-business .sec-head .p{margin-top:clamp(12px,1.4vw,18px);max-width:56ch;padding-bottom:0}
 }
 
 /* 상황 고르기: 칩과 추천을 좌우로 */
@@ -1493,7 +1494,7 @@ html{scroll-padding-top:78px}
 
 /* 3) 후기 '더 보기' 버튼 아래 여백이 다음 구역 여백과 겹치던 문제 */
 .t-personal .case-btn{margin-bottom:0}
-.t-personal #cases .v>*:last-child{margin-bottom:0}
+.t-personal .s-cases .v>*:last-child{margin-bottom:0}
 
 /* 사진 구역은 표제가 없어 위아래 여백이 그대로 빈 공간이 됨 */
 .t-personal .sec.scenes,
@@ -1783,13 +1784,13 @@ a,button,.card,.chip{-webkit-tap-highlight-color:transparent}
    선택 상태)는 딥그린 1색. CTA 는 계속 검정 — 악센트는 길을 알려주는
    색이지 누르는 색이 아니다. 게이트는 대표 지시로 불변.
    ============================================================ */
-.t-personal,.t-business{--acc:#1F4A38}
+.t-personal,.t-business{--acc:#0F0E0D}
 .t-personal .row>.k,.t-business .row>.k{color:var(--acc)}
 .t-personal .proof-a,.t-business .proof-a{color:var(--acc);border-bottom-color:var(--acc)}
 .t-personal .c-flag,.t-business .c-flag{color:var(--acc);border-color:var(--acc)}
 .t-personal .hd-sw a.on,.t-business .hd-sw a.on{background:var(--acc);color:#FBFAF8}
 .t-personal .chip[aria-pressed="true"],.t-business .chip[aria-pressed="true"]{
-  border-color:var(--acc);background:rgba(31,74,56,.06)}
+  border-color:var(--acc);background:rgba(15,14,13,.05)}
 .t-personal .prog,.t-business .prog{background:var(--acc)}
 /* 검은 카드 안 라벨은 종전 색 유지 (딥그린이 검정 위에서 죽는다) */
 .t-personal .s-calc .k,.t-business .s-calc .k{color:var(--dim)}
@@ -1809,7 +1810,7 @@ a,button,.card,.chip{-webkit-tap-highlight-color:transparent}
   padding:11px 18px;font-size:.875rem;font-weight:700;color:var(--fg);cursor:pointer;min-height:44px;
   transition:border-color .3s var(--ease),background .3s var(--ease)}
 .when-pill:hover{border-color:var(--acc)}
-.when-pill[aria-pressed="true"]{border-color:var(--acc);background:rgba(31,74,56,.06)}
+.when-pill[aria-pressed="true"]{border-color:var(--acc);background:rgba(15,14,13,.05)}
 /* 결과 띠: 기한 줄과 버튼 두 개 */
 @media (min-width:820px){
   .t-personal .rec,.t-business .rec{grid-template-areas:"k k" "t b" "p b" "w b" "d d"}
@@ -1831,7 +1832,7 @@ a,button,.card,.chip{-webkit-tap-highlight-color:transparent}
 .rc-tag{display:block;font-size:.6875rem;font-weight:800;letter-spacing:.07em;color:var(--acc);margin-bottom:6px}
 .rc p{font-size:.9063rem;line-height:1.8;color:var(--mid);max-width:none}
 .rc-jud{border-left:3px solid var(--acc);padding-left:clamp(12px,1.4vw,16px)}
-.rc-jud p{color:var(--fg);font-weight:600;font-size:clamp(15px,1.15vw,16.5px);line-height:1.85}
+.rc-jud p{color:var(--fg);font-weight:600;font-size:clamp(15px,1.15vw,16.5px);line-height:1.85;text-indent:-0.6em}
 .rc-meta{margin-top:auto;padding-top:12px;border-top:1px solid rgba(15,14,13,.13);
   font-size:.75rem;font-weight:700;color:var(--dim)}
 .rc-q p{color:var(--fg);font-weight:800;font-size:clamp(15.5px,1.2vw,17px);line-height:1.6}
@@ -1992,8 +1993,19 @@ a,button,.card,.chip{-webkit-tap-highlight-color:transparent}
   cursor:pointer;min-height:48px;transition:border-color .2s var(--ease)}
 .xp:hover{border-color:var(--fg)}
 .xp i{font-style:normal;color:var(--acc);font-weight:800}
-.items-grid .xp{grid-column:1/-1;justify-self:center;margin-top:6px}
+.items-grid .xp{grid-column:1/-1;justify-self:center;margin-top:clamp(16px,1.8vw,24px)}
 .qa-more{margin-top:clamp(16px,1.8vw,24px);text-align:center}
+
+
+/* 미흡 일괄 조치 (2026-08-04) */
+.t-personal .sec.hero .v>.hero-fact,.t-business .sec.hero .v>.hero-fact{margin-top:18px}
+@media (max-width:699px){ .hf-x{display:none} }
+@media (min-width:1000px){
+  .t-personal .s-pick .v,.t-business .s-pick .v{display:grid;grid-template-columns:1fr auto;align-items:center;column-gap:clamp(30px,4vw,60px)}
+  .t-personal .s-pick .sec-head,.t-business .s-pick .sec-head{grid-column:1;margin-bottom:0}
+  .t-personal .s-pick .js-xp,.t-business .s-pick .js-xp{grid-column:2;grid-row:1;margin-top:0!important}
+  .t-personal .s-pick .js-pick,.t-business .s-pick .js-pick{grid-column:1/-1}
+}
 
 </style>
 <script type="application/ld+json">
@@ -2021,8 +2033,8 @@ a,button,.card,.chip{-webkit-tap-highlight-color:transparent}
     {"@type":"Question","name":"비밀유지계약서를 써야 합니다","acceptedAnswer":{"@type":"Answer","text":"보내주시면 검토하고 서명해 드리며, 따로 없으시면 저희 양식으로 착수 전에 정리하고 시작합니다."}},
     {"@type":"Question","name":"연간 계약을 해야 하나요","acceptedAnswer":{"@type":"Answer","text":"사안 하나씩 끊어서 진행하고, 계속 볼 일이 생기면 그때 정기 자문으로 옮기시면 됩니다."}},
     {"@type":"Question","name":"법률이나 세무 자문인가요","acceptedAnswer":{"@type":"Answer","text":"아닙니다. 사람과 조직, 결정의 순서를 다루며 법률 검토나 세무 처리는 하지 않습니다."}},
-    {"@type":"Question","name":"일정을 못 맞추게 되면 어떻게 됩니까","acceptedAnswer":{"@type":"Answer","text":"착수금은 일정 확정 전이면 전액 환불, 3영업일 이전 취소는 80%, 그 이후는 50%이며 일정 변경은 1회까지 무료입니다."}},
-    {"@type":"Question","name":"사내에서 이 얘기가 새면 곤란합니다","acceptedAnswer":{"@type":"Answer","text":"보안은 철저히 유지됩니다. 회사명을 밝히지 않으셔도 진행되고, 주고받은 자료는 종결 후 1년 뒤 지웁니다."}},
+    {"@type":"Question","name":"일정을 못 맞추게 되면 어떻게 됩니까","acceptedAnswer":{"@type":"Answer","text":"착수금은 일정 확정 전이면 전액, 3영업일 전까지는 80%, 그 뒤에는 50%를 돌려드리며 일정 변경은 1회까지 무료입니다."}},
+    {"@type":"Question","name":"사내에서 이 얘기가 새면 곤란합니다","acceptedAnswer":{"@type":"Answer","text":"저희 쪽에서 나갈 일은 없습니다. 회사명을 밝히지 않으셔도 진행되고, 주고받은 자료는 종결 후 1년 뒤 지웁니다."}},
     {"@type":"Question","name":"임원이 여러 명 들어와도 되나요","acceptedAnswer":{"@type":"Answer","text":"임원 동석은 대표 포함 3~4인 기준이며, 인원이 더 필요하시면 조직 상담으로 진행합니다."}},
     {"@type":"Question","name":"지방이나 해외 법인도 되나요","acceptedAnswer":{"@type":"Answer","text":"화상으로 하시면 됩니다. 대면은 서울 여의도이고 요청하시면 출장도 갑니다."}}]}
  ]
@@ -2054,7 +2066,7 @@ a,button,.card,.chip{-webkit-tap-highlight-color:transparent}
       <div class="hero-cta">
         <a class="btn" href="#apply-sec">상담 문의 <span class="arw">&rsaquo;</span></a>
       </div>
-      <p class="fine hero-fact num">첫 상담 90분 100만원 · 답변 24시간 안 · 문의 시 결제 없음</p>
+      <p class="fine hero-fact num">첫 상담 90분 100만원<span class="hf-x"> · 24시간 안에 답 · 문의 시 결제 없음</span></p>
     </div>
   </div>
 </section>
@@ -2064,8 +2076,7 @@ a,button,.card,.chip{-webkit-tap-highlight-color:transparent}
   <div class="row">
     <div class="k">판정 기록</div>
     <div class="v">
-      <div class="sec-head"><h2 class="d2">실제로 이렇게<br>판단합니다</h2>
-        <p class="p">채널에 올린 판정 영상에서 그대로 가져왔습니다.</p></div>
+      <div class="sec-head"><h2 class="d2">실제로 이렇게<br>판단합니다</h2></div>
       <div class="reccases">
         <article class="rc">
           <div class="rc-q"><span class="rc-tag">질문</span><p>실력자들을 구별하는 방법</p></div>
@@ -2102,7 +2113,7 @@ a,button,.card,.chip{-webkit-tap-highlight-color:transparent}
     <div class="k">상담 종류</div>
     <div class="v">
       <h2 class="d2">파는 것은 시간입니다</h2>
-      <p class="p" style="margin-top:16px">전체 가격표입니다. 막대 길이는 실제로 앉아 있는 시간. 눌러서 어떤 자리인지 보십시오.</p>
+      <p class="p" style="margin-top:16px">전체 가격표입니다. 막대 길이는 실제로 앉아 있는 시간.</p>
       <div class="tools" style="margin-top:clamp(26px,3vw,40px)">
         <label class="tg"><input type="checkbox" class="js-rush"><span class="sw"></span>빠른 진행 붙이기</label>
         <span class="fine">48시간 안에 자리를 만듭니다. <span class="js-tgn">전 상품 +50%</span></span>
@@ -2114,7 +2125,7 @@ a,button,.card,.chip{-webkit-tap-highlight-color:transparent}
           <div class="bar"><i class="seg" style="width:37.5%"></i></div>
           <div class="c-scale"><span>0</span><span>반나절</span></div>
           <div class="c-hint">눌러서 어떤 자리인지 보기</div><div class="det">뭔가 안 돌아가는데 무엇이 문제인지 정리가 안 될 때. A라고 생각하고 오셨는데 실제로는 B인 경우가 대부분입니다. <b>무엇부터 손댈지 정하고 나가십니다.</b></div>
-          <a class="c-go" href="#apply-sec">이 자리로 신청 <span class="arw">&rsaquo;</span></a>
+          <a class="c-go" href="#apply-sec">이 자리로 문의 <span class="arw">&rsaquo;</span></a>
         </article>
         <article class="card">
           <div class="c-top"><span class="c-nm">면접 배석</span><span class="c-cfg">건당 · 면접 일정에 맞춤</span>
@@ -2122,7 +2133,7 @@ a,button,.card,.chip{-webkit-tap-highlight-color:transparent}
           <div class="bar"><i class="seg open" style="width:28%"></i></div>
           <div class="c-scale"><span>0</span><span>반나절</span></div>
           <div class="c-hint">눌러서 어떤 자리인지 보기</div><div class="det">이력서는 좋은데 확신이 안 섭니다. 면접에 함께 들어가 <b>대표님이 못 하시는 질문을 대신 합니다.</b> 잘못 뽑으면 연봉이 아니라 조직을 잃습니다.</div>
-          <a class="c-go" href="#apply-sec">이 자리로 신청 <span class="arw">&rsaquo;</span></a>
+          <a class="c-go" href="#apply-sec">이 자리로 문의 <span class="arw">&rsaquo;</span></a>
         </article>
         <article class="card">
           <div class="c-top"><span class="c-nm">조직 상담</span><span class="c-cfg">3시간 · 사람과 조직 사안</span>
@@ -2130,7 +2141,7 @@ a,button,.card,.chip{-webkit-tap-highlight-color:transparent}
           <div class="bar"><i class="seg" style="width:75%"></i></div>
           <div class="c-scale"><span>0</span><span>반나절</span></div>
           <div class="c-hint">눌러서 어떤 자리인지 보기</div><div class="det"><b>직원 스무 명을 넘기면서 안 돌아가기 시작했습니다.</b> 뽑으면 나가고, 남은 사람은 지쳐 있습니다. 제도가 아니라 <b>사람이 실제로 어떻게 움직이는지</b>를 말씀드립니다.</div>
-          <a class="c-go" href="#apply-sec">이 자리로 신청 <span class="arw">&rsaquo;</span></a>
+          <a class="c-go" href="#apply-sec">이 자리로 문의 <span class="arw">&rsaquo;</span></a>
         </article>
         <article class="card" hidden>
           <div class="c-top"><span class="c-nm">기업 강연</span><span class="c-cfg">2시간 · 임직원 대상</span>
@@ -2138,7 +2149,7 @@ a,button,.card,.chip{-webkit-tap-highlight-color:transparent}
           <div class="bar"><i class="seg" style="width:50%"></i></div>
           <div class="c-scale"><span>0</span><span>반나절</span></div>
           <div class="c-hint">눌러서 어떤 자리인지 보기</div><div class="det">9시 출근, 인사, 회식, 세대 차이. 임직원 전체가 매일 겪는 얘기입니다. <b>어느 세대 편도 들지 않습니다.</b></div>
-          <a class="c-go" href="#apply-sec">이 자리로 신청 <span class="arw">&rsaquo;</span></a>
+          <a class="c-go" href="#apply-sec">이 자리로 문의 <span class="arw">&rsaquo;</span></a>
         </article>
         <article class="card" hidden>
           <div class="c-top"><span class="c-nm">경영 상담</span><span class="c-cfg">3시간 · 결정 사안 하나</span>
@@ -2146,7 +2157,7 @@ a,button,.card,.chip{-webkit-tap-highlight-color:transparent}
           <div class="bar"><i class="seg" style="width:75%"></i></div>
           <div class="c-scale"><span>0</span><span>반나절</span></div>
           <div class="c-hint">눌러서 어떤 자리인지 보기</div><div class="det">결정을 미룬 지 몇 달 됐습니다. 임원 회의에서 결론이 안 나실 때. 세 시간 동안 그 사안 하나만 놓고, <b>결론과 그렇게 본 이유까지 정리해 드립니다.</b></div>
-          <a class="c-go" href="#apply-sec">이 자리로 신청 <span class="arw">&rsaquo;</span></a>
+          <a class="c-go" href="#apply-sec">이 자리로 문의 <span class="arw">&rsaquo;</span></a>
         </article>
         <article class="card" hidden>
           <div class="c-top"><span class="c-nm">임원 동석</span><span class="c-cfg">3시간 · 대표 + 임원 1~2인</span>
@@ -2154,7 +2165,7 @@ a,button,.card,.chip{-webkit-tap-highlight-color:transparent}
           <div class="bar"><i class="seg" style="width:75%"></i></div>
           <div class="c-scale"><span>0</span><span>반나절</span></div>
           <div class="c-hint">눌러서 어떤 자리인지 보기</div><div class="det">대표님은 정하셨는데 임원이 안 움직일 때. 대표님이 하시면 지시가 되고, <b>제3자가 하면 판단이 됩니다.</b></div>
-          <a class="c-go" href="#apply-sec">이 자리로 신청 <span class="arw">&rsaquo;</span></a>
+          <a class="c-go" href="#apply-sec">이 자리로 문의 <span class="arw">&rsaquo;</span></a>
         </article>
         <article class="card" hidden>
           <div class="c-top"><span class="c-nm">정기 자문</span><span class="c-cfg">반나절 · 분기 1회</span>
@@ -2162,7 +2173,7 @@ a,button,.card,.chip{-webkit-tap-highlight-color:transparent}
           <div class="bar"><i class="seg" style="width:100%"></i></div>
           <div class="c-scale"><span>0</span><span>반나절</span></div>
           <div class="c-hint">눌러서 어떤 자리인지 보기</div><div class="det">결정이 계속 생기는데 매번 혼자 정하고 계실 때. 상시 연락은 포함하지 않습니다. 판단한 내용이 기록으로 남아 <b>회사의 의사결정 이력</b>이 됩니다.</div>
-          <a class="c-go" href="#apply-sec">이 자리로 신청 <span class="arw">&rsaquo;</span></a>
+          <a class="c-go" href="#apply-sec">이 자리로 문의 <span class="arw">&rsaquo;</span></a>
         </article>
         <button type="button" class="xp js-morecards" aria-expanded="false">다른 자리 4종 더 보기 <i>+</i></button>
       </div>
@@ -2172,7 +2183,7 @@ a,button,.card,.chip{-webkit-tap-highlight-color:transparent}
 </section>
 
 
-<section class="sec" id="pickup">
+<section class="sec s-pick" id="pickup">
   <div class="secno" aria-hidden="true">03</div>
   <div class="row">
     <div class="k">길잡이</div>
@@ -2206,19 +2217,19 @@ a,button,.card,.chip{-webkit-tap-highlight-color:transparent}
 <section class="sec s-faq" id="faq">
   <div class="secno" aria-hidden="true">04</div>
   <div class="row">
-    <div class="k">자주 묻는 것</div>
+    <div class="k">문답</div>
     <div class="v">
       <div class="sec-head"><h2 class="d2">묻기 전에<br>확인할 것</h2></div>
       <div class="qa rv" style="margin-top:clamp(24px,2.8vw,36px)">
         <div class="qa-col">
         <div class="q open"><button type="button" aria-expanded="true">법인 카드나 세금계산서로 결제되나요<i>+</i></button><div class="a"><p>세금계산서 발행됩니다.<br>사업자등록증과 담당자 이메일만 보내주시면 됩니다.<br><b>계좌이체와 법인카드 모두 가능합니다.</b></p></div></div>
-        <div class="q"><button type="button" aria-expanded="false">비밀유지계약서를 써야 합니다<i>+</i></button><div class="a"><p>보내주시면 검토하고 서명해 드립니다.<br>따로 없으시면 저희 양식으로 진행합니다.<br><b>착수 전에 먼저 정리하고 시작합니다.</b></p></div></div>
+        <div class="q"><button type="button" aria-expanded="false">비밀유지계약서를 써야 합니다<i>+</i></button><div class="a"><p>보내주시면 검토하고 서명해 드립니다.<br>따로 없으시면 저희 양식으로 진행합니다.<br><b>서명은 착수 전에 끝냅니다.</b></p></div></div>
         <div class="q qx" hidden><button type="button" aria-expanded="false">연간 계약을 해야 하나요<i>+</i></button><div class="a"><p>사안 하나씩 끊어서 진행합니다.<br>계속 볼 일이 생기면 그때 정기 자문으로 옮기시면 됩니다.<br><b>묶어서 팔지 않습니다.</b></p></div></div>
         <div class="q qx" hidden><button type="button" aria-expanded="false">법률이나 세무 자문인가요<i>+</i></button><div class="a"><p>아닙니다.<br>사람과 조직, 결정의 순서를 다룹니다.<br><b>법률 검토나 세무 처리는 하지 않습니다.</b></p></div></div>
         </div>
         <div class="qa-col">
-        <div class="q"><button type="button" aria-expanded="false">일정을 못 맞추게 되면 어떻게 됩니까<i>+</i></button><div class="a"><p>착수금은 일정 확정 전이면 전액 돌려드립니다.<br>3영업일 이전 취소는 80%, 그 이후는 50%입니다.<br><b>일정 변경은 1회까지 무료입니다.</b></p></div></div>
-        <div class="q qx" hidden><button type="button" aria-expanded="false">사내에서 이 얘기가 새면 곤란합니다<i>+</i></button><div class="a"><p>보안은 철저히 유지됩니다.<br>회사명을 밝히지 않으셔도 진행됩니다.<br><b>주고받은 자료는 종결 후 1년 뒤 지웁니다.</b></p></div></div>
+        <div class="q"><button type="button" aria-expanded="false">일정을 못 맞추게 되면 어떻게 됩니까<i>+</i></button><div class="a"><p>착수금은 일정 확정 전이면 전액 돌려드립니다.<br>3영업일 전까지는 80%, 그 뒤에는 50%를 돌려드립니다.<br><b>일정 변경은 1회까지 무료입니다.</b></p></div></div>
+        <div class="q qx" hidden><button type="button" aria-expanded="false">사내에서 이 얘기가 새면 곤란합니다<i>+</i></button><div class="a"><p>저희 쪽에서 나갈 일은 없습니다.<br>회사명을 밝히지 않으셔도 진행됩니다.<br><b>주고받은 자료는 종결 후 1년 뒤 지웁니다.</b></p></div></div>
         <div class="q qx" hidden><button type="button" aria-expanded="false">임원이 여러 명 들어와도 되나요<i>+</i></button><div class="a"><p>임원 동석은 대표 포함 3~4인 기준입니다.<br>인원이 더 필요하시면 조직 상담으로 진행합니다.<br><b>강연은 인원 제한 없이 임직원 전체가 가능합니다.</b></p></div></div>
         <div class="q"><button type="button" aria-expanded="false">지방이나 해외 법인도 되나요<i>+</i></button><div class="a"><p>화상으로 하시면 됩니다.<br>대면은 서울 여의도이고, 요청하시면 출장도 갑니다.<br><b>출장은 교통비 실비만 별도입니다.</b></p></div></div>
         </div>
@@ -2251,7 +2262,7 @@ a,button,.card,.chip{-webkit-tap-highlight-color:transparent}
             <a class="btn btn-talk" href="https://open.kakao.com/o/sAhFVAGi" target="_blank" rel="noopener">
               <svg viewBox="0 0 24 24" width="18" height="18" aria-hidden="true"><path fill="currentColor" d="M12 3c-4.97 0-9 3.14-9 7.01 0 2.5 1.68 4.7 4.2 5.93l-.86 3.16a.4.4 0 0 0 .6.44l3.72-2.46c.44.05.89.08 1.34.08 4.97 0 9-3.14 9-7.15C21 6.14 16.97 3 12 3z"/></svg>
               카카오톡으로 문의하기 <span class="arw">&rsaquo;</span></a>
-            <button type="button" class="btn ghost js-copy" data-label="질문 양식 복사하기">질문 양식 복사하기</button>
+            <button type="button" class="btn ghost js-copy" data-label="문의 양식 복사하기">문의 양식 복사하기</button>
           </div>
             <p class="fine" style="margin-top:16px">대화 내용은 상담 진행에만 씁니다.<br>1년 뒤 지우고, 그 전에도 요청하시면 바로 지웁니다.</p>
           </div>
@@ -2261,7 +2272,7 @@ a,button,.card,.chip{-webkit-tap-highlight-color:transparent}
             <div class="fine">보내신 다음</div>
             <div class="d3" style="margin-top:10px">24시간 안에<br>답을 드립니다</div>
             <p class="p" style="margin-top:18px">형식은 없습니다.<br>말하듯 적어 주셔도 됩니다.</p>
-            <div class="ap-row"><span>급하실 때</span><b>1시간 안</b></div>
+            <div class="ap-row"><span>급하실 때</span><b>1시간 안에 답</b></div>
             <div class="ap-row"><span>빠른 진행</span><b>상담료 150%</b></div>
             <div class="ap-row"><span>첫 상담</span><b>전액 선결제</b></div>
             <div class="ap-row"><span>조직·경영·임원</span><b>착수금 50% · 잔금 50%</b></div>
@@ -2270,7 +2281,7 @@ a,button,.card,.chip{-webkit-tap-highlight-color:transparent}
             <div class="ap-flow">
               <div class="apf"><b>1</b><span>카카오톡으로 위 네 가지를 보냅니다</span></div>
               <div class="apf"><b>2</b><span>24시간 안에 답을 드리고 상담 종류를 같이 정합니다</span></div>
-              <div class="apf"><b>3</b><span>채팅으로 안내드린 계좌에 정해진 금액을 보내주십시오</span></div>
+              <div class="apf"><b>3</b><span>채팅으로 안내드린 계좌에 정해진 금액을 보냅니다</span></div>
               <div class="apf"><b>4</b><span>입금이 확인되면 일정과 장소를 정합니다</span></div>
             </div>
           </div>
@@ -2298,7 +2309,7 @@ a,button,.card,.chip{-webkit-tap-highlight-color:transparent}
         </div>
       </div>
       <nav class="ft-nav">
-        <a href="index.html">처음</a>
+        <a href="index.html">첫 화면</a>
         <a href="personal.html">개인</a>
         <a href="business.html">사업자</a>
         <a href="#apply-sec">문의</a>
@@ -2792,6 +2803,7 @@ window.ME_CFG.business = {
 
       var draw = function () {
         var r = cfg.recs[sel.chip];
+        var act = root.getAttribute('data-track') === '개인' ? '이 상담으로 신청' : '이 상담으로 문의';
         chips.forEach(function (c, n) { c.setAttribute('aria-pressed', n === sel.chip ? 'true' : 'false'); });
         whens.forEach(function (w, n) { w.setAttribute('aria-pressed', n === sel.when ? 'true' : 'false'); });
         out.innerHTML =
@@ -2803,7 +2815,7 @@ window.ME_CFG.business = {
             : '기한을 고르시면 양식에 함께 담깁니다') + '</div>' +
           '<div class="rec-d">' + r.why + '</div>' +
           '<div class="rec-b">' +
-            '<button class="btn" type="button" data-item="' + r.key + '">이 상담으로 문의 <span class="arw">&rsaquo;</span></button>' +
+            '<button class="btn" type="button" data-item="' + r.key + '">' + act + ' <span class="arw">&rsaquo;</span></button>' +
             '<button class="btn ghost js-reccopy" type="button">문의 양식 복사</button>' +
           '</div>';
         out.classList.remove('fade-swap'); void out.offsetWidth; out.classList.add('fade-swap');
@@ -2867,7 +2879,7 @@ window.ME_CFG.business = {
     var copyBtn = $('.js-copy', root);
     if (copyBtn) {
       var copyDone = function () {
-        copyBtn.textContent = '복사됐습니다. 카카오톡을 열어 붙여넣으세요';
+        copyBtn.textContent = '복사됐습니다. 카카오톡에 붙여넣으세요';
         setTimeout(function () { copyBtn.textContent = copyBtn.getAttribute('data-label'); }, 2600);
       };
       var copyFallback = function (txt) {
@@ -2920,18 +2932,22 @@ window.ME_CFG.business = {
       var ic = $('i', xp); if (ic) ic.textContent = opening ? '−' : '+';
       sendEvent('me_wizard_open');
     });
-    var mc = $('.js-morecards', root);
-    if (mc) mc.addEventListener('click', function () {
-      $$('.items-grid .card[hidden]', root).forEach(function (c) { c.hidden = false; });
-      mc.hidden = true;
-      sendEvent('me_items_more');
-    });
-    var mf = $('.js-morefaq', root);
-    if (mf) mf.addEventListener('click', function () {
-      $$('.qa .q[hidden]', root).forEach(function (q) { q.hidden = false; });
-      var wrap = mf.closest('.qa-more'); (wrap || mf).hidden = true;
-      sendEvent('me_faq_more');
-    });
+    // 더 보기 버튼은 접기도 된다 — 펼친 목록을 기억해 두었다가 되접는다.
+    var makeMore = function (btn, sel, evName) {
+      if (!btn) return;
+      var label = btn.innerHTML, kept = [];
+      btn.addEventListener('click', function () {
+        var hid = $$(sel, root).filter(function (e) { return e.hidden; });
+        var opening = hid.length > 0;
+        if (opening) { kept = hid; hid.forEach(function (e) { e.hidden = false; }); }
+        else kept.forEach(function (e) { e.hidden = true; });
+        btn.innerHTML = opening ? '접기 <i>−</i>' : label;
+        btn.setAttribute('aria-expanded', opening ? 'true' : 'false');
+        sendEvent(evName);
+      });
+    };
+    makeMore($('.js-morecards', root), '.items-grid .card', 'me_items_more');
+    makeMore($('.js-morefaq', root), '.qa .q', 'me_faq_more');
 
     var moreBtn = $('.js-more', root);
     if (moreBtn) moreBtn.addEventListener('click', function () {
