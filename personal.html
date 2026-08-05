@@ -198,7 +198,7 @@ button,input,select,textarea{font:inherit;color:inherit;letter-spacing:inherit}
 .tg .sw{width:40px;height:22px;border:1px solid var(--line);border-radius:11px;position:relative}
 .tg .sw::after{
   content:"";position:absolute;top:2px;left:2px;width:16px;height:16px;border-radius:50%;
-  background:var(--fg);transition:transform .26s var(--ease);
+  background:var(--dim);transition:transform .26s var(--ease),background .2s;
 }
 .tg input:checked+.sw{background:var(--fg);border-color:var(--fg)}
 .tg input:checked+.sw::after{transform:translateX(18px);background:var(--bg)}
@@ -2008,6 +2008,12 @@ a,button,.card,.chip{-webkit-tap-highlight-color:transparent}
   .t-personal .s-pick .js-pick,.t-business .s-pick .js-pick{grid-column:1/-1}
 }
 
+/* SNS 유입 검토 (2026-08-05): 모바일에서 시간 막대는 설명 문장이 화면 밖이라 로딩 바로 오독됨 */
+@media (max-width:699px){
+  .t-personal .items-grid .bar,.t-personal .items-grid .c-scale,
+  .t-business .items-grid .bar,.t-business .items-grid .c-scale{display:none}
+}
+
 </style>
 <script type="application/ld+json">
 {
@@ -2113,7 +2119,7 @@ a,button,.card,.chip{-webkit-tap-highlight-color:transparent}
     <div class="k">상담 종류</div>
     <div class="v">
       <h2 class="d2">필요한 만큼만<br>사시면 됩니다</h2>
-      <p class="p" style="margin-top:16px">전체 가격표예요. 막대 길이가 실제로 앉아 있는 시간이거든요.</p>
+      <p class="p" style="margin-top:16px">전체 가격표예요.<span class="hf-x"> 막대 길이가 실제로 앉아 있는 시간이거든요.</span></p>
       <div class="tools" style="margin-top:clamp(26px,3vw,40px)">
         <label class="tg"><input type="checkbox" class="js-rush"><span class="sw"></span>빠른 진행 붙이기</label>
         <span class="fine">일정을 앞당깁니다. <span class="js-tgn">전 상품 +50%</span></span>
