@@ -7,19 +7,19 @@
     <priority>1.0</priority>
   </url>
   <url>
-    <loc>https://maisonelite.co.kr/personal.html</loc>
+    <loc>https://maisonelite.co.kr/personal</loc>
     <lastmod>2026-08-08</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
-    <loc>https://maisonelite.co.kr/business.html</loc>
+    <loc>https://maisonelite.co.kr/business</loc>
     <lastmod>2026-08-08</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
-    <loc>https://maisonelite.co.kr/privacy.html</loc>
+    <loc>https://maisonelite.co.kr/privacy</loc>
     <lastmod>2026-08-08</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.2</priority>

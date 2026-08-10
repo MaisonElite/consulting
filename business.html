@@ -15,12 +15,12 @@
 <title>사업자 상담 · Maison Elite 메종엘리트 | 첫 상담 90분 100만원</title>
 <meta name="description" content="채용, 조직, 미뤄둔 결정. 이해관계 없는 제3자의 판단. 첫 상담 90분 100만원, 서울 여의도 대면 또는 화상.">
 <meta name="theme-color" content="#20242A">
-<link rel="canonical" href="https://maisonelite.co.kr/business.html">
+<link rel="canonical" href="https://maisonelite.co.kr/business">
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="Maison Elite">
 <meta property="og:title" content="사업자 상담 · Maison Elite">
 <meta property="og:description" content="이해관계 없는 사람이 필요한 겁니다. 첫 상담 90분 100만원.">
-<meta property="og:url" content="https://maisonelite.co.kr/business.html">
+<meta property="og:url" content="https://maisonelite.co.kr/business">
 <meta property="og:locale" content="ko_KR">
 <meta name="twitter:card" content="summary_large_image">
 <meta property="og:image" content="https://maisonelite.co.kr/og.jpg">
@@ -2021,8 +2021,8 @@ a,button,.card,.chip{-webkit-tap-highlight-color:transparent}
  "@graph":[
   {"@type":"BreadcrumbList","itemListElement":[
     {"@type":"ListItem","position":1,"name":"Maison Elite","item":"https://maisonelite.co.kr/"},
-    {"@type":"ListItem","position":2,"name":"사업자 상담","item":"https://maisonelite.co.kr/business.html"}]},
-  {"@type":"Service","@id":"https://maisonelite.co.kr/business.html#svc",
+    {"@type":"ListItem","position":2,"name":"사업자 상담","item":"https://maisonelite.co.kr/business"}]},
+  {"@type":"Service","@id":"https://maisonelite.co.kr/business#svc",
    "name":"사업자 상담","serviceType":"경영 및 조직 자문",
    "provider":{"@type":"ProfessionalService","name":"Maison Elite","alternateName":"메종엘리트","url":"https://maisonelite.co.kr/"},
    "areaServed":"KR","audience":{"@type":"Audience","audienceType":"사업자"},
@@ -2052,10 +2052,10 @@ a,button,.card,.chip{-webkit-tap-highlight-color:transparent}
 <a class="skip" href="#main">본문으로 건너뛰기</a>
 <header class="hd">
   <div class="hd-in">
-    <a class="brand" href="index.html"><i></i>Maison Elite</a>
+    <a class="brand" href="/"><i></i>Maison Elite</a>
     <div class="hd-sw">
-      <a href="personal.html">개인</a>
-      <a class="on" href="business.html">사업자</a>
+      <a href="/personal">개인</a>
+      <a class="on" href="/business">사업자</a>
     </div>
     <a class="btn" href="#apply-sec">첫 상담 잡기</a>
   </div>
@@ -2316,11 +2316,11 @@ a,button,.card,.chip{-webkit-tap-highlight-color:transparent}
         </div>
       </div>
       <nav class="ft-nav">
-        <a href="index.html">첫 화면</a>
-        <a href="personal.html">개인</a>
-        <a href="business.html">사업자</a>
+        <a href="/">첫 화면</a>
+        <a href="/personal">개인</a>
+        <a href="/business">사업자</a>
         <a href="#apply-sec">문의</a>
-        <a href="privacy.html">개인정보처리방침</a>
+        <a href="/privacy">개인정보처리방침</a>
       </nav>
     </div>
     <div class="ft-legal">
@@ -3109,7 +3109,7 @@ window.ME_CFG.business = {
     }
 
     /* 주소는 정식 경로(personal.html)로 적는다 — 해시(#personal)는 옛 링크 호환용으로만 남긴다 */
-    function urlFor(name) { return name ? name + '.html' : './'; }
+    function urlFor(name) { return name ? '/' + name : '/'; }
     function navigate(name) {
       show(name);
       if (window.history && history.pushState) {

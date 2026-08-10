@@ -2050,7 +2050,7 @@ a,button,.card,.chip{-webkit-tap-highlight-color:transparent}
     {
       "@type":"SiteNavigationElement",
       "name":["개인 상담","사업자 상담"],
-      "url":["https://maisonelite.co.kr/personal.html","https://maisonelite.co.kr/business.html"]
+      "url":["https://maisonelite.co.kr/personal","https://maisonelite.co.kr/business"]
     }
   ]
 }
@@ -2073,7 +2073,7 @@ a,button,.card,.chip{-webkit-tap-highlight-color:transparent}
       <button type="button" class="shot-rs" hidden>되돌리기</button>
     </figure>
     <span class="gno num">01</span>
-    <a class="half-hit" href="personal.html" data-goto="personal" data-track="개인" aria-label="개인 상담 자세히 보기">
+    <a class="half-hit" href="/personal" data-goto="personal" data-track="개인" aria-label="개인 상담 자세히 보기">
       <div class="hk">개인</div>
       <div class="ht">인간관계, 커리어, 돈에 대한<br>고민이 있으시다면</div>
       <p class="hs">최선의 선택지를 판단해 드립니다</p>
@@ -2088,7 +2088,7 @@ a,button,.card,.chip{-webkit-tap-highlight-color:transparent}
       <button type="button" class="shot-rs" hidden>되돌리기</button>
     </figure>
     <span class="gno num">02</span>
-    <a class="half-hit" href="business.html" data-goto="business" data-track="사업자" aria-label="사업자 상담 자세히 보기">
+    <a class="half-hit" href="/business" data-goto="business" data-track="사업자" aria-label="사업자 상담 자세히 보기">
       <div class="hk">사업자</div>
       <div class="ht">채용, 조직, 경영에 대한<br>고민이 있으시다면</div>
       <p class="hs">최선의 선택지를 판단해 드립니다</p>
@@ -2359,7 +2359,7 @@ a,button,.card,.chip{-webkit-tap-highlight-color:transparent}
         <a href="#personal">개인</a>
         <a href="#business">사업자</a>
         <a href="#p-apply-sec">신청</a>
-        <a href="privacy.html">개인정보처리방침</a>
+        <a href="/privacy">개인정보처리방침</a>
       </nav>
     </div>
     <div class="ft-legal">
@@ -2653,7 +2653,7 @@ a,button,.card,.chip{-webkit-tap-highlight-color:transparent}
         <a href="#personal">개인</a>
         <a href="#business">사업자</a>
         <a href="#b-apply-sec">문의</a>
-        <a href="privacy.html">개인정보처리방침</a>
+        <a href="/privacy">개인정보처리방침</a>
       </nav>
     </div>
     <div class="ft-legal">
@@ -3485,7 +3485,7 @@ window.ME_CFG.business = {
     }
 
     /* 주소는 정식 경로(personal.html)로 적는다 — 해시(#personal)는 옛 링크 호환용으로만 남긴다 */
-    function urlFor(name) { return name ? name + '.html' : './'; }
+    function urlFor(name) { return name ? '/' + name : '/'; }
     function navigate(name) {
       show(name);
       if (window.history && history.pushState) {
