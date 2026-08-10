@@ -1303,8 +1303,6 @@ a:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible,te
 .t-personal .chips,.t-personal .items-grid,.t-personal .asks,
 .t-personal .flow,.t-personal .rules{gap:clamp(10px,1.1vw,14px)}
 .t-personal .qa{display:grid;gap:clamp(10px,1.1vw,14px)}
-/* 문답 두 열을 독립 세로 더미로 — 한 항목이 열려도 옆 열 카드 밑에 빈 공간이 안 생긴다 */
-.t-personal .qa-col,.t-business .qa-col{display:grid;gap:clamp(10px,1.1vw,14px);align-content:start}
 @media (min-width:1100px){ .t-personal .qa{grid-template-columns:1fr 1fr;columns:auto} }
 .t-personal .qa .q{margin-bottom:0}
 
