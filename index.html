@@ -3206,7 +3206,7 @@ window.ME_CFG.business = {
         el.textContent = (el.getAttribute('data-pre') || '') + won(rush ? Math.round(base * 1.5) : base);
       });
       $$('.was', root).forEach(function (el) { el.hidden = !rush; });
-      /* 기준가 전용 부가 줄(연 1,000만원, 인당 20만원)은 +50% 상태에서 거짓이 되므로 숨긴다 */
+      /* 기준가 전용 부가 줄(연 4회 600만원, 인당 15만원)은 +50% 상태에서 거짓이 되므로 숨긴다 */
       $$('.js-baseprice', root).forEach(function (el) { el.hidden = rush; });
     }
     var tg = $('.js-rush', root);
