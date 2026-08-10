@@ -237,7 +237,7 @@ button,input,select,textarea{font:inherit;color:inherit;letter-spacing:inherit}
   background:var(--fg);opacity:.38;transform:scaleX(0);transform-origin:left;
   transition:transform .85s var(--ease),opacity .25s;
 }
-.card:hover .seg,.card.open .seg{opacity:.8}
+.card:hover .seg{opacity:.8}
 .seg.open{background:none;border:1px solid var(--fg);opacity:.32}
 .rv.in .seg{transform:scaleX(1)}
 .card:nth-child(2) .seg{transition-delay:.04s}
@@ -250,12 +250,9 @@ button,input,select,textarea{font:inherit;color:inherit;letter-spacing:inherit}
 
 .card.opt .bar{display:none}
 .det{
-  max-height:0;overflow:hidden;opacity:0;
-  transition:max-height .45s var(--ease),opacity .3s,padding .45s var(--ease);
   font-size:0.9062rem;line-height:1.85;color:var(--mid);max-width:46em;
 }
 .det b{color:var(--fg);font-weight:700}
-.card.open .det{max-height:300px;opacity:1;padding-top:14px}
 .foot-note{margin-top:clamp(18px,2vw,24px);font-size:.8125rem;color:var(--dim);line-height:1.8}
 .foot-note b{color:var(--fg);font-weight:700}
 
@@ -736,7 +733,7 @@ a:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible,te
 /* 시간 막대를 조금 더 또렷하게 (시그니처) */
 .t-personal .bar{height:5px;gap:4px;margin-top:14px}
 .t-personal .seg{opacity:.28}
-.t-personal .card.open .seg,.t-personal .card:hover .seg{opacity:.85}
+.t-personal .items-grid .seg,.t-business .items-grid .seg{opacity:1} /* 막대는 전 카드 같은 진하기 */
 
 /* 가격은 살짝 크게, 상품명과 붙지 않게 */
 .t-personal .c-pr{font-size:clamp(20px,2.3vw,28px);letter-spacing:-.05em}
@@ -1007,8 +1004,7 @@ a:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible,te
   min-height:calc(1em + 27px)} /* 부가 줄 유무와 무관하게 막대 시작 높이를 맞춤 */
 .t-personal .items-grid .bar,.t-business .items-grid .bar{margin-top:clamp(14px,1.5vw,18px)}
 .t-personal .items-grid .det,.t-business .items-grid .det{margin-top:clamp(12px,1.3vw,16px);font-size:.875rem;line-height:1.75;
-  color:var(--mid);flex:1}
-.t-personal .items-grid .card.open,.t-business .items-grid .card.open{background:#E7E3DB}
+  color:var(--mid)}
 
 
 /* 카드 안 시간 눈금 (시그니처 유지) */
@@ -1445,8 +1441,6 @@ html{scroll-padding-top:78px}
 
 /* 상품 카드 가격 위계 — 비싼 자리가 한눈에 보이게 */
 .t-personal .s-items .c-pr{font-size:clamp(24px,2.4vw,32px);letter-spacing:-.045em;line-height:1.15}
-.t-personal .s-items .card:nth-child(4) .c-pr{font-size:clamp(27px,2.7vw,36px)}
-.t-personal .s-items .card:nth-child(5) .c-pr{font-size:clamp(30px,3.1vw,42px)}
 
 /* 빠른 진행 토글: 적용 상태를 눈에 보이게 */
 .t-personal .s-items .tg{transition:none}
@@ -1469,15 +1463,9 @@ html{scroll-padding-top:78px}
 .t-personal .s-items .bar .seg{height:10px;border-radius:5px}
 .t-personal .s-items .c-scale{margin-top:9px}
 
-/* 9) 상품 카드가 눌리는 것임을 알림 */
-.t-personal .s-items .card{cursor:pointer;position:relative}
-.t-personal .s-items .card .det{max-height:0;overflow:hidden;opacity:0;
-  transition:max-height .4s var(--ease),opacity .3s var(--ease),margin-top .4s var(--ease);margin-top:0}
-.t-personal .s-items .card.open .det{max-height:40rem;opacity:1;margin-top:clamp(12px,1.3vw,16px)}
-.t-personal .c-hint{display:flex;align-items:center;gap:5px;margin-top:clamp(12px,1.3vw,16px);
-  font-size:.75rem;font-weight:700;color:var(--dim);transition:color .3s var(--ease)}
-.t-personal .s-items .card:hover .c-hint{color:var(--fg)}
-.t-personal .s-items .card.open .c-hint{display:none}
+/* 9) 상품 카드는 접지 않는다 — 눌러야 보이는 정보는 없는 정보다 */
+.t-personal .s-items .card{position:relative}
+.t-personal .s-items .card .det{margin-top:clamp(12px,1.3vw,16px)}
 
 /* 2) 구역 사이 여백이 겹쳐 두 배가 되던 지점 정리 */
 .t-personal .sec>.stage>.row>.v>*:last-child{margin-bottom:0}
@@ -1528,17 +1516,11 @@ html{scroll-padding-top:78px}
 .t-business .sec.hero .d1{font-size:clamp(36px,5.4vw,76px)}
 
 /* 사업자 상담 종류 — 개인과 같은 카드 체계 */
-.t-business .s-items .card{cursor:pointer;position:relative;border-radius:16px;
+.t-business .s-items .card{position:relative;border-radius:16px;
   padding:clamp(20px,2.2vw,28px);background:#EDEAE3;border:1px solid rgba(15,14,13,.13);box-sizing:border-box}
 .t-business .s-items .bar{height:10px;border-radius:5px;background:rgba(15,14,13,.10)}
 .t-business .s-items .bar .seg{height:10px;border-radius:5px}
-.t-business .s-items .card .det{max-height:0;overflow:hidden;opacity:0;margin-top:0;
-  transition:max-height .4s var(--ease),opacity .3s var(--ease),margin-top .4s var(--ease)}
-.t-business .s-items .card.open .det{max-height:40rem;opacity:1;margin-top:clamp(12px,1.3vw,16px)}
-.t-business .c-hint{display:flex;align-items:center;gap:5px;margin-top:clamp(12px,1.3vw,16px);
-  font-size:.75rem;font-weight:700;color:var(--dim);transition:color .3s var(--ease)}
-.t-business .s-items .card:hover .c-hint{color:var(--fg)}
-.t-business .s-items .card.open .c-hint{display:none}
+.t-business .s-items .card .det{margin-top:clamp(12px,1.3vw,16px)}
 .t-business .c-go{display:flex;align-items:center;gap:6px;margin-top:auto;
   padding-top:clamp(14px,1.5vw,18px);border-top:1px solid rgba(15,14,13,.13);
   font-size:.8125rem;font-weight:700;color:var(--fg);opacity:.6;
@@ -1546,20 +1528,15 @@ html{scroll-padding-top:78px}
 .t-business .c-go:hover{opacity:1;gap:11px}
 @media (hover:none){ .t-business .c-go{min-height:44px;opacity:.8} }
 
-/* 카드 안내 문구는 마우스 기기에서 호버 때만 (12개 카드 반복 노이즈 제거) */
-@media (hover:hover){
-  .t-personal .c-hint,.t-business .c-hint{opacity:0;transition:opacity .3s var(--ease)}
-  .t-personal .s-items .card:hover .c-hint,.t-business .s-items .card:hover .c-hint{opacity:1}
-}
+
 
 /* 기본값 배지 — 뭘 고를지부터 정해준다 */
 .c-flag{position:absolute;top:clamp(18px,2vw,26px);right:clamp(18px,2vw,26px);
   font-size:.6875rem;font-weight:800;letter-spacing:0;color:var(--fg);
   border:1px solid var(--fg);border-radius:999px;padding:5px 11px;line-height:1.4;
   pointer-events:none;white-space:nowrap}
-/* 가격 위계 — 비싼 자리가 한눈에 */
+/* 가격 글자 크기는 전 카드 동일 — 위계는 막대와 사양 표가 진다 */
 .t-business .s-items .c-pr{font-size:clamp(24px,2.4vw,32px);letter-spacing:-.045em;line-height:1.15}
-.t-business .s-items .card:nth-child(5) .c-pr{font-size:clamp(27px,2.7vw,36px)} /* 정기 자문은 "회당"이 붙어 길다 */
 /* 여섯 개를 격자에 고르게 */
 @media (min-width:1100px){ .t-business .items-grid{grid-template-columns:repeat(3,1fr)} }
 @media (min-width:700px) and (max-width:1099px){ .t-business .items-grid{grid-template-columns:repeat(2,1fr)} }
@@ -2001,11 +1978,8 @@ a,button,.card,.chip{-webkit-tap-highlight-color:transparent}
   .t-personal .s-pick .js-pick,.t-business .s-pick .js-pick{grid-column:1/-1}
 }
 
-/* SNS 유입 검토 (2026-08-05): 모바일에서 시간 막대는 설명 문장이 화면 밖이라 로딩 바로 오독됨 */
-@media (max-width:699px){
-  .t-personal .items-grid .bar,.t-personal .items-grid .c-scale,
-  .t-business .items-grid .bar,.t-business .items-grid .c-scale{display:none}
-}
+/* 2026-08-05 에는 모바일에서 시간 막대를 숨겼다. 설명이 접혀 있어 로딩 바로 오독됐기 때문.
+   2026-08-10 부터 설명과 사양 표가 막대 바로 아래에 항상 보이므로 그 이유가 사라져 되살린다. */
 
 /* 구역 끝 전환 장치 (2026-08-10) — 설득이 끝난 지점마다 다음 행동을 둔다.
    판정 기록 뒤는 신청까지 3,000px 넘게 떨어져 있어 버튼, 문답 뒤는 바로 아래라 링크. */
@@ -2042,11 +2016,11 @@ a,button,.card,.chip{-webkit-tap-highlight-color:transparent}
 .t-personal .items-grid,.t-business .items-grid{align-items:stretch}
 /* A3. 가격 크기와 부가 설명 유무가 카드마다 달라 막대 높이가 어긋나던 문제 —
    가격 영역 높이를 한 줄 기준으로 고정해 같은 줄에서 막대가 나란히 오게 한다. */
-@media (min-width:700px){
-  .t-personal .items-grid .c-pr,.t-business .items-grid .c-pr{
-    min-height:76px;display:flex;flex-direction:column;justify-content:flex-end}
-  .t-personal .items-grid .c-pr small,.t-business .items-grid .c-pr small{margin-top:5px}
-}
+/* 가격 칸은 부가 줄이 있든 없든 같은 높이 — 숫자는 위에 붙여 기준선을 맞추고,
+   부가 줄은 그 아래에 매달아 막대 시작 높이까지 함께 맞춘다. */
+.t-personal .items-grid .c-pr,.t-business .items-grid .c-pr{
+  min-height:76px;display:flex;flex-direction:column;justify-content:flex-start}
+.t-personal .items-grid .c-pr small,.t-business .items-grid .c-pr small{margin-top:5px}
 /* B1·B3. 추천 띠: 기한 줄에 고유 자리를 주고(자동 배치로 구석에 떨어지던 문제),
    버튼은 가로로 나란히 놓아 오른쪽 여백을 채운다. */
 @media (min-width:820px){
@@ -2086,6 +2060,21 @@ a,button,.card,.chip{-webkit-tap-highlight-color:transparent}
 .t-personal .qa .q.open .a,.t-business .qa .q.open .a{grid-template-rows:1fr;max-height:none}
 .t-personal .qa .a>p,.t-business .qa .a>p{min-height:0;overflow:hidden}
 
+
+/* ============================================================
+   상품 사양 표 — 시간·인원·범위·결과를 카드마다 같은 자리에
+   두루뭉실하다는 지적의 답. 네 줄 고정이라 높이도 저절로 맞는다.
+   ============================================================ */
+.t-personal .c-spec,.t-business .c-spec{margin:clamp(14px,1.6vw,18px) 0 0;
+  border-top:1px solid var(--hair)}
+.t-personal .c-spec>div,.t-business .c-spec>div{display:flex;align-items:baseline;gap:10px;
+  padding:7px 0;border-bottom:1px solid var(--hair)}
+.t-personal .c-spec>div:last-child,.t-business .c-spec>div:last-child{border-bottom:0}
+.t-personal .c-spec dt,.t-business .c-spec dt{flex:0 0 44px;margin:0;
+  font-size:.75rem;font-weight:600;letter-spacing:0;color:var(--dim)}
+.t-personal .c-spec dd,.t-business .c-spec dd{flex:1;margin:0;text-align:right;
+  font-size:.8125rem;font-weight:700;letter-spacing:-.01em;color:var(--fg)}
+
 </style>
 <script type="application/ld+json">
 {
@@ -2104,7 +2093,7 @@ a,button,.card,.chip{-webkit-tap-highlight-color:transparent}
      {"@type":"Offer","name":"면접 배석","price":"1500000","priceCurrency":"KRW","description":"임원 및 핵심 인력 면접 동석 건당"},
      {"@type":"Offer","name":"조직 상담","price":"2000000","priceCurrency":"KRW","description":"3시간 사람과 조직 사안"},
      {"@type":"Offer","name":"경영 상담","price":"3000000","priceCurrency":"KRW","description":"3시간 결정 사안 하나"},
-     {"@type":"Offer","name":"정기 자문","price":"2500000","priceCurrency":"KRW","description":"분기 1회 반나절 회당"}]}},
+     {"@type":"Offer","name":"정기 자문","price":"2500000","priceCurrency":"KRW","description":"분기 1회 회당 4시간"}]}},
   {"@type":"FAQPage","mainEntity":[
     {"@type":"Question","name":"법인 카드나 세금계산서로 결제되나요","acceptedAnswer":{"@type":"Answer","text":"세금계산서 발행되며 계좌이체와 법인카드 모두 가능합니다."}},
     {"@type":"Question","name":"비밀유지계약서를 써야 합니다","acceptedAnswer":{"@type":"Answer","text":"보내주시면 검토하고 서명해 드리며, 따로 없으시면 저희 양식으로 착수 전에 정리하고 시작합니다."}},
@@ -2204,40 +2193,45 @@ a,button,.card,.chip{-webkit-tap-highlight-color:transparent}
           <div class="c-top"><span class="c-nm">첫 상담</span><span class="c-cfg">90분 · 사안 파악</span>
             <span class="c-pr"><span class="num" data-man="100"></span><span class="was num">100만원</span></span><span class="c-vat">VAT 별도</span></div>
           <div class="bar"><i class="seg" style="width:37.5%"></i></div>
-          <div class="c-scale"><span>0</span><span>반나절</span></div>
-          <div class="c-hint">눌러서 자세히 보기</div><div class="det">A라고 생각하고 오셨는데 실제로는 B입니다.<br><b>무엇부터 손댈지 정하고 나가십니다.</b></div>
+          <div class="c-scale"><span>0</span><span>4시간</span></div>
+          <div class="det">A라고 생각하고 오셨는데 실제로는 B입니다.<br><b>무엇부터 손댈지 정하고 나가십니다.</b></div>
+          <dl class="c-spec"><div><dt>시간</dt><dd>90분</dd></div><div><dt>인원</dt><dd>대표 1인</dd></div><div><dt>범위</dt><dd>사안 전체 훑기</dd></div><div><dt>결과</dt><dd>무엇부터 손댈지</dd></div></dl>
           <a class="c-go" href="#apply-sec">이 상담으로 문의 <span class="arw">&rsaquo;</span></a>
         </article>
         <article class="card">
-          <div class="c-top"><span class="c-nm">면접 배석</span><span class="c-cfg">건당 · 면접 일정에 맞춤</span>
+          <div class="c-top"><span class="c-nm">면접 배석</span><span class="c-cfg">면접 1회 · 최대 3시간</span>
             <span class="c-pr"><span class="num" data-man="150"></span><span class="was num">150만원</span></span><span class="c-vat">VAT 별도</span></div>
-          <div class="bar"><i class="seg open" style="width:28%"></i></div>
-          <div class="c-scale"><span>0</span><span>반나절</span></div>
-          <div class="c-hint">눌러서 자세히 보기</div><div class="det">잘못 뽑으면 연봉이 아니라 조직을 잃습니다.<br><b>대표님이 못 하시는 질문을 대신 합니다.</b></div>
+          <div class="bar"><i class="seg" style="width:75%"></i></div>
+          <div class="c-scale"><span>0</span><span>4시간</span></div>
+          <div class="det">잘못 뽑으면 연봉이 아니라 조직을 잃습니다.<br><b>대표님이 못 하시는 질문을 대신 합니다.</b></div>
+          <dl class="c-spec"><div><dt>시간</dt><dd>최대 3시간</dd></div><div><dt>인원</dt><dd>후보자 1인</dd></div><div><dt>범위</dt><dd>면접 동석과 질문</dd></div><div><dt>결과</dt><dd>뽑을지 말지와 이유</dd></div></dl>
           <a class="c-go" href="#apply-sec">이 상담으로 문의 <span class="arw">&rsaquo;</span></a>
         </article>
         <article class="card">
           <div class="c-top"><span class="c-nm">조직 상담</span><span class="c-cfg">3시간 · 사람과 조직 사안</span>
             <span class="c-pr"><span class="num" data-man="200"></span><span class="was num">200만원</span></span><span class="c-vat">VAT 별도</span></div>
           <div class="bar"><i class="seg" style="width:75%"></i></div>
-          <div class="c-scale"><span>0</span><span>반나절</span></div>
-          <div class="c-hint">눌러서 자세히 보기</div><div class="det">뽑으면 나가고, 남은 사람은 지쳐 있을 때.<br><b>제도 말고 사람이 어떻게 움직이는지 봅니다.</b></div>
+          <div class="c-scale"><span>0</span><span>4시간</span></div>
+          <div class="det">뽑으면 나가고, 남은 사람은 지쳐 있을 때.<br><b>제도 말고 사람이 어떻게 움직이는지 봅니다.</b></div>
+          <dl class="c-spec"><div><dt>시간</dt><dd>3시간</dd></div><div><dt>인원</dt><dd>대표 포함 4인</dd></div><div><dt>범위</dt><dd>사람과 조직 한 건</dd></div><div><dt>결과</dt><dd>손댈 순서</dd></div></dl>
           <a class="c-go" href="#apply-sec">이 상담으로 문의 <span class="arw">&rsaquo;</span></a>
         </article>
         <article class="card" hidden>
           <div class="c-top"><span class="c-nm">경영 상담</span><span class="c-cfg">3시간 · 결정 사안 하나</span>
             <span class="c-pr"><span class="num" data-man="300"></span><span class="was num">300만원</span></span><span class="c-vat">VAT 별도</span></div>
           <div class="bar"><i class="seg" style="width:75%"></i></div>
-          <div class="c-scale"><span>0</span><span>반나절</span></div>
-          <div class="c-hint">눌러서 자세히 보기</div><div class="det">임원 회의에서 몇 달째 결론이 안 날 때.<br><b>결론과 그렇게 본 이유까지 드립니다.</b></div>
+          <div class="c-scale"><span>0</span><span>4시간</span></div>
+          <div class="det">임원 회의에서 몇 달째 결론이 안 날 때.<br><b>결론과 그렇게 본 이유까지 드립니다.</b></div>
+          <dl class="c-spec"><div><dt>시간</dt><dd>3시간</dd></div><div><dt>인원</dt><dd>대표 포함 4인</dd></div><div><dt>범위</dt><dd>결정 사안 한 건</dd></div><div><dt>결과</dt><dd>결론과 그 근거</dd></div></dl>
           <a class="c-go" href="#apply-sec">이 상담으로 문의 <span class="arw">&rsaquo;</span></a>
         </article>
         <article class="card" hidden>
-          <div class="c-top"><span class="c-nm">정기 자문</span><span class="c-cfg">반나절 · 분기 1회 · 상시 연락 제외</span>
+          <div class="c-top"><span class="c-nm">정기 자문</span><span class="c-cfg">4시간 · 분기 1회 · 상시 연락 제외</span>
             <span class="c-pr"><span class="num" data-man="250" data-pre="회당 "></span><span class="was num">회당 250만원</span><small class="js-baseprice">연 1,000만원 · 임원 한 달 인건비 수준</small></span><span class="c-vat">VAT 별도</span></div>
           <div class="bar"><i class="seg" style="width:100%"></i></div>
-          <div class="c-scale"><span>0</span><span>반나절</span></div>
-          <div class="c-hint">눌러서 자세히 보기</div><div class="det">결정이 계속 생기는데 매번 혼자 정하실 때.<br><b>판단이 기록으로 남아 이력이 됩니다.</b></div>
+          <div class="c-scale"><span>0</span><span>4시간</span></div>
+          <div class="det">결정이 계속 생기는데 매번 혼자 정하실 때.<br><b>판단이 기록으로 남아 이력이 됩니다.</b></div>
+          <dl class="c-spec"><div><dt>시간</dt><dd>회당 4시간</dd></div><div><dt>인원</dt><dd>대표 포함 4인</dd></div><div><dt>범위</dt><dd>분기마다 생긴 사안</dd></div><div><dt>결과</dt><dd>회차별 판단 기록</dd></div></dl>
           <a class="c-go" href="#apply-sec">이 상담으로 문의 <span class="arw">&rsaquo;</span></a>
         </article>
         <article class="card" hidden>
@@ -2245,7 +2239,8 @@ a,button,.card,.chip{-webkit-tap-highlight-color:transparent}
             <span class="c-pr"><span class="c-quote">협의</span></span><span class="c-vat">VAT 별도</span></div>
           <div class="bar"><i class="seg seg-var" style="width:100%"></i></div>
           <div class="c-scale"><span>0</span><span>사안에 따라</span></div>
-          <div class="c-hint">눌러서 자세히 보기</div><div class="det">위 구성으로 안 잡히는 사안이 있습니다.<br><b>범위를 먼저 정하고 금액을 산정합니다.</b></div>
+          <div class="det">위 구성으로 안 잡히는 사안이 있습니다.<br><b>범위를 먼저 정하고 금액을 산정합니다.</b></div>
+          <dl class="c-spec"><div><dt>시간</dt><dd>협의</dd></div><div><dt>인원</dt><dd>협의</dd></div><div><dt>범위</dt><dd>범위부터 함께 정함</dd></div><div><dt>결과</dt><dd>결론과 그 근거</dd></div></dl>
           <a class="c-go" href="#apply-sec">이 상담으로 문의 <span class="arw">&rsaquo;</span></a>
         </article>
         <button type="button" class="xp js-morecards" aria-expanded="false">다른 상담 3종 더 보기 <i>+</i></button>
@@ -2927,21 +2922,7 @@ window.ME_CFG.business = {
       draw();
     }
 
-    $$('.card', root).forEach(function (c) {
-      c.setAttribute('tabindex', '0');
-      c.setAttribute('role', 'button');
-      c.setAttribute('aria-expanded', 'false');
-      var tog = function () {
-        c.setAttribute('aria-expanded', c.classList.toggle('open') ? 'true' : 'false');
-      };
-      c.addEventListener('click', function (e) {
-        if (e.target.closest('a,button,label')) return;
-        tog();
-      });
-      c.addEventListener('keydown', function (e) {
-        if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); tog(); }
-      });
-    });
+    /* 상품 카드 펼침은 제거됨 — 설명과 사양은 항상 보인다. */
 
     /* 방문 흐름 측정 — 도구가 붙어 있으면 보내고, 없으면 아무 일도 하지 않습니다. */
     var sendEvent = function (name, detail) {
