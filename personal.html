@@ -2928,11 +2928,20 @@ window.ME_CFG.personal = {
       });
     }
 
-    $$('a[href*="open.kakao.com"], .c-go, .js-more, .chip', root).forEach(function (el) {
-      if (el.closest('form')) return;
+    /* 전환 클릭 추적 — 어느 자리의 버튼이 문의를 만들었는지 알아야 다음 개선을 데이터로 한다.
+       자체 이벤트를 이미 보내는 것들(.xp 접힘, 복사 버튼)은 중복 집계를 피해 제외한다. */
+    $$('a[href*="open.kakao.com"], a[href*="#apply"], .btn, .c-go, .js-more, .chip, .qa-go a', root).forEach(function (el) {
+      if (el.closest('form') || el.getAttribute('data-tk')) return;
+      if (el.classList.contains('xp') || el.classList.contains('js-copy') || el.classList.contains('js-reccopy')) return;
+      el.setAttribute('data-tk', '1');
       el.addEventListener('click', function () {
+        var sec = el.closest('section');
+        var where = el.closest('.dock') ? 'dock'
+          : el.closest('.hd') ? 'header'
+            : el.closest('.rec') ? 'guide-rec'
+              : sec ? (sec.getAttribute('id') || (/\bhero\b/.test(sec.className) ? 'hero' : (sec.className.match(/s-[a-z]+/) || ['sec'])[0])) : 'etc';
         var label = (el.textContent || '').replace(/\s+/g, ' ').trim().slice(0, 30);
-        sendEvent('me_click', { where: el.className || el.tagName, label: label });
+        sendEvent('me_click', { where: where, label: label });
       }, { passive: true });
     });
 
