@@ -2014,6 +2014,22 @@ a,button,.card,.chip{-webkit-tap-highlight-color:transparent}
   .t-business .items-grid .bar,.t-business .items-grid .c-scale{display:none}
 }
 
+/* 구역 끝 전환 장치 (2026-08-10) — 설득이 끝난 지점마다 다음 행동을 둔다.
+   판정 기록 뒤는 신청까지 3,000px 넘게 떨어져 있어 버튼, 문답 뒤는 바로 아래라 링크. */
+.sec-cta{display:flex;flex-wrap:wrap;align-items:center;gap:clamp(14px,2vw,28px);
+  margin-top:clamp(22px,2.6vw,34px);padding-top:clamp(20px,2.4vw,30px);border-top:1px solid var(--hair)}
+.sec-cta-t{flex:1 1 320px;margin:0;font-size:clamp(15px,1.2vw,17px);line-height:1.75;color:var(--mid)}
+.sec-cta-t b{color:var(--fg);font-weight:800}
+.sec-cta .btn{flex:0 0 auto}
+@media (max-width:699px){
+  .sec-cta{display:block}
+  .sec-cta .btn{width:100%;justify-content:center;box-sizing:border-box;margin-top:16px}
+}
+.qa-go{margin-top:clamp(16px,1.8vw,22px);text-align:center}
+.qa-go a{display:inline-block;font-size:.9375rem;font-weight:700;color:var(--fg);
+  border-bottom:1px solid var(--line);padding:11px 6px 12px;margin:-11px -6px -12px}
+.qa-go a:hover{border-bottom-color:var(--fg)}
+
 </style>
 <script type="application/ld+json">
 {
@@ -2071,7 +2087,7 @@ a,button,.card,.chip{-webkit-tap-highlight-color:transparent}
       <div class="hero-cta">
         <a class="btn" href="#apply-sec">상담 신청 <span class="arw">&rsaquo;</span></a>
       </div>
-      <p class="fine hero-fact num">10만원부터 · 24시간 안에 답<span class="hf-x"> · 여의도 대면 또는 화상</span></p>
+      <p class="fine hero-fact num">10만원부터 · 문의는 무료<span class="hf-x"> · 24시간 안에 답 · 여의도 대면 또는 화상</span></p>
     </div>
   </div>
 </section>
@@ -2104,6 +2120,10 @@ a,button,.card,.chip{-webkit-tap-highlight-color:transparent}
           <div class="rc-jud"><span class="rc-tag">판단</span><p>“그냥 나와서 사세요. 안 봐도 될 것까지 다 보이는 게 한집살이의 함정입니다.”</p></div>
           <div class="rc-meta">가족</div>
         </article>
+      </div>
+      <div class="sec-cta">
+        <p class="sec-cta-t">이직, 관계, 돈, 가족. 영상으로는 일반론까지고,<br><b>내 상황에 맞는 결론은 상담에서 냅니다.</b></p>
+        <a class="btn" href="#apply-sec">상담 신청 <span class="arw">&rsaquo;</span></a>
       </div>
       <p class="fine rc-src">전문은 채널에서 볼 수 있습니다.
         <a href="https://www.youtube.com/@maisonelite_official" target="_blank" rel="noopener">유튜브</a> ·
@@ -2229,6 +2249,7 @@ a,button,.card,.chip{-webkit-tap-highlight-color:transparent}
         </div>
       </div>
       <div class="qa-more"><button type="button" class="xp js-morefaq" aria-expanded="false">질문 4개 더 보기 <i>+</i></button></div>
+      <p class="qa-go"><a href="#apply-sec">남은 건 물어보면서 정하셔도 됩니다 <span class="arw">&rsaquo;</span></a></p>
       <p class="foot-note">의료 행위나 심리 치료가 아니라 결정을 정리하는 자리입니다.<br>진단, 처방, 소송 대리, 투자 권유는 하지 않습니다.</p>
     </div>
   </div>
