@@ -2003,7 +2003,7 @@ a,button,.card,.chip{-webkit-tap-highlight-color:transparent}
 .t-personal .sec.hero .v>.hero-fact,.t-business .sec.hero .v>.hero-fact{margin-top:18px}
 @media (max-width:699px){ .hf-x{display:none} }
 @media (min-width:1000px){
-  .t-personal .s-pick .v,.t-business .s-pick .v{display:grid;grid-template-columns:1fr auto;align-items:center;column-gap:clamp(30px,4vw,60px)}
+  .t-personal .s-pick .v,.t-business .s-pick .v{display:grid;grid-template-columns:1fr auto;align-items:end;column-gap:clamp(30px,4vw,60px)}
   .t-personal .s-pick .sec-head,.t-business .s-pick .sec-head{grid-column:1;margin-bottom:0}
   .t-personal .s-pick .js-xp,.t-business .s-pick .js-xp{grid-column:2;grid-row:1;margin-top:0!important}
   .t-personal .s-pick .js-pick,.t-business .s-pick .js-pick{grid-column:1/-1}
@@ -2028,8 +2028,9 @@ a,button,.card,.chip{-webkit-tap-highlight-color:transparent}
 }
 .qa-go{margin-top:clamp(16px,1.8vw,22px);text-align:center}
 .qa-go a{display:inline-block;font-size:.9375rem;font-weight:700;color:var(--fg);
-  border-bottom:1px solid var(--line);padding:11px 6px 12px;margin:-11px -6px -12px}
-.qa-go a:hover{border-bottom-color:var(--fg)}
+  padding:11px 6px 12px;margin:-11px -6px -12px;
+  text-decoration:underline;text-decoration-color:var(--line);text-underline-offset:6px}
+.qa-go a:hover{text-decoration-color:var(--fg)}
 
 /* 게이트 모바일 설명 (2026-08-10, 대표 허락) — 첫 화면에 무엇을 파는 곳인지가 없던 문제.
    데스크톱은 기존 .ht/.hs 가 그대로 설명하므로 아래 두 장치는 좁은 화면에서만 켠다. */
