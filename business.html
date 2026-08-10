@@ -2077,6 +2077,15 @@ a,button,.card,.chip{-webkit-tap-highlight-color:transparent}
 .c-quote{font-size:clamp(24px,2.4vw,32px);font-weight:800;letter-spacing:-.03em}
 .seg-var{background:repeating-linear-gradient(90deg,var(--line) 0 7px,transparent 7px 14px)!important}
 
+
+/* 문답 펼침을 자연 높이로 (2026-08-10) — max-height 어림값(80rem) 방식은 여는 동안
+   카드 높이와 내용이 어긋나 글자가 밖으로 나온 것처럼 보이는 순간이 있었다. */
+.t-personal .qa .a,.t-business .qa .a{
+  display:grid;grid-template-rows:0fr;max-height:none;overflow:hidden;
+  transition:grid-template-rows .34s var(--ease)}
+.t-personal .qa .q.open .a,.t-business .qa .q.open .a{grid-template-rows:1fr;max-height:none}
+.t-personal .qa .a>p,.t-business .qa .a>p{min-height:0;overflow:hidden}
+
 </style>
 <script type="application/ld+json">
 {
