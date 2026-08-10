@@ -1559,13 +1559,12 @@ html{scroll-padding-top:78px}
   pointer-events:none;white-space:nowrap}
 /* 가격 위계 — 비싼 자리가 한눈에 */
 .t-business .s-items .c-pr{font-size:clamp(24px,2.4vw,32px);letter-spacing:-.045em;line-height:1.15}
-.t-business .s-items .card:nth-child(6) .c-pr{font-size:clamp(27px,2.7vw,36px)}
-.t-business .s-items .card:nth-child(7) .c-pr{font-size:clamp(27px,2.7vw,36px)}
-/* 일곱 개를 격자에 고르게 */
+.t-business .s-items .card:nth-child(5) .c-pr{font-size:clamp(27px,2.7vw,36px)} /* 정기 자문은 "회당"이 붙어 길다 */
+/* 여섯 개를 격자에 고르게 */
 @media (min-width:1100px){ .t-business .items-grid{grid-template-columns:repeat(3,1fr)} }
 @media (min-width:700px) and (max-width:1099px){ .t-business .items-grid{grid-template-columns:repeat(2,1fr)} }
 
-/* 사업자 상품 격자 — 일곱 개를 3+3+1 이 아니라 고르게 */
+/* 사업자 상품 격자 — 개인과 같은 3+3 */
 .t-business .items-grid{display:grid;grid-template-columns:1fr;gap:clamp(10px,1.1vw,14px);
   margin-top:clamp(20px,2.2vw,28px)}
 @media (min-width:700px){ .t-business .items-grid{grid-template-columns:repeat(2,1fr)} }
@@ -2039,7 +2038,8 @@ a,button,.card,.chip{-webkit-tap-highlight-color:transparent}
 
 /* 격자·띠 정돈 (2026-08-10) ------------------------------------------------ */
 /* A1. 한 카드를 펼쳐도 옆 카드가 늘어나 빈 공간이 생기지 않게 */
-.t-personal .items-grid,.t-business .items-grid{align-items:start}
+/* 카드는 한 줄 안에서 같은 높이 — 하나만 펼쳐도 줄이 삐뚤어지지 않게 */
+.t-personal .items-grid,.t-business .items-grid{align-items:stretch}
 /* A3. 가격 크기와 부가 설명 유무가 카드마다 달라 막대 높이가 어긋나던 문제 —
    가격 영역 높이를 한 줄 기준으로 고정해 같은 줄에서 막대가 나란히 오게 한다. */
 @media (min-width:700px){
