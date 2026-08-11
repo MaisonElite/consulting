@@ -2086,11 +2086,11 @@ a,button,.card,.chip{-webkit-tap-highlight-color:transparent}
    "areaServed":"KR","audience":{"@type":"Audience","audienceType":"사업자"},
    "description":"채용 판단, 조직 운영, 미뤄둔 경영 결정을 이해관계 없는 제3자 입장에서 정리하는 유료 상담입니다.",
    "hasOfferCatalog":{"@type":"OfferCatalog","name":"사업자 상품","itemListElement":[
-     {"@type":"Offer","name":"채팅 상담","price":"200000","priceCurrency":"KRW","description":"만나지 않고 3시간 안에 글로 판단"},
+     
      {"@type":"Offer","name":"첫 상담","price":"500000","priceCurrency":"KRW","description":"90분, 무엇이 문제인지 가려내기"},
      {"@type":"Offer","name":"면접 배석","price":"1200000","priceCurrency":"KRW","description":"임원 및 핵심 인력 면접 동석 건당"},
      {"@type":"Offer","name":"조직 상담","price":"1000000","priceCurrency":"KRW","description":"3시간, 사람이 안 남는 조직 사안"},
-     {"@type":"Offer","name":"경영 상담","price":"1500000","priceCurrency":"KRW","description":"3시간, 미뤄둔 결정 한 건"}]}},
+     {"@type":"Offer","name":"경영 상담","price":"1500000","priceCurrency":"KRW","description":"3시간, 미뤄둔 결정 한 건"},{"@type":"Offer","name":"후속 상담","price":"300000","priceCurrency":"KRW","description":"90분, 상담을 받은 곳이 실행 중 막혔을 때"}]}},
   {"@type":"FAQPage","mainEntity":[
     {"@type": "Question", "name": "어떤 사안을 다룹니까", "acceptedAnswer": {"@type": "Answer", "text": "채용 판단, 조직 운영, 미뤄둔 결정 등입니다. 사안 하나를 놓고 결론까지 갑니다. 법률과 세무, 노무 등은 다루지 않습니다."}},
     {"@type": "Question", "name": "어떻게 진행됩니까", "acceptedAnswer": {"@type": "Answer", "text": "카카오톡으로 사안과 일정을 보내주십시오. 3시간 안에 상담 구성과 일정을 회신합니다. 착수금이 확인되면 장소를 안내드립니다."}},
@@ -2101,7 +2101,7 @@ a,button,.card,.chip{-webkit-tap-highlight-color:transparent}
     {"@type": "Question", "name": "컨설팅 회사와 무엇이 다릅니까", "acceptedAnswer": {"@type": "Answer", "text": "보고서를 만들지 않습니다. 그 자리에서 결론을 내고 끝냅니다. 상주하거나 실행을 대행하지 않습니다."}},
     {"@type": "Question", "name": "연간 계약을 해야 합니까", "acceptedAnswer": {"@type": "Answer", "text": "사안 하나씩 끊어서 진행합니다. 고문 계약과 정기 자문은 하지 않습니다. 이해관계가 생기면 판단이 흐려집니다."}},
     {"@type": "Question", "name": "취소나 일정 변경은 어떻게 됩니까", "acceptedAnswer": {"@type": "Answer", "text": "입금 다음 날까지나 상담 3일 전까지는 전액을 돌려드립니다. 그 뒤로는 50%, 당일 취소는 돌려드리지 않습니다. 일정 변경은 1회 무료, 무단 불참은 환불이 없습니다."}},
-    {"@type": "Question", "name": "채팅 상담은 무엇이 다릅니까", "acceptedAnswer": {"@type": "Answer", "text": "만나지 않고 글로만 오갑니다. 3시간 안에 드리고 되묻기 한 번이 포함입니다. 답을 보내기 전까지는 전액 돌려드립니다."}}]}
+    {"@type": "Question", "name": "후속 상담은 누가 받을 수 있습니까", "acceptedAnswer": {"@type": "Answer", "text": "저희 상담을 받으신 적이 있으면 됩니다. 배경 설명 없이 걸린 데서 시작합니다. 정한 걸 해보다 막힌 때가 제일 좋습니다."}}]}
  ]
 }
 </script>
@@ -2187,15 +2187,6 @@ a,button,.card,.chip{-webkit-tap-highlight-color:transparent}
         <span class="fine">일정을 잡지 않고 바로 진행합니다. <span class="js-tgn">정액 상품 +50%</span></span>
       </div>      <div class="rv items-grid">
         <article class="card">
-          <div class="c-top"><span class="c-nm">채팅 상담</span><span class="c-cfg"><span class="js-slow">3시간 안에 답</span><span class="js-fast" hidden>바로 답</span> · 만나지 않음</span>
-            <span class="c-pr"><span class="num" data-man="20"></span><span class="was num">20만원</span></span><span class="c-vat">VAT 별도</span></div>
-          <div class="bar"><i class="seg seg-var" style="width:100%"></i></div>
-          <div class="c-scale"><span>0</span><span>글로 답</span></div>
-          <div class="det">만나서 할 만큼은 아닌 사안도 있습니다.<br><b>보내주시면 읽고 판단해서 드립니다.</b></div>
-          <dl class="c-spec"><div><dt>시간</dt><dd><span class="js-slow">3시간 안에 답</span><span class="js-fast" hidden>바로 답</span></dd></div><div><dt>인원</dt><dd>1인</dd></div><div><dt>범위</dt><dd>사안 하나</dd></div><div><dt>결과</dt><dd>글로 된 판단</dd></div></dl>
-          <a class="c-go" href="#apply-sec">이 상담으로 문의 <span class="arw">&rsaquo;</span></a>
-        </article>
-        <article class="card">
           <span class="c-flag">모든 상담의 시작</span>
           <div class="c-top"><span class="c-nm">첫 상담</span><span class="c-cfg">90분 · 무엇이 문제인지</span>
             <span class="c-pr"><span class="num" data-man="50"></span><span class="was num">50만원</span></span><span class="c-vat">VAT 별도</span></div>
@@ -2214,7 +2205,7 @@ a,button,.card,.chip{-webkit-tap-highlight-color:transparent}
           <dl class="c-spec"><div><dt>시간</dt><dd>최대 3시간</dd></div><div><dt>인원</dt><dd>후보자 1인</dd></div><div><dt>범위</dt><dd>면접 동석과 질문</dd></div><div><dt>결과</dt><dd>뽑을지 말지와 이유</dd></div></dl>
           <a class="c-go" href="#apply-sec">이 상담으로 문의 <span class="arw">&rsaquo;</span></a>
         </article>
-        <article class="card" hidden>
+        <article class="card">
           <div class="c-top"><span class="c-nm">조직 상담</span><span class="c-cfg">3시간 · 사람이 안 남을 때</span>
             <span class="c-pr"><span class="num" data-man="100"></span><span class="was num">100만원</span></span><span class="c-vat">VAT 별도</span></div>
           <div class="bar"><i class="seg" style="width:100%"></i></div>
@@ -2231,6 +2222,15 @@ a,button,.card,.chip{-webkit-tap-highlight-color:transparent}
           <div class="det">임원 회의에서 몇 달째 결론이 안 날 때.<br><b>결론과 그렇게 본 이유까지 드립니다.</b></div>
           <dl class="c-spec"><div><dt>시간</dt><dd>3시간</dd></div><div><dt>인원</dt><dd>대표 포함 4인</dd></div><div><dt>범위</dt><dd>결정 사안 한 건</dd></div><div><dt>결과</dt><dd>결론과 그 근거</dd></div></dl>
           <a class="c-go" href="#apply-sec">이 상담으로 문의 <span class="arw">&rsaquo;</span></a>
+        </article>
+        <article class="card" hidden>
+          <div class="c-top"><span class="c-nm">후속 상담</span><span class="c-cfg">90분 · 실행하다 막혔을 때</span>
+            <span class="c-pr"><span class="num" data-man="30"></span><span class="was num">30만원</span></span><span class="c-vat">VAT 별도</span></div>
+          <div class="bar"><i class="seg" style="width:50%"></i></div>
+          <div class="c-scale"><span>0</span><span>3시간</span></div>
+          <div class="det">정한 대로 움직였는데 다른 게 걸립니다.<br><b>배경 설명 없이 걸린 데서 바로 시작합니다.</b></div>
+          <dl class="c-spec"><div><dt>시간</dt><dd>90분</dd></div><div><dt>인원</dt><dd>대표 1인</dd></div><div><dt>범위</dt><dd>지난 상담 사안</dd></div><div><dt>결과</dt><dd>다음에 할 것</dd></div></dl>
+          <a class="c-go" href="#apply-sec">이 상담으로 신청 <span class="arw">&rsaquo;</span></a>
         </article>
         <article class="card" hidden>
           <div class="c-top"><span class="c-nm">맞춤 상담</span><span class="c-cfg">사안에 따라 · 범위 협의</span>
@@ -2265,7 +2265,7 @@ a,button,.card,.chip{-webkit-tap-highlight-color:transparent}
           <button class="chip">세대 차이로 매일 부딪힙니다<span class="cn">9시 출근, 인사, 회식 등</span></button>
           <button class="chip">결정을 미룬 지 몇 달 됐습니다<span class="cn">임원 회의에서 결론이 안 남</span></button>
           <button class="chip">대표는 정했는데 임원이 안 움직입니다<span class="cn">지시가 아니라 판단이 필요함</span></button>
-          <button class="chip">결정이 계속 생기는데 매번 혼자 정합니다<span class="cn">판단을 기록으로 남기는 구조</span></button>
+          <button class="chip">결정이 계속 생기는데 매번 혼자 정합니다<span class="cn">이미 상담을 받으신 곳</span></button>
         </div>
         <div class="wz-q"><span class="wz-n">2</span><span class="wz-t">기한</span></div>
         <div class="whens">
@@ -2295,7 +2295,7 @@ a,button,.card,.chip{-webkit-tap-highlight-color:transparent}
         <div class="q qx" hidden><button type="button" aria-expanded="false">컨설팅 회사와 무엇이 다릅니까<i>+</i></button><div class="a"><p>보고서를 만들지 않습니다.<br>그 자리에서 결론을 내고 끝냅니다.<br><b>상주하거나 실행을 대행하지 않습니다.</b></p></div></div>
         <div class="q qx" hidden><button type="button" aria-expanded="false">연간 계약을 해야 합니까<i>+</i></button><div class="a"><p>사안 하나씩 끊어서 진행합니다.<br>고문 계약과 정기 자문은 하지 않습니다.<br><b>이해관계가 생기면 판단이 흐려집니다.</b></p></div></div>
         <div class="q qx" hidden><button type="button" aria-expanded="false">취소나 일정 변경은 어떻게 됩니까<i>+</i></button><div class="a"><p>입금 다음 날까지나 상담 3일 전까지는 전액입니다.<br>그 뒤로는 50%, 당일 취소는 돌려드리지 않습니다.<br><b>일정 변경은 1회 무료, 무단 불참은 환불이 없습니다.</b></p></div></div>
-        <div class="q qx" hidden><button type="button" aria-expanded="false">채팅 상담은 무엇이 다릅니까<i>+</i></button><div class="a"><p>만나지 않고 글로만 오갑니다.<br><span class="js-slow">3시간 안에</span><span class="js-fast" hidden>바로</span> 드리고 되묻기 한 번이 포함입니다.<br><b>답을 보내기 전까지는 전액 돌려드립니다.</b></p></div></div>
+        <div class="q qx" hidden><button type="button" aria-expanded="false">후속 상담은 누가 받을 수 있습니까<i>+</i></button><div class="a"><p>저희 상담을 받으신 적이 있으면 됩니다.<br>배경 설명 없이 걸린 데서 시작합니다.<br><b>정한 걸 해보다 막힌 때가 제일 좋습니다.</b></p></div></div>
       
       
       </div>
@@ -2417,8 +2417,8 @@ window.ME_CFG.business = {
    why:"몇 달을 돈 회의라면 자료가 부족한 게 아닙니다. <b>결론을 내릴 사람이 없었던 겁니다.</b>"},
   {key:"경영 상담",name:"경영 상담",man:150,
    why:"대표님이 하시면 지시가 됩니다. <b>제3자가 같은 말을 하면 판단이 됩니다.</b>"},
-  {key:"채팅 상담",name:"채팅 상담",man:20,
-   why:"매번 자리를 잡을 만큼 큰 사안은 아닐 때가 있습니다. <b>사안만 보내시면 3시간 안에 글로 정리해 드립니다.</b>"}
+  {key:"후속 상담",name:"후속 상담",man:30,
+   why:"매번 처음부터 설명하실 필요 없습니다. <b>걸린 데서 바로 시작합니다.</b>"}
  ],
  calc: function(v, el){
   var WAGE = 10320;
