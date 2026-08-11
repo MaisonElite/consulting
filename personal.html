@@ -947,8 +947,7 @@ a:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible,te
   transform:translateY(-2px);box-shadow:0 10px 28px rgba(14,14,15,.07)}
 .t-personal .card.open,.t-business .card.open{border-color:var(--fg);box-shadow:0 10px 28px rgba(14,14,15,.07)}
 @media (min-width:1100px){
-  .t-personal .items-grid,.t-personal .s-items .list{display:grid;grid-template-columns:1fr 1fr;
-    gap:clamp(10px,1.1vw,16px)}
+  .t-personal .s-items .list{display:grid;grid-template-columns:1fr 1fr;gap:clamp(10px,1.1vw,16px)}
   .t-personal .s-items .card{margin-bottom:0}
 }
 
@@ -989,8 +988,11 @@ a:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible,te
 /* ============================================================
    상담 종류를 가격 카드 격자로 (전면 개편, 2026-08-02)
    ============================================================ */
-.t-personal .items-grid{display:grid;grid-template-columns:1fr;gap:clamp(10px,1.2vw,16px)}
-@media (min-width:700px){ .t-personal .items-grid{grid-template-columns:1fr 1fr} }
+/* 상품 격자는 여기서만 정한다 — 규칙이 흩어지면 어딘가는 마지막 줄이 빈다.
+   상품이 셋이므로 2열 구간을 두면 2+1 로 갈라진다. 1열 아니면 3열, 둘뿐이다. */
+.t-personal .items-grid,.t-business .items-grid{display:grid;grid-template-columns:1fr;gap:clamp(10px,1.2vw,16px)}
+@media (min-width:1000px){ .t-personal .items-grid,.t-business .items-grid{grid-template-columns:repeat(3,1fr)} }
+
 /* 상품이 넷이면 3열은 3+1 로 갈라진다 — 2열로 꽉 채운다 */
 
 .t-personal .items-grid .card,.t-business .items-grid .card{display:flex;flex-direction:column;margin-bottom:0;
@@ -1317,17 +1319,7 @@ a:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible,te
 .t-personal .items-grid .det,.t-business .items-grid .det{line-height:1.85;letter-spacing:-.005em}
 .t-personal .c-scale,.t-business .c-scale{margin-top:8px;letter-spacing:0}
 
-/* 상품 다섯 개 — 마지막 줄이 비지 않게 배치 */
-@media (min-width:1100px){
-  .t-personal .items-grid{grid-template-columns:repeat(6,1fr)}
-  .t-personal .items-grid .card{grid-column:span 2}
-}
 
-/* 2열 구간(700~1099px)도 마지막 한 개를 가운데로 */
-@media (min-width:700px) and (max-width:1099px){
-  .t-personal .items-grid{grid-template-columns:repeat(4,1fr)}
-  .t-personal .items-grid .card{grid-column:span 2}
-}
 
 
 /* 시간 감각: 질문 두 개를 눈에 보이게 */
@@ -1535,22 +1527,12 @@ html{scroll-padding-top:78px}
   pointer-events:none;white-space:nowrap}
 /* 가격 글자 크기는 전 카드 동일 — 위계는 막대와 사양 표가 진다 */
 .t-business .s-items .c-pr{font-size:clamp(24px,2.4vw,32px);letter-spacing:-.045em;line-height:1.15}
-/* 여섯 개를 격자에 고르게 */
-@media (min-width:1100px){ .t-business .items-grid{grid-template-columns:repeat(3,1fr)} }
-@media (min-width:700px) and (max-width:1099px){ .t-business .items-grid{grid-template-columns:repeat(2,1fr)} }
 
-/* 사업자 상품 격자 — 개인과 같은 3+3 */
-.t-business .items-grid{display:grid;grid-template-columns:1fr;gap:clamp(10px,1.1vw,14px);
-  margin-top:clamp(20px,2.2vw,28px)}
-@media (min-width:700px){ .t-business .items-grid{grid-template-columns:repeat(2,1fr)} }
-@media (min-width:1100px){
-  .t-business .items-grid{grid-template-columns:repeat(6,1fr)}
-  .t-business .items-grid .card{grid-column:span 2}
-}
-@media (min-width:700px) and (max-width:1099px){
-  .t-business .items-grid{grid-template-columns:repeat(4,1fr)}
-  .t-business .items-grid .card{grid-column:span 2}
-}
+
+
+.t-business .items-grid{margin-top:clamp(20px,2.2vw,28px)}
+
+
 
 /* 사업자 신청 — 개인과 같은 체계 */
 .t-business .asks{display:grid;grid-template-columns:1fr;gap:clamp(10px,1.1vw,14px);margin-top:clamp(18px,2vw,26px)}
@@ -1774,7 +1756,9 @@ a,button,.card,.chip{-webkit-tap-highlight-color:transparent}
   font-size:.75rem;font-weight:800;display:flex;align-items:center;justify-content:center;
   font-variant-numeric:tabular-nums}
 .wz-t{font-size:.9375rem;font-weight:800;letter-spacing:-.02em}
-.whens{display:flex;flex-wrap:wrap;gap:clamp(8px,1vw,12px)}
+/* 기한은 셋 — 흘려 담으면 좁은 화면에서 2+1 로 갈라진다. 3열 아니면 1열이다. */
+.whens{display:grid;grid-template-columns:1fr;gap:clamp(8px,1vw,12px)}
+@media (min-width:520px){ .whens{grid-template-columns:repeat(3,1fr)} }
 .when-pill{background:#EAEAEB;border:1px solid rgba(14,14,15,.13);border-radius:999px;
   padding:11px 18px;font-size:.875rem;font-weight:700;color:var(--fg);cursor:pointer;min-height:44px;
   transition:border-color .3s var(--ease),background .3s var(--ease)}
@@ -2072,6 +2056,9 @@ a,button,.card,.chip{-webkit-tap-highlight-color:transparent}
 .t-personal .c-spec dd,.t-business .c-spec dd{flex:1;margin:0;text-align:right;
   font-size:.8125rem;font-weight:700;letter-spacing:-.01em;color:var(--fg)}
 
+/* 격자에 맞지 않는 사안 안내 — 카드가 아니라 격자 아래 한 줄 */
+.t-personal .cust,.t-business .cust{margin-top:clamp(14px,1.6vw,20px)}
+
 </style>
 <script type="application/ld+json">
 {
@@ -2216,16 +2203,8 @@ a,button,.card,.chip{-webkit-tap-highlight-color:transparent}
           <dl class="c-spec"><div><dt>시간</dt><dd>90분</dd></div><div><dt>인원</dt><dd>2인</dd></div><div><dt>범위</dt><dd>말이 갈리는 지점</dd></div><div><dt>결과</dt><dd>자리에서 맞춘 결론</dd></div></dl>
           <a class="c-go" href="#apply-sec">이 상담으로 신청 <span class="arw">&rsaquo;</span></a>
         </article>
-        <article class="card">
-          <div class="c-top"><span class="c-nm">맞춤 상담</span><span class="c-cfg">사안에 따라 · 시간 협의</span>
-            <span class="c-pr"><span class="c-quote">협의</span></span><span class="c-vat">VAT 포함</span></div>
-          <div class="bar"><i class="seg seg-var" style="width:100%"></i></div>
-          <div class="c-scale"><span>0</span><span>사안에 따라</span></div>
-          <div class="det">찾아가거나, 따로 듣거나, 반나절이 필요하거나.<br><b>사안을 보고 시간과 금액을 정합니다.</b></div>
-          <dl class="c-spec"><div><dt>시간</dt><dd>협의</dd></div><div><dt>인원</dt><dd>협의</dd></div><div><dt>범위</dt><dd>위 상담 밖의 사안</dd></div><div><dt>결과</dt><dd>결론과 그 근거</dd></div></dl>
-          <a class="c-go" href="#apply-sec">이 상담으로 신청 <span class="arw">&rsaquo;</span></a>
-        </article>
       </div>
+        <p class="fine cust">위 셋에 맞지 않으면 <b>맞춤 상담</b>으로 진행합니다. 찾아가거나, 따로 듣거나, 반나절이 필요하거나. 사안을 보고 시간과 금액을 정합니다.</p>
       
     </div>
   </div>
