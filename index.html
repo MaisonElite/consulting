@@ -2049,22 +2049,28 @@ a,button,.card,.chip{-webkit-tap-highlight-color:transparent}
 .t-personal .cust,.t-business .cust{margin-top:clamp(14px,1.6vw,20px)}
 
 /* 초기 화면 사업자 정보 — 전자상거래법은 사이버몰 초기 화면 표시를 요구한다.
-   .gtop 과 짝을 이루는 하단 띠. 링크만 눌리게 둔다. */
+   다만 신원을 펼쳐 둘 필요는 없다. 링크 줄만 두고 상세는 접어 둔다. */
 .gfoot{position:absolute;left:0;right:0;bottom:0;z-index:6;pointer-events:none;
-  padding:clamp(34px,5vw,64px) clamp(16px,3.6vw,72px) clamp(14px,1.8vw,24px);
-  display:flex;flex-wrap:wrap;align-items:flex-end;justify-content:space-between;gap:8px 20px;
-  /* 뒤에 깔린 01·02 큰 숫자 위에서도 글자가 읽혀야 한다 */
-  background:linear-gradient(to top,rgba(11,11,12,.94) 40%,rgba(11,11,12,0))}
-.gf-nav{display:flex;gap:16px;pointer-events:auto}
-.gf-nav a{color:#B4B7BC;font-size:clamp(11px,1.05vw,12.5px);font-weight:600;text-decoration:none;
-  display:inline-flex;align-items:center;min-height:24px;
+  padding:clamp(20px,3vw,36px) clamp(16px,3.6vw,72px) clamp(14px,1.8vw,22px);
+  background:linear-gradient(to top,rgba(11,11,12,.9) 45%,rgba(11,11,12,0))}
+.gf-nav{display:flex;flex-wrap:wrap;align-items:center;gap:8px 16px;pointer-events:auto}
+.gf-nav a,.gf-biz>summary{color:#B4B7BC;font-size:clamp(11px,1.05vw,12.5px);font-weight:600;
+  text-decoration:none;display:inline-flex;align-items:center;min-height:24px;cursor:pointer;
   border-bottom:1px solid rgba(244,244,245,.28);transition:color .2s var(--ease)}
-.gf-nav a:hover,.gf-nav a:focus-visible{color:#F4F4F5;border-bottom-color:#F4F4F5}
-.gf-legal{margin:0;color:#9A9DA2;word-break:keep-all;font-size:clamp(10.5px,.92vw,11.5px);line-height:1.6;letter-spacing:-.01em;text-align:right}
-@media (max-width:759px){
-  .gfoot{flex-direction:column;align-items:flex-start;gap:8px}
-  .gf-legal{text-align:left}
-}
+.gf-nav a:hover,.gf-nav a:focus-visible,.gf-biz>summary:hover,.gf-biz>summary:focus-visible{
+  color:#F4F4F5;border-bottom-color:#F4F4F5}
+.gf-biz{position:static}
+.gf-biz>summary{list-style:none}
+.gf-biz>summary::-webkit-details-marker{display:none}
+.gf-biz>summary::after{content:"+";margin-left:5px;font-weight:700}
+.gf-biz[open]>summary::after{content:"−"}
+/* 펼친 내용은 위로 띄운다 — 아래로 밀면 화면 밖으로 나간다.
+   기준은 .gfoot 이다. summary 기준으로 잡으면 좁은 화면에서 좌우로 넘친다. */
+.gf-biz[open] .gf-legal{position:absolute;
+  left:clamp(16px,3.6vw,72px);right:clamp(16px,3.6vw,72px);max-width:600px;
+  bottom:calc(100% - clamp(20px,3vw,36px));
+  margin:0;padding:12px 14px;border-radius:10px;background:#15161A;border:1px solid rgba(244,244,245,.14);
+  color:#B4B7BC;font-size:clamp(10.5px,.92vw,11.5px);line-height:1.65;letter-spacing:-.01em;word-break:keep-all}
 
 </style>
 <script type="application/ld+json">
@@ -2151,8 +2157,14 @@ a,button,.card,.chip{-webkit-tap-highlight-color:transparent}
   </div>
 
   <div class="gfoot">
-    <nav class="gf-nav"><a href="/terms">이용약관</a><a href="/privacy">개인정보처리방침</a></nav>
-    <p class="gf-legal">상호 메종엘리트(Maison Elite) · 대표 이종빈 · 사업자등록번호 356-54-01114 · 통신판매업신고번호 제2026-인천서해-0444호<br>인천광역시 서해구 청라라임로 85, 201동 2506호 · 문의 010-8110-3272 · 이메일 maison_elite@naver.com</p>
+    <nav class="gf-nav">
+      <a href="/terms">이용약관</a>
+      <a href="/privacy">개인정보처리방침</a>
+      <details class="gf-biz">
+        <summary>사업자정보</summary>
+        <p class="gf-legal">상호 메종엘리트(Maison Elite) · 대표 이종빈 · 사업자등록번호 356-54-01114 · 통신판매업신고번호 제2026-인천서해-0444호<br>인천광역시 서해구 청라라임로 85, 201동 2506호 · 문의 010-8110-3272 · 이메일 maison_elite@naver.com</p>
+      </details>
+    </nav>
   </div>
 
 </div>
