@@ -1018,22 +1018,10 @@ a:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible,te
    상황 고르기 — 칩을 3열 카드로 펴고 추천은 가로 띠로 (2026-08-02)
    ============================================================ */
 .t-personal .pick,.t-business .pick{display:block}
-.t-personal .chips{display:grid;grid-template-columns:1fr;gap:clamp(8px,1vw,12px)}
-@media (min-width:640px){ .t-personal .chips{grid-template-columns:1fr 1fr} }
-@media (min-width:1000px){ .t-personal .chips{grid-template-columns:repeat(3,1fr)} }
-
-/* 사업자 칩 일곱 개 — 마지막 줄이 비지 않게 (상품 격자와 같은 방식) */
-.t-business .chips{display:grid;grid-template-columns:1fr;gap:clamp(10px,1.1vw,14px)}
-@media (min-width:640px) and (max-width:999px){
-  .t-business .chips{grid-template-columns:repeat(4,1fr)}
-  .t-business .chips .chip{grid-column:span 2}
-  .t-business .chips .chip:nth-child(7){grid-column:2 / span 2}
-}
-@media (min-width:1000px){
-  .t-business .chips{grid-template-columns:repeat(6,1fr)}
-  .t-business .chips .chip{grid-column:span 2}
-  .t-business .chips .chip:nth-child(7){grid-column:3 / span 2}
-}
+/* 상황 칩은 상품마다 둘씩, 상품 순서대로다.
+   2열로 두어야 한 줄이 곧 한 상품이 된다. 3열이면 짝이 줄을 걸쳐 갈라진다. */
+.t-personal .chips,.t-business .chips{display:grid;grid-template-columns:1fr;gap:clamp(8px,1vw,12px)}
+@media (min-width:640px){ .t-personal .chips,.t-business .chips{grid-template-columns:1fr 1fr} }
 
 .t-personal .chip,.t-business .chip{display:block;width:100%;text-align:left;background:#EAEAEB;
   border:1px solid rgba(14,14,15,.13);border-radius:14px;
@@ -2174,7 +2162,7 @@ a,button,.card,.chip{-webkit-tap-highlight-color:transparent}
         <span class="fine">일정을 잡지 않고 바로 진행합니다. <span class="js-tgn">정액 상품 +50%</span></span>
       </div>      <div class="rv items-grid">
         <article class="card">
-          <span class="c-flag">모든 상담의 시작</span>
+          
           <div class="c-top"><span class="c-nm">첫 상담</span><span class="c-cfg">90분 · 무엇이 문제인지</span>
             <span class="c-pr"><span class="num" data-man="50"></span><span class="was num">50만원</span></span><span class="c-vat">VAT 별도</span></div>
           <div class="bar"><i class="seg" style="width:50%"></i></div>
@@ -2198,7 +2186,7 @@ a,button,.card,.chip{-webkit-tap-highlight-color:transparent}
           <div class="bar"><i class="seg" style="width:100%"></i></div>
           <div class="c-scale"><span>0</span><span>3시간</span></div>
           <div class="det">사람이 안 남거나, 결론이 안 나거나.<br><b>결론과 그렇게 본 이유까지 드립니다.</b></div>
-          <dl class="c-spec"><div><dt>시간</dt><dd>3시간</dd></div><div><dt>인원</dt><dd>대표 포함 4인</dd></div><div><dt>범위</dt><dd>사람 또는 결정 한 건</dd></div><div><dt>결과</dt><dd>결론과 그 근거</dd></div></dl>
+          <dl class="c-spec"><div><dt>시간</dt><dd>3시간</dd></div><div><dt>인원</dt><dd>대표 1인</dd></div><div><dt>범위</dt><dd>사람 또는 결정 한 건</dd></div><div><dt>결과</dt><dd>결론과 그 근거</dd></div></dl>
           <a class="c-go" href="#apply-sec">이 상담으로 문의 <span class="arw">&rsaquo;</span></a>
         </article>
       </div>
@@ -2220,11 +2208,11 @@ a,button,.card,.chip{-webkit-tap-highlight-color:transparent}
         <div class="wz-q"><span class="wz-n">1</span><span class="wz-t">상황</span></div>
         <div class="chips">
           <button class="chip" aria-pressed="true">뭐가 문제인지 정리가 안 됩니다<span class="cn">A인 줄 알았는데 실제로는 B</span></button>
+          <button class="chip">어디부터 손대야 할지 모르겠습니다<span class="cn">순서가 안 잡힌 상태</span></button>
           <button class="chip">이력서는 좋은데 확신이 안 섭니다<span class="cn">임원, 핵심 인력 등 채용</span></button>
-          <button class="chip">스무 명을 넘기면서 안 돌아가기 시작했습니다<span class="cn">뽑으면 나가고, 남은 사람은 지쳐 있는 상태</span></button>
-          <button class="chip">세대 차이로 매일 부딪힙니다<span class="cn">9시 출근, 인사, 회식 등</span></button>
+          <button class="chip">면접에서 물어야 할 걸 못 묻습니다<span class="cn">대표가 직접 하기 어려운 질문</span></button>
           <button class="chip">결정을 미룬 지 몇 달 됐습니다<span class="cn">임원 회의에서 결론이 안 남</span></button>
-          <button class="chip">대표는 정했는데 임원이 안 움직입니다<span class="cn">지시가 아니라 판단이 필요함</span></button>
+          <button class="chip">스무 명을 넘기면서 안 돌아갑니다<span class="cn">뽑으면 나가고, 남은 사람은 지쳐 있음</span></button>
         </div>
         <div class="wz-q"><span class="wz-n">2</span><span class="wz-t">기한</span></div>
         <div class="whens">
@@ -2366,16 +2354,16 @@ window.ME_CFG.business = {
  recs: [
   {key:"첫 상담",name:"첫 상담",man:50,
    why:"정리는 저희 일입니다. 있는 그대로 말씀만 하시면 <b>진짜 문제가 무엇인지부터 가려 드립니다.</b>"},
+  {key:"첫 상담",name:"첫 상담",man:50,
+   why:"어디부터인지 모르는 건 순서가 안 잡혀서입니다. <b>90분에 무엇부터 손댈지를 정합니다.</b>"},
   {key:"면접 배석",name:"면접 배석",man:120,
    why:"확신이 안 서는 데는 이유가 있습니다. <b>그 이유를 면접장에서 확인해 드립니다.</b>"},
-  {key:"경영 상담",name:"경영 상담",man:150,
-   why:"스무 명부터는 대표 혼자 다 볼 수 없는 크기입니다. <b>안 돌아가는 지점을 세 시간에 짚어 드립니다.</b>"},
-  {key:"경영 상담",name:"경영 상담",man:150,
-   why:"세대 차이는 사람 문제가 아니라 규칙 문제입니다. <b>어느 편도 들지 않고 기준을 세워 드립니다.</b>"},
+  {key:"면접 배석",name:"면접 배석",man:120,
+   why:"대표님이 물으시면 압박이 됩니다. <b>제3자가 같은 질문을 하면 검증이 됩니다.</b>"},
   {key:"경영 상담",name:"경영 상담",man:150,
    why:"몇 달을 돈 회의라면 자료가 부족한 게 아닙니다. <b>결론을 내릴 사람이 없었던 겁니다.</b>"},
   {key:"경영 상담",name:"경영 상담",man:150,
-   why:"대표님이 하시면 지시가 됩니다. <b>제3자가 같은 말을 하면 판단이 됩니다.</b>"}
+   why:"스무 명부터는 대표 혼자 다 볼 수 없는 크기입니다. <b>안 돌아가는 지점을 세 시간에 짚어 드립니다.</b>"}
  ],
  calc: function(v, el){
   var WAGE = 10320;

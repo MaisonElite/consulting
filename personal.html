@@ -1018,22 +1018,10 @@ a:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible,te
    상황 고르기 — 칩을 3열 카드로 펴고 추천은 가로 띠로 (2026-08-02)
    ============================================================ */
 .t-personal .pick,.t-business .pick{display:block}
-.t-personal .chips{display:grid;grid-template-columns:1fr;gap:clamp(8px,1vw,12px)}
-@media (min-width:640px){ .t-personal .chips{grid-template-columns:1fr 1fr} }
-@media (min-width:1000px){ .t-personal .chips{grid-template-columns:repeat(3,1fr)} }
-
-/* 사업자 칩 일곱 개 — 마지막 줄이 비지 않게 (상품 격자와 같은 방식) */
-.t-business .chips{display:grid;grid-template-columns:1fr;gap:clamp(10px,1.1vw,14px)}
-@media (min-width:640px) and (max-width:999px){
-  .t-business .chips{grid-template-columns:repeat(4,1fr)}
-  .t-business .chips .chip{grid-column:span 2}
-  .t-business .chips .chip:nth-child(7){grid-column:2 / span 2}
-}
-@media (min-width:1000px){
-  .t-business .chips{grid-template-columns:repeat(6,1fr)}
-  .t-business .chips .chip{grid-column:span 2}
-  .t-business .chips .chip:nth-child(7){grid-column:3 / span 2}
-}
+/* 상황 칩은 상품마다 둘씩, 상품 순서대로다.
+   2열로 두어야 한 줄이 곧 한 상품이 된다. 3열이면 짝이 줄을 걸쳐 갈라진다. */
+.t-personal .chips,.t-business .chips{display:grid;grid-template-columns:1fr;gap:clamp(8px,1vw,12px)}
+@media (min-width:640px){ .t-personal .chips,.t-business .chips{grid-template-columns:1fr 1fr} }
 
 .t-personal .chip,.t-business .chip{display:block;width:100%;text-align:left;background:#EAEAEB;
   border:1px solid rgba(14,14,15,.13);border-radius:14px;
@@ -2185,7 +2173,7 @@ a,button,.card,.chip{-webkit-tap-highlight-color:transparent}
           <a class="c-go" href="#apply-sec">이 상담으로 신청 <span class="arw">&rsaquo;</span></a>
         </article>
         <article class="card">
-          <span class="c-flag">먼저 권하는 상담</span>
+          
           <div class="c-top"><span class="c-nm">결정 상담</span><span class="c-cfg">60분 · 이직, 관계, 돈 등</span>
             <span class="c-pr"><span class="num" data-man="20"></span><span class="was num">20만원</span></span><span class="c-vat">VAT 포함</span></div>
           <div class="bar"><i class="seg" style="width:66.7%"></i></div>
@@ -2221,12 +2209,12 @@ a,button,.card,.chip{-webkit-tap-highlight-color:transparent}
       <div class="pick rv js-pick" style="margin-top:clamp(24px,2.8vw,36px)">
         <div class="wz-q"><span class="wz-n">1</span><span class="wz-t">상황</span></div>
         <div class="chips">
-          <button class="chip" aria-pressed="true">마음은 정했는데 확신이 없습니다<span class="cn">할지 말지, 그리고 실제로 할 말</span></button>
+          <button class="chip" aria-pressed="true">만나기 전에 하나만 확인하고 싶습니다<span class="cn">사안 하나를 글로</span></button>
+          <button class="chip">무엇부터 물어야 할지 모르겠습니다<span class="cn">일단 하나만 적어 보내기</span></button>
+          <button class="chip">마음은 정했는데 확신이 없습니다<span class="cn">할지 말지, 그리고 실제로 할 말</span></button>
           <button class="chip">몇 달째 같은 자리에서 맴돕니다<span class="cn">남을지 나갈지, 이직 제안, 억울한 일 등</span></button>
           <button class="chip">둘이서는 매번 같은 데서 막힙니다<span class="cn">연인, 부부, 동업 예정자 등</span></button>
-          <button class="chip">한 번 정했는데 또 흔들립니다<span class="cn">다시 앉아 정리해야 할 때</span></button>
-          <button class="chip">액수가 커서 결정이 무섭습니다<span class="cn">검토할 자료가 있는 상황</span></button>
-          <button class="chip">무엇부터 물어야 할지 모르겠습니다<span class="cn">일단 60분이면 됩니다</span></button>
+          <button class="chip">한 사람만 듣고 오면 소용이 없습니다<span class="cn">같이 앉아야 정리되는 일</span></button>
         </div>
         <div class="wz-q"><span class="wz-n">2</span><span class="wz-t">기한</span></div>
         <div class="whens">
@@ -2366,18 +2354,18 @@ a,button,.card,.chip{-webkit-tap-highlight-color:transparent}
 window.ME_CFG = window.ME_CFG || {};
 window.ME_CFG.personal = {
  recs: [
+  {key:"채팅 상담",name:"채팅 상담",man:10,
+   why:"만날 일까지는 아닌 사안이 있습니다. <b>사안 하나를 보내시면 3시간 안에 판단이 갑니다.</b>"},
+  {key:"채팅 상담",name:"채팅 상담",man:10,
+   why:"무엇을 물을지는 저희가 정리합니다. <b>지금 아시는 만큼만 적어 보내시면 됩니다.</b>"},
   {key:"결정 상담",name:"결정 상담",man:20,
-   why:"답은 이미 기울어 있으신 거예요. 확신만 필요하면 30분이면 끝납니다."},
-  {key:"상담",name:"결정 상담",man:20,
-   why:"몇 달을 맴돈 고민도 <b>한 시간이면 결론까지 나옵니다.</b>"},
+   why:"답은 이미 기울어 있으신 겁니다. <b>60분이면 그 답이 맞는지와 근거까지 나옵니다.</b>"},
+  {key:"결정 상담",name:"결정 상담",man:20,
+   why:"맴도는 건 선택지가 정리되지 않아서입니다. <b>각각 뭘 포기하는지 따져 하나를 고릅니다.</b>"},
   {key:"2인 상담",name:"2인 상담",man:30,
    why:"혼자 듣고 전하면 “누가 그러던데”가 됩니다. <b>같이 앉아 같은 말을 듣는 게 가장 빠릅니다.</b>"},
-  {key:"상담",name:"결정 상담",man:20,
-   why:"흔들리는 건 근거가 약해서입니다. <b>왜 그렇게 정했는지까지 남겨 드립니다.</b>"},
-  {key:"상담",name:"결정 상담",man:20,
-   why:"보내주시면 미리 읽고 들어갑니다. <b>60분을 판단에만 쓰실 수 있습니다.</b>"},
-  {key:"상담",name:"결정 상담",man:20,
-   why:"고민이 하나로 정리되지 않았다면 60분이 기본값입니다. 카카오톡에서 같이 정해도 됩니다."}
+  {key:"2인 상담",name:"2인 상담",man:30,
+   why:"옮기는 사이에 말이 바뀝니다. <b>90분 동안 두 분이 같은 결론을 같이 봅니다.</b>"}
  ],
  calc: function(v, el){
   var WAGE = 10320;
