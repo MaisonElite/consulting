@@ -2237,16 +2237,16 @@ a,button,.card,.chip{-webkit-tap-highlight-color:transparent}
       <h2 class="d2">어떤 상담이<br>얼마인지</h2>
       <div class="tools" style="margin-top:clamp(26px,3vw,40px)">
         <label class="tg"><input type="checkbox" class="js-rush"><span class="sw"></span>빠른 진행 붙이기</label>
-        <span class="fine">1시간 안에 일정을 잡습니다. <span class="js-tgn">전 상품 +50%</span></span>
+        <span class="fine">일정을 잡지 않고 바로 진행합니다. <span class="js-tgn">전 상품 +50%</span></span>
       </div>
       <div class="rv items-grid">
         <article class="card">
-          <div class="c-top"><span class="c-nm">글 상담</span><span class="c-cfg">3시간 안에 답 · 만나지 않음</span>
+          <div class="c-top"><span class="c-nm">글 상담</span><span class="c-cfg"><span class="js-slow">3시간 안에 답</span><span class="js-fast" hidden>바로 답</span> · 만나지 않음</span>
             <span class="c-pr"><span class="num" data-man="8"></span><span class="was num">8만원</span></span></div>
           <div class="bar"><i class="seg seg-var" style="width:100%"></i></div>
           <div class="c-scale"><span>0</span><span>글로 답</span></div>
           <div class="det">사안 하나를 적어 보내주시면 됩니다.<br><b>읽고 판단해서 글로 정리해 드립니다.</b></div>
-          <dl class="c-spec"><div><dt>시간</dt><dd>3시간 안에 답</dd></div><div><dt>인원</dt><dd>1인</dd></div><div><dt>범위</dt><dd>사안 하나</dd></div><div><dt>결과</dt><dd>글로 된 판단</dd></div></dl>
+          <dl class="c-spec"><div><dt>시간</dt><dd><span class="js-slow">3시간 안에 답</span><span class="js-fast" hidden>바로 답</span></dd></div><div><dt>인원</dt><dd>1인</dd></div><div><dt>범위</dt><dd>사안 하나</dd></div><div><dt>결과</dt><dd>글로 된 판단</dd></div></dl>
           <a class="c-go" href="#p-apply-sec">이 상담으로 신청 <span class="arw">&rsaquo;</span></a>
         </article>
         <article class="card">
@@ -2345,12 +2345,12 @@ a,button,.card,.chip{-webkit-tap-highlight-color:transparent}
       <div class="sec-head"><h2 class="d2">묻기 전에<br>확인할 것</h2></div>
       <div class="qa rv" style="margin-top:clamp(24px,2.8vw,36px)">
         <div class="q"><button type="button" aria-expanded="false">어떤 사안을 다룹니까<i>+</i></button><div class="a"><p>이직, 창업, 돈, 관계, 가족입니다.<br>혼자 정하기 어려운 사안이면 다룹니다.<br><b>돈이 걸린 결정도 그대로 다룹니다.</b></p></div></div>
-        <div class="q"><button type="button" aria-expanded="false">어떻게 진행됩니까<i>+</i></button><div class="a"><p>카카오톡으로 네 가지를 적어 보내주세요.<br>3시간 안에 어떤 상담이 맞는지 정합니다.<br><b>입금이 확인되면 자리가 확정됩니다.</b></p></div></div>
+        <div class="q"><button type="button" aria-expanded="false">어떻게 진행됩니까<i>+</i></button><div class="a"><p>카카오톡으로 네 가지를 적어 보내주세요.<br>3시간 안에 상담 종류와 일정을 잡습니다.<br><b>입금이 확인되면 장소를 알려드립니다.</b></p></div></div>
         <div class="q"><button type="button" aria-expanded="false">상담에서 무엇이 나옵니까<i>+</i></button><div class="a"><p>결론 하나와 그렇게 본 이유입니다.<br>그 자리에서 정리해 드립니다.<br><b>요청하시면 글로 적어 드립니다.</b></p></div></div>
         <div class="q"><button type="button" aria-expanded="false">맡지 않는 사안도 있습니까<i>+</i></button><div class="a"><p>있습니다.<br>소송이나 치료가 얽힌 사안은 받지 않습니다.<br><b>변호사나 의사가 할 일입니다.</b></p></div></div>
-        <div class="q"><button type="button" aria-expanded="false">취소나 일정 변경은 어떻게 됩니까<i>+</i></button><div class="a"><p>일정 잡기 전이면 전액 돌려드립니다.<br>3영업일 전까지 80%, 그 뒤로는 50%입니다.<br><b>변경은 1회 무료, 무단 불참은 환불하지 않습니다.</b></p></div></div>
+        <div class="q"><button type="button" aria-expanded="false">취소나 일정 변경은 어떻게 됩니까<i>+</i></button><div class="a"><p>입금 당일 취소는 전액 돌려드립니다.<br>상담 3영업일 전까지 80%, 그 뒤로는 50%입니다.<br><b>변경은 1회 무료, 무단 불참은 환불하지 않습니다.</b></p></div></div>
         <div class="q"><button type="button" aria-expanded="false">심리 상담과 무엇이 다릅니까<i>+</i></button><div class="a"><p>심리 상담은 상태를 다룹니다.<br>여기는 선택을 다룹니다.<br><b>위로가 필요하시면 그쪽이 맞습니다.</b></p></div></div>
-        <div class="q qx" hidden><button type="button" aria-expanded="false">글 상담은 무엇이 다릅니까<i>+</i></button><div class="a"><p>만나지 않고 글로만 오갑니다.<br>사안 하나에 판단 하나를 3시간 안에 드립니다.<br><b>되묻기는 한 번까지 포함입니다.</b></p></div></div>
+        <div class="q qx" hidden><button type="button" aria-expanded="false">글 상담은 무엇이 다릅니까<i>+</i></button><div class="a"><p>만나지 않고 글로만 오갑니다.<br>사안 하나에 판단 하나를 <span class="js-slow">3시간 안에</span><span class="js-fast" hidden>바로</span> 드립니다.<br><b>되묻기는 한 번까지 포함입니다.</b></p></div></div>
         <div class="q qx" hidden><button type="button" aria-expanded="false">답이 이미 정해진 경우도 봅니까<i>+</i></button><div class="a"><p>대부분 그렇습니다.<br>기운 쪽이 맞는지 짚고 근거를 정리합니다.<br><b>맞으면 맞다고 말씀드리고 끝냅니다.</b></p></div></div>
         <div class="q qx" hidden><button type="button" aria-expanded="false">기록은 어떻게 관리됩니까<i>+</i></button><div class="a"><p>실명이나 회사명은 밝히지 않으셔도 됩니다.<br>주고받은 내용은 1년 뒤에 지웁니다.<br><b>그 전에도 요청하시면 바로 지웁니다.</b></p></div></div>
         <div class="q qx" hidden><button type="button" aria-expanded="false">같은 사안으로 다시 와도 됩니까<i>+</i></button><div class="a"><p>그날 정한 내용 확인은 비용을 받지 않습니다.<br>새로 정할 사안이면 자리를 다시 잡습니다.<br><b>묶음이나 정기 계약은 하지 않습니다.</b></p></div></div>
@@ -2395,16 +2395,16 @@ a,button,.card,.chip{-webkit-tap-highlight-color:transparent}
             <div class="fine">보내신 다음</div>
             <div class="d3" style="margin-top:8px">3시간 안에<br>답을 드립니다</div>
             <p class="p" style="margin-top:18px">형식은 없습니다.<br>말하듯 적어 주셔도 돼요.</p>
-            <div class="ap-row"><span>빠른 진행</span><b>상담료 150% · 1시간 안에 일정</b></div>
+            <div class="ap-row"><span>빠른 진행</span><b>상담료 150% · 바로 진행</b></div>
             <div class="ap-row"><span>대면 장소</span><b>서울 여의도</b></div>
             <div class="ap-row"><span>상담료</span><b>8만원부터</b></div>
             <div class="ap-row"><span>증빙</span><b>현금영수증 발급</b></div>
-            <p class="fine" style="margin-top:16px">여의도역 도보 10분 안. 정확한 장소는 일정을 잡으면서 알려드립니다.</p>
+            <p class="fine" style="margin-top:16px">여의도역 도보 10분 안. 정확한 장소는 입금이 확인되면 알려드립니다.</p>
             <div class="ap-flow">
               <div class="apf"><b>1</b><span>카카오톡으로 위 네 가지를 보냅니다</span></div>
-              <div class="apf"><b>2</b><span>3시간 안에 답을 드리고 상담 종류를 같이 정합니다</span></div>
+              <div class="apf"><b>2</b><span>3시간 안에 상담 종류와 일정을 정합니다</span></div>
               <div class="apf"><b>3</b><span>채팅으로 안내드린 계좌에 정해진 금액을 보냅니다</span></div>
-              <div class="apf"><b>4</b><span>입금이 확인되면 일정과 장소를 알려드립니다</span></div>
+              <div class="apf"><b>4</b><span>입금이 확인되면 장소를 알려드립니다</span></div>
             </div>
 
           </div>
@@ -2536,15 +2536,15 @@ a,button,.card,.chip{-webkit-tap-highlight-color:transparent}
       <h2 class="d2">어떤 상담이<br>얼마인지</h2>
       <div class="tools" style="margin-top:clamp(26px,3vw,40px)">
         <label class="tg"><input type="checkbox" class="js-rush"><span class="sw"></span>빠른 진행 붙이기</label>
-        <span class="fine">1시간 안에 일정을 잡습니다. <span class="js-tgn">전 상품 +50%</span></span>
+        <span class="fine">일정을 잡지 않고 바로 진행합니다. <span class="js-tgn">전 상품 +50%</span></span>
       </div>      <div class="rv items-grid">
         <article class="card">
-          <div class="c-top"><span class="c-nm">글 상담</span><span class="c-cfg">3시간 안에 답 · 만나지 않음</span>
+          <div class="c-top"><span class="c-nm">글 상담</span><span class="c-cfg"><span class="js-slow">3시간 안에 답</span><span class="js-fast" hidden>바로 답</span> · 만나지 않음</span>
             <span class="c-pr"><span class="num" data-man="20"></span><span class="was num">20만원</span></span><span class="c-vat">VAT 별도</span></div>
           <div class="bar"><i class="seg seg-var" style="width:100%"></i></div>
           <div class="c-scale"><span>0</span><span>글로 답</span></div>
           <div class="det">사안 하나를 적어 보내주시면 됩니다.<br><b>읽고 판단해서 글로 정리해 드립니다.</b></div>
-          <dl class="c-spec"><div><dt>시간</dt><dd>3시간 안에 답</dd></div><div><dt>인원</dt><dd>1인</dd></div><div><dt>범위</dt><dd>사안 하나</dd></div><div><dt>결과</dt><dd>글로 된 판단</dd></div></dl>
+          <dl class="c-spec"><div><dt>시간</dt><dd><span class="js-slow">3시간 안에 답</span><span class="js-fast" hidden>바로 답</span></dd></div><div><dt>인원</dt><dd>1인</dd></div><div><dt>범위</dt><dd>사안 하나</dd></div><div><dt>결과</dt><dd>글로 된 판단</dd></div></dl>
           <a class="c-go" href="#b-apply-sec">이 상담으로 문의 <span class="arw">&rsaquo;</span></a>
         </article>
         <article class="card">
@@ -2640,14 +2640,14 @@ a,button,.card,.chip{-webkit-tap-highlight-color:transparent}
       <div class="sec-head"><h2 class="d2">묻기 전에<br>확인할 것</h2></div>
       <div class="qa rv" style="margin-top:clamp(24px,2.8vw,36px)">
         <div class="q"><button type="button" aria-expanded="false">어떤 사안을 다룹니까<i>+</i></button><div class="a"><p>채용 판단, 조직 운영, 미뤄둔 결정입니다.<br>사안 하나를 놓고 결론까지 갑니다.<br><b>법률과 세무, 노무는 다루지 않습니다.</b></p></div></div>
-        <div class="q"><button type="button" aria-expanded="false">어떻게 진행됩니까<i>+</i></button><div class="a"><p>카카오톡으로 사안과 일정을 보내주십시오.<br>3시간 안에 상담 구성과 금액을 회신합니다.<br><b>착수금이 확인되면 일정이 확정됩니다.</b></p></div></div>
+        <div class="q"><button type="button" aria-expanded="false">어떻게 진행됩니까<i>+</i></button><div class="a"><p>카카오톡으로 사안과 일정을 보내주십시오.<br>3시간 안에 상담 구성과 일정을 회신합니다.<br><b>착수금이 확인되면 장소를 안내드립니다.</b></p></div></div>
         <div class="q"><button type="button" aria-expanded="false">결과물은 무엇입니까<i>+</i></button><div class="a"><p>결론과 그렇게 본 이유를 문서로 남깁니다.<br>그 자리에서 정리해 드립니다.<br><b>내부 보고나 공유용으로 그대로 쓰셔도 됩니다.</b></p></div></div>
         <div class="q"><button type="button" aria-expanded="false">맡지 않는 사안도 있습니까<i>+</i></button><div class="a"><p>있습니다.<br>소송이 진행 중인 사안은 받지 않습니다.<br><b>같은 업종의 경쟁사를 동시에 맡지 않습니다.</b></p></div></div>
         <div class="q"><button type="button" aria-expanded="false">법인 카드나 세금계산서로 결제됩니까<i>+</i></button><div class="a"><p>세금계산서 발행됩니다.<br>사업자등록증과 담당자 이메일을 보내주십시오.<br><b>계좌이체와 법인카드 모두 가능합니다.</b></p></div></div>
         <div class="q"><button type="button" aria-expanded="false">비밀유지계약서를 써야 합니다<i>+</i></button><div class="a"><p>보내주시면 검토하고 서명해 드립니다.<br>따로 없으시면 저희 양식으로 착수 전에 끝냅니다.<br><b>회사명을 안 밝히셔도 진행됩니다.</b></p></div></div>
         <div class="q qx" hidden><button type="button" aria-expanded="false">컨설팅 회사와 무엇이 다릅니까<i>+</i></button><div class="a"><p>보고서를 만들지 않습니다.<br>그 자리에서 결론을 내고 끝냅니다.<br><b>상주하거나 실행을 대행하지 않습니다.</b></p></div></div>
         <div class="q qx" hidden><button type="button" aria-expanded="false">연간 계약을 해야 합니까<i>+</i></button><div class="a"><p>사안 하나씩 끊어서 진행합니다.<br>고문 계약과 정기 자문은 하지 않습니다.<br><b>이해관계가 생기면 판단이 흐려집니다.</b></p></div></div>
-        <div class="q qx" hidden><button type="button" aria-expanded="false">취소나 일정 변경은 어떻게 됩니까<i>+</i></button><div class="a"><p>착수금은 일정 확정 전이면 전액 돌려드립니다.<br>3영업일 전까지 80%, 그 뒤로는 50%입니다.<br><b>변경은 1회 무료, 무단 불참은 환불하지 않습니다.</b></p></div></div>
+        <div class="q qx" hidden><button type="button" aria-expanded="false">취소나 일정 변경은 어떻게 됩니까<i>+</i></button><div class="a"><p>입금 당일 취소는 전액 돌려드립니다.<br>상담 3영업일 전까지 80%, 그 뒤로는 50%입니다.<br><b>변경은 1회 무료, 무단 불참은 환불하지 않습니다.</b></p></div></div>
         <div class="q qx" hidden><button type="button" aria-expanded="false">임원이 함께 들어와도 됩니까<i>+</i></button><div class="a"><p>경영 상담은 대표 포함 4인까지 같은 금액입니다.<br>인원이 더 많으면 조직 상담으로 진행합니다.<br><b>반대하는 임원이 있으면 함께 앉는 편이 낫습니다.</b></p></div></div>
       
       
@@ -2691,15 +2691,15 @@ a,button,.card,.chip{-webkit-tap-highlight-color:transparent}
             <div class="fine">보내신 다음</div>
             <div class="d3" style="margin-top:10px">3시간 안에<br>답을 드립니다</div>
             <p class="p" style="margin-top:18px">형식은 없습니다.<br>말하듯 적어 주셔도 됩니다.</p>
-            <div class="ap-row"><span>빠른 진행</span><b>상담료 150% · 1시간 안에 일정</b></div>
+            <div class="ap-row"><span>빠른 진행</span><b>상담료 150% · 바로 진행</b></div>
             <div class="ap-row"><span>글 · 진단 상담</span><b>전액 선결제</b></div>
             <div class="ap-row"><span>채용·조직·경영</span><b>착수금 50% · 잔금 50%</b></div>
             <p class="fine" style="margin-top:16px">대면은 서울 여의도, 출장도 가능합니다.<br>볼 자료가 있으면 문의하실 때 함께 보내주십시오.</p>
             <div class="ap-flow">
               <div class="apf"><b>1</b><span>카카오톡으로 위 네 가지를 보냅니다</span></div>
-              <div class="apf"><b>2</b><span>3시간 안에 답을 드리고 상담 종류를 같이 정합니다</span></div>
+              <div class="apf"><b>2</b><span>3시간 안에 상담 종류와 일정을 정합니다</span></div>
               <div class="apf"><b>3</b><span>채팅으로 안내드린 계좌에 정해진 금액을 보냅니다</span></div>
-              <div class="apf"><b>4</b><span>입금이 확인되면 일정과 장소를 정합니다</span></div>
+              <div class="apf"><b>4</b><span>입금이 확인되면 장소를 안내드립니다</span></div>
             </div>
           </div>
         </aside>
@@ -3201,8 +3201,11 @@ window.ME_CFG.business = {
         el.textContent = (el.getAttribute('data-pre') || '') + won(rush ? Math.round(base * 1.5) : base);
       });
       $$('.was', root).forEach(function (el) { el.hidden = !rush; });
-      /* 기준가 전용 부가 줄(연 4회 600만원, 인당 15만원)은 +50% 상태에서 거짓이 되므로 숨긴다 */
+      /* 기준가 전용 부가 줄(인당 15만원)은 +50% 상태에서 거짓이 되므로 숨긴다 */
       $$('.js-baseprice', root).forEach(function (el) { el.hidden = rush; });
+      /* 빠른 진행은 일정을 잡지 않고 바로 진행한다 — 시간 문구도 같이 바뀌어야 한다 */
+      $$('.js-slow', root).forEach(function (el) { el.hidden = rush; });
+      $$('.js-fast', root).forEach(function (el) { el.hidden = !rush; });
     }
     var tg = $('.js-rush', root);
     /* 켜짐 표시는 가격이 직접 한다. 숫자가 오르고 원래 가격에 취소선이 생긴다.
