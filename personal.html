@@ -2346,7 +2346,7 @@ a,button,.card,.chip{-webkit-tap-highlight-color:transparent}
             <div class="ap-row"><span>대면 장소</span><b>서울 여의도</b></div>
             <div class="ap-row"><span>상담료</span><b>8만원부터</b></div>
             <div class="ap-row"><span>증빙</span><b>현금영수증 발급</b></div>
-            <p class="fine" style="margin-top:16px">여의도역 도보 10분 안. 정확한 장소는 입금이 확인되면 알려드립니다.</p>
+            <p class="fine" style="margin-top:16px">모든 상담은 여의도 대면 또는 화상으로 합니다.<br>여의도역 도보 10분 안, 정확한 장소는 입금이 확인되면 알려드립니다.</p>
             <div class="ap-flow">
               <div class="apf"><b>1</b><span>카카오톡으로 위 네 가지를 보냅니다</span></div>
               <div class="apf"><b>2</b><span>3시간 안에 상담 종류와 일정을 정합니다</span></div>
@@ -3200,6 +3200,18 @@ window.ME_CFG.personal = {
         var name = a.getAttribute('data-goto');
         try { localStorage.setItem('me_track', a.getAttribute('data-track') || ''); } catch (err) { }
         navigate(name);
+      });
+    });
+
+    /* 머리말·푸터의 옛 해시 링크도 정식 주소로 이동시킨다.
+       바인딩이 게이트 안에만 있어서, 트랙 안에서 반대 트랙을 누르면
+       주소가 /personal#business 로 남고 그 링크를 공유하면 엉뚱한 트랙이 열렸다. */
+    $$('a[href="#personal"], a[href="#business"], a[href="#gate"]').forEach(function (a) {
+      if (a.hasAttribute('data-goto')) return;
+      a.addEventListener('click', function (e) {
+        e.preventDefault();
+        var h = a.getAttribute('href').slice(1);
+        navigate(h === 'gate' ? null : h);
       });
     });
 
