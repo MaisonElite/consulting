@@ -2789,7 +2789,9 @@ window.ME_CFG.personal = {
     var tg = $('.js-rush', root);
     /* 켜짐 표시는 가격이 직접 한다. 숫자가 오르고 원래 가격에 취소선이 생긴다.
        안내 문구에 덧말을 붙이던 것은 뜻이 없고 줄 길이만 바꿔서 걷어냈다. */
-    if (tg) tg.addEventListener('change', function () { rush = tg.checked; paint(); });
+    if (tg) tg.addEventListener('change', function () { rush = tg.checked; paint();
+      sendEvent('me_rush', { track: track, on: tg.checked ? 1 : 0 });
+    });
     paint();
 
     function preset(key) {
@@ -2888,9 +2890,11 @@ window.ME_CFG.personal = {
 
       chips.forEach(function (c, i) { c.addEventListener('click', function () {
         sel.chip = i; draw(); scrollToOut();
+        sendEvent('me_pick_chip', { track: track, chip: txt(c.childNodes[0]), item: cfg.recs[i].name });
       }); });
       whens.forEach(function (w, i) { w.addEventListener('click', function () {
         sel.when = (sel.when === i ? -1 : i); draw(); scrollToOut();
+        if (sel.when >= 0) sendEvent('me_pick_when', { track: track, when: txt(w) });
       }); });
       draw();
     }
@@ -2905,6 +2909,94 @@ window.ME_CFG.personal = {
       } catch (e) {}
     };
     window.ME_TRACK = sendEvent;
+
+    var txt = function (n) { return ((n && n.textContent) || '').replace(/[+\u2212]/g, '').replace(/\s+/g, ' ').trim().slice(0, 80); };
+
+    /* 방문 흐름 상세 측정 (2026-08-12)
+       전부 익명 집계다. 개인을 식별하는 값과 손님이 폼에 적은 내용은 절대 보내지 않는다. */
+    (function initTrack() {
+      var visible = document.visibilityState !== 'hidden';
+      var activeMs = 0, lastTick = (window.performance && performance.now) ? performance.now() : 0;
+      var now = function () { return (window.performance && performance.now) ? performance.now() : Date.now(); };
+      var tick = function () { var t = now(); if (visible) activeMs += t - lastTick; lastTick = t; };
+      var secOf = function (el) {
+        return el.id || (String(el.className).match(/s-[a-z-]+|hero/) || ['sec'])[0];
+      };
+
+      /* ② 구역마다 실제로 머문 시간 — 봤다와 읽었다는 다르다 */
+      var lastSec = '';
+      if (window.IntersectionObserver) {
+        var enter = {};
+        var ioD = new IntersectionObserver(function (es) {
+          es.forEach(function (e) {
+            var id = secOf(e.target);
+            if (e.isIntersecting) { enter[id] = now(); lastSec = id; return; }
+            if (!enter[id]) return;
+            var sec = Math.round((now() - enter[id]) / 1000); delete enter[id];
+            if (sec >= 2) sendEvent('me_dwell', { track: track, section: id, seconds: sec });
+          });
+        }, { rootMargin: '-45% 0px -45% 0px', threshold: 0 });
+        $$('.sec', root).forEach(function (x) { ioD.observe(x); });
+      }
+
+      /* ③ 어디까지 내려갔는지 */
+      var hit = {}, raf = 0;
+      var depth = function () {
+        var h = document.documentElement.scrollHeight - window.innerHeight;
+        if (h <= 0) return;
+        var p = Math.min(100, Math.round((window.pageYOffset / h) * 100));
+        [25, 50, 75, 100].forEach(function (m) {
+          if (p >= m && !hit[m]) { hit[m] = 1; sendEvent('me_scroll', { track: track, depth: m }); }
+        });
+      };
+      window.addEventListener('scroll', function () {
+        if (raf) return;
+        raf = requestAnimationFrame(function () { raf = 0; depth(); });
+      }, { passive: true });
+      depth();
+
+      /* 어떤 질문을 실제로 열어 봤는지 — 문답에 뭘 더 써야 하는지가 여기서 나온다 */
+      $$('.qa .q button', root).forEach(function (b) {
+        b.addEventListener('click', function () {
+          if (b.getAttribute('aria-expanded') === 'true') return;
+          sendEvent('me_faq_open', { track: track, question: txt(b) });
+        }, { passive: true });
+      });
+
+      /* 어떤 상품의 신청 버튼을 눌렀는지 */
+      $$('.items-grid .card', root).forEach(function (c) {
+        var go = $('.c-go', c), nm = $('.c-nm', c);
+        if (go && nm) go.addEventListener('click', function () {
+          sendEvent('me_item_cta', { track: track, item: txt(nm) });
+        }, { passive: true });
+      });
+
+      /* 밖으로 나가는 링크 — 카카오로 넘어간 순간이 마지막 관측점이다 */
+      $$('a[href^="http"]', root).forEach(function (a) {
+        var h = a.getAttribute('href') || '';
+        if (h.indexOf('maisonelite.co.kr') > -1) return;
+        var to = /open\.kakao/.test(h) ? 'kakao'
+          : /youtube|youtu\.be/.test(h) ? 'youtube'
+            : /instagram/.test(h) ? 'instagram'
+              : /tiktok/.test(h) ? 'tiktok' : 'etc';
+        a.addEventListener('click', function () {
+          tick();
+          sendEvent('me_outbound', { track: track, to: to, seconds: Math.round(activeMs / 1000) });
+        }, { passive: true });
+      });
+
+      /* 나갈 때 — 마지막으로 본 구역과 실제로 머문 시간 */
+      var sent = false;
+      var bye = function () {
+        if (sent) return; sent = true; tick();
+        sendEvent('me_leave', { track: track, last_section: lastSec, seconds: Math.round(activeMs / 1000) });
+      };
+      window.addEventListener('pagehide', bye);
+      document.addEventListener('visibilitychange', function () {
+        tick(); visible = document.visibilityState === 'visible';
+        if (!visible) bye();
+      });
+    })();
 
     /* 좁은 화면 요약 카드: 핵심 4행만 보이고 나머지는 펼쳐서 */
     var hcMore = $('.hc-more', root);
@@ -2964,9 +3056,9 @@ window.ME_CFG.personal = {
       var io2 = new IntersectionObserver(function (es) {
         es.forEach(function (e) {
           if (!e.isIntersecting) return;
-          var id = e.target.id || e.target.className;
+          var id = e.target.id || (String(e.target.className).match(/s-[a-z-]+|hero/) || ['sec'])[0];
           if (seen[id]) return; seen[id] = 1;
-          sendEvent('me_section', { section: id });
+          sendEvent('me_section', { track: track, section: id });
         });
       }, { threshold: 0.4 });
       $$('.sec', root).forEach(function (s) { io2.observe(s); });
