@@ -472,7 +472,8 @@ body[data-at="home"]{overflow:hidden;background:#0B0B0C}
   .tbl td:first-child{font-size:0.7500rem;color:var(--dim);font-weight:600;margin-bottom:5px;white-space:normal;width:auto}
   .dock-in{height:60px}
   .dock .dk{display:none}
-  .dock .dv{font-size:0.8125rem;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+  /* 말줄임은 글자 확대에서 정보를 잘라먹는다 — 두 줄을 허용해 전문을 지킨다 */
+  .dock .dv{font-size:0.8125rem;line-height:1.35}
   .dock-in>div{min-width:0}
   .ft{padding-bottom:96px}
   .ruler span{font-size:0.6250rem}

@@ -473,7 +473,8 @@ body[data-at="home"]{overflow:hidden;background:#0B0B0C}
   .tbl td:first-child{font-size:0.7500rem;color:var(--dim);font-weight:600;margin-bottom:5px;white-space:normal;width:auto}
   .dock-in{height:60px}
   .dock .dk{display:none}
-  .dock .dv{font-size:0.8125rem;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+  /* 말줄임은 글자 확대에서 정보를 잘라먹는다 — 두 줄을 허용해 전문을 지킨다 */
+  .dock .dv{font-size:0.8125rem;line-height:1.35}
   .dock-in>div{min-width:0}
   .ft{padding-bottom:96px}
   .ruler span{font-size:0.6250rem}
@@ -2485,7 +2486,7 @@ a,button,.card,.chip{-webkit-tap-highlight-color:transparent}
       <div class="hero-cta">
         <a class="btn" href="#b-apply-sec">상담 문의 <span class="arw">&rsaquo;</span></a>
       </div>
-      <p class="fine hero-fact num">진단 상담 90분 50만원<span class="hf-x"> · 3시간 안에 답</span> · 문의 시 결제 없음</p>
+      <p class="fine hero-fact num">진단 상담 90분 50만원<span class="hf-x"> · 3시간 안에 답</span> · 문의는 무료</p>
     </div>
   </div>
 </section>
@@ -2750,7 +2751,7 @@ a,button,.card,.chip{-webkit-tap-highlight-color:transparent}
   <div class="dock-in">
     <div>
       <div class="dk">사업자 상담</div>
-      <div class="dv num">90분 50만원 · 문의 시 결제 없음</div>
+      <div class="dv num">90분 50만원 · 문의는 무료</div>
     </div>
     <a class="btn" href="#b-apply-sec">상담 잡기 <span class="arw">&rsaquo;</span></a>
   </div>
