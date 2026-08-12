@@ -19,3 +19,6 @@ User-agent: Bingbot
 Allow: /
 
 Sitemap: https://maisonelite.co.kr/sitemap.xml
+
+# AI 크롤러용 사이트 요약
+# https://maisonelite.co.kr/llms.txt
